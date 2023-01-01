@@ -2,7 +2,7 @@ import logo from '../../images/logo.svg'
 import './Header.css'
 import Navigation from '../Navigtion/Navigation'
 
-function Header({ loggedIn }) {
+function Header({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
 
     return (
         <header className="header">
@@ -12,6 +12,8 @@ function Header({ loggedIn }) {
                 </a>
                 <Navigation 
                 loggedIn={loggedIn}
+                handleOnClickBurger={handleOnClickBurger}
+                isBurgerOpened={isBurgerOpened}
                 />
             </div>
         </header>

@@ -1,5 +1,6 @@
 import logo from '../../images/logo.svg'
 import { Link } from 'react-router-dom'
+import './Header.css'
 
 function Header() {
 
@@ -11,10 +12,13 @@ function Header() {
                 </a>
                 <nav className="header__nav">
                     <Link 
-                    className="header__registration-link" 
+                    className="header__link header__link_type_registration" 
                     to="signup"
-                    >
-                        Регистрация</Link>
+                    >Регистрация</Link>
+                    <Link 
+                    className="header__link header__link_type_authorization" 
+                    to="signin"
+                    >Войти</Link>
                 </nav>
             </div>
         </header>

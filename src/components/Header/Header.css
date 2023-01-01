@@ -1,0 +1,39 @@
+.header {
+    background-color: #202020;
+    min-height: 74px;
+
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.header__container {
+    display: flex;
+    flex-direction: row;
+    outline: 1px solid red;
+    justify-content: space-between;
+    margin: 0 70px;
+    padding: 18px 0;
+}
+
+.header__nav {
+    outline: 1px solid blue;
+    margin: auto 0;
+}
+
+.header__link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.header__link_type_registration {
+    margin-right: 30px;
+}
+
+.header__link_type_authorization {
+    padding: 8px 20px;
+    background-color: #3DDC84;
+    border-radius: 3px;
+    color: black;
+}

@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { NavLink } from 'react-router-dom'
 import profileIcon from '../../images/header-account-icon.svg'
 import '../Header/Header.css'
 import './Navigation.css'
@@ -6,21 +7,26 @@ import Burger from '../Burger/Burger.js'
 
 function Navigation({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
 
+    const isActive = `navigation__link_active_${!isBurgerOpened ? 'desktop' : 'mobile'}`
+
+    // разобраться с роутерами
+    // разобраться с активным классом
+
     return (
         <>
             {!loggedIn ?
                 <div className="navigation">
                     <nav className="navigation__nav">
-                        <Link
+                        <NavLink
                             className="navigation__link navigation__link_type_registration"
-                            to="signup">
+                            to="/signup">
                             Регистрация
-                        </Link>
-                        <Link
+                        </NavLink>
+                        <NavLink
                             className="navigation__link navigation__link_type_authorization"
-                            to="signin">
+                            to="/signin">
                             Войти
-                        </Link>
+                        </NavLink>
                     </nav>
                 </div>
                 :
@@ -31,29 +37,33 @@ function Navigation({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
                     />
                     <div className={`navigation navigation_burger ${isBurgerOpened ? 'navigation_burger_opened' : ''}`}>
                         <nav className={`navigation__nav navigation__nav_burger ${isBurgerOpened ? 'navigation__nav_burger_opened' : ''}`}>
-                            <Link
+                            <NavLink
                                 className="navigation__link navigation__link_type_main navigation__link_burger"
-                                to="/">
+                                activeClassName={isActive}
+                                to="/"
+                                exact>
                                 Главная
-                            </Link>
-                            <Link
+                            </NavLink>
+                            <NavLink
                                 className="navigation__link navigation__link_type_movies navigation__link_burger"
+                                activeClassName={isActive}
                                 to="movies">
                                 Фильмы
-                            </Link>
-                            <Link
+                            </NavLink>
+                            <NavLink
                                 className="navigation__link navigation__link_burger"
+                                activeClassName={isActive}
                                 to="saved-movies">
                                 Сохраненные фильмы
-                            </Link>
+                            </NavLink>
                         </nav>
                         <nav className="navigation__nav navigation__nav_burger">
-                            <Link
+                            <NavLink
                                 className="navigation__link navigation__link_type_profile navigation__link_burger"
-                                to="profile">
+                                to="/profile">
                                 Аккаунт
                                 <img src={profileIcon} alt="иконка профиля" className="header__profile-icon"></img>
-                            </Link>
+                            </NavLink>
                         </nav>
                     </div>
                 </>

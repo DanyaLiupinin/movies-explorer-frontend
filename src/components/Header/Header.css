@@ -1,16 +1,16 @@
 .header {
     background-color: #202020;
     min-height: 74px;
-    font-family: Inter;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
 }
 
 .header__container {
     display: flex;
     flex-direction: row;
-    outline: 1px solid red;
     justify-content: space-between;
     margin: 0 70px;
     padding: 18px 0;

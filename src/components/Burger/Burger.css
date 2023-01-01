@@ -4,7 +4,6 @@
     background-image: url('../../images/burger-menu.svg');
     width: 44px;
     height: 44px;
-    outline: 1px solid red;
     background-color: inherit;
     background-repeat: no-repeat;
     background-size: contain;
@@ -15,6 +14,7 @@
     right: 0;
     display: none;
     cursor: pointer;
+    z-index: 1;
 }
 
 /* MEDIA */

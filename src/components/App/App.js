@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 function App() {
 
   const [ loggedIn, setLoggedIn ] = useState(true)
-  const [ isBurgerOpened, setIsBurgerOpened ] = useState(false)
+  const [ isBurgerOpened, setIsBurgerOpened ] = useState(true)
 
   function handleOnClickBurger() {
     setIsBurgerOpened(true)

@@ -11,12 +11,13 @@
     outline: 1px solid red;
     position: fixed;
     top: 0;
-    right: 0;
+    right: -550px;
     height: 100vh;
     width: 520px;
     text-align: center;
     align-items: center;
     background-color: #202020;
+    transition: 1s right;
 }
 
 .navigation__nav {

@@ -24,40 +24,42 @@ function Navigation({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
                     </nav>
                 </div>
                 :
-                <div className={`navigation ${isBurgerOpened ? 'navigation_burger_opened' : ''}`}>
+                <>
                     <Burger
                         handleOnClickBurger={handleOnClickBurger}
                         isBurgerOpened={isBurgerOpened}
                     />
-                    <nav className={`navigation__nav ${isBurgerOpened ? 'navigation__nav_burger_opened' : ''}`}>
-                        {isBurgerOpened ?
+                    <div className={`navigation ${isBurgerOpened ? 'navigation_burger_opened' : 'navigation_burger_opened'}`}>
+                        <nav className={`navigation__nav ${isBurgerOpened ? 'navigation__nav_burger_opened' : ''}`}>
+                            {isBurgerOpened ?
+                                <Link
+                                    className={`navigation__link navigation__link_type_main ${isBurgerOpened ? 'navigation__link_burger_opened' : ''}`}
+                                    to="/">
+                                    Главная
+                                </Link>
+                                : ''
+                            }
                             <Link
-                                className={`navigation__link navigation__link_type_main ${isBurgerOpened ? 'navigation__link_burger_opened' : ''}`}
-                                to="/">
-                                Главная
+                                className={`navigation__link navigation__link_type_movies ${isBurgerOpened ? 'navigation__link_burger_opened' : ''}`}
+                                to="movies">
+                                Фильмы
                             </Link>
-                            : ''
-                        }
-                        <Link
-                            className={`navigation__link navigation__link_type_movies ${isBurgerOpened ? 'navigation__link_burger_opened' : ''}`}
-                            to="movies">
-                            Фильмы
-                        </Link>
-                        <Link
-                            className={`navigation__link ${isBurgerOpened ? 'navigation__link_burger_opened' : ''}`}
-                            to="saved-movies">
-                            Сохраненные фильмы
-                        </Link>
-                    </nav>
-                    <nav className={`navigation__nav ${isBurgerOpened ? 'navigation__nav_burger_opened' : ''}`}>
-                        <Link
-                            className={`navigation__link navigation__link_type_profile ${isBurgerOpened ? 'navigation__link_burger_opened' : ''}`}
-                            to="profile">
-                            Аккаунт
-                            <img src={profileIcon} alt="иконка профиля" className="header__profile-icon"></img>
-                        </Link>
-                    </nav>
-                </div>
+                            <Link
+                                className={`navigation__link ${isBurgerOpened ? 'navigation__link_burger_opened' : ''}`}
+                                to="saved-movies">
+                                Сохраненные фильмы
+                            </Link>
+                        </nav>
+                        <nav className={`navigation__nav ${isBurgerOpened ? 'navigation__nav_burger_opened' : ''}`}>
+                            <Link
+                                className={`navigation__link navigation__link_type_profile ${isBurgerOpened ? 'navigation__link_burger_opened' : ''}`}
+                                to="profile">
+                                Аккаунт
+                                <img src={profileIcon} alt="иконка профиля" className="header__profile-icon"></img>
+                            </Link>
+                        </nav>
+                    </div>
+                </>
             }
         </>
     )

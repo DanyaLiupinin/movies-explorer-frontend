@@ -2,7 +2,7 @@ import './Burger.css'
 
 function Burger({ handleOnClickBurger, isBurgerOpened }) {
     return (
-        <button type="button" className="burger-button" onClick={handleOnClickBurger}></button>
+        <button type="button" className={`burger-button ${isBurgerOpened ? 'burger-button_opened' : 'burger-button_closed'}`} onClick={handleOnClickBurger}></button>
     )
 }
 

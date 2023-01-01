@@ -4,22 +4,6 @@
     position: relative;
 }
 
-/* BURGER */
-
-.navigation_burger_opened {
-    flex-direction: column;
-    outline: 1px solid red;
-    position: fixed;
-    top: 0;
-    right: -550px;
-    height: 100vh;
-    width: 520px;
-    text-align: center;
-    align-items: center;
-    background-color: #202020;
-    transition: 1s right;
-}
-
 .navigation__nav {
     outline: 1px solid blue;
     margin: auto 0;
@@ -27,24 +11,11 @@
     flex-direction: row;
 }
 
-/* BURGER */
-
-.navigation__nav_burger_opened {
-    flex-direction: column;
-    outline: 1px solid green;
-    margin: 159px 0 0;
-}
-
 
 .navigation__nav:last-child {
     margin-left: 50px;
 }
 
-/* BURGER */
-
-.navigation__nav_burger_opened:last-child {
-    margin-left: 0;
-}
 
 .navigation__link {
     color: #FFFFFF;
@@ -68,6 +39,10 @@
     margin-right: 20px;
 }
 
+.navigation__link_type_main {
+    display: none;
+}
+
 
 .navigation__link_type_profile {
     display: flex;
@@ -75,26 +50,52 @@
     align-items: center;
 }
 
-html {
-    background-color: teal;
-}
+/* BURGER */
 
-/* burger */
+@media (max-width: 768px) {
+    .navigation_burger {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -550px;
+        height: 100vh;
+        width: 520px;
+        text-align: center;
+        align-items: center;
+        background-color: #202020;
+        transition: 1s right;
+    }
 
-.navigation__link_burger_opened:not(:nth-child(1)) {
-    margin: 28px 0 0 0;
-    outline: 1px solid firebrick;
-}
+    .navigation_burger_opened {
+        right: 0;
+    }
 
-/* burger */
+    .navigation__nav_burger {
+        flex-direction: column;
+        outline: 1px solid green;
+        margin: 159px 0 0;
+    }
 
-.navigation__nav_burger_opened:last-child {
-    margin-top: 621px;
-    outline: 1px solid blue;
+    .navigation__nav_burger:last-child {
+        margin-left: 0;
+    }
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
+    .navigation__nav_burger:last-child {
+        margin-top: 621px;
+        outline: 1px solid blue;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .navigation__link_burger:not(:nth-child(1)) {
+        margin: 28px 0 0 0;
+        outline: 1px solid firebrick;
+    }
+
+    .navigation__link_type_main {
+        display: inline;
+    }
 }

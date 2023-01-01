@@ -1,7 +1,6 @@
 /* BURGER MENU */
 
 .burger-button {
-    background-image: url('../../images/burger-menu.svg');
     width: 44px;
     height: 44px;
     background-color: inherit;
@@ -15,6 +14,14 @@
     display: none;
     cursor: pointer;
     z-index: 1;
+}
+
+.burger-button_closed {
+    background-image: url('../../images/burger-menu.svg');
+}
+
+.burger-button_opened {
+    background-image: url('../../images/header-cross.svg');
 }
 
 /* MEDIA */

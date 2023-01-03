@@ -27,10 +27,17 @@
 @media (max-width: 768px) {
     .header__container {
         margin: 0 30px;
+
         font-family: 'Inter';
         font-style: normal;
         font-weight: 500;
         font-size: 18px;
         line-height: 22px;
+    }
+}
+
+@media (max-width: 320px) {
+    .header__container {
+        margin: 0 14px;
     }
 }

@@ -24,10 +24,17 @@
     background-image: url('../../images/header-cross.svg');
 }
 
-/* MEDIA */
+/* BURGER ACTIVE */
 
 @media (max-width: 768px) {
     .burger-button {
         display: block;
+    }
+}
+
+@media (max-width: 320px) {
+    .burger-button {
+        width: 40px;
+        height: 43px;
     }
 }

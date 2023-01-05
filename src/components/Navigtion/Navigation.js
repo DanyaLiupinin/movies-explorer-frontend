@@ -46,7 +46,7 @@ function Navigation({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
                                 "navigation__link navigation__link_type_main navigation__link_burger" +
                                     (isActive ? typeActiveLink : '')
                                 }
-                                exact="true"
+                                end // вместо exact 
                                 to="/"
                                 >
                                 Главная

@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 // import { Route } from 'react-router-dom';
+import Footer from '../Footer/Footer'
 
 function App() {
 
@@ -14,25 +15,32 @@ function App() {
     setIsBurgerOpened(!isBurgerOpened)
   }
 
-  const renderHeaderRoutes = ({ paths, element: Element }) =>
-    paths.map((path) => <Route key={path} path={path} element={Element} />); // в react router 6 в path нельзя передать массив 
-                                                                            // чтобы не писать Route 4 раза, можно написать функцию
+  /*
+
+  const renderHeaderRoutes = ({ paths, element }) =>
+    paths.map((path) => <Route key={path} path={path} element={element} />); // в react router 6 в path нельзя передать массив 
+  // чтобы не писать Route 4 раза, можно написать функцию
+
+  */
+ 
   return (
+    <>
+      <Header
+        loggedIn={loggedIn}
+        setLoggedIn={setLoggedIn}
+        handleOnClickBurger={handleOnClickBurger}
+        isBurgerOpened={isBurgerOpened} />
 
-    <Routes>
+      <Routes>
 
-        {renderHeaderRoutes({
-          paths: ['/movies', '/saved-movies', '/profile', '/'],
-          element:
-            <Header
-              loggedIn={loggedIn}
-              setLoggedIn={setLoggedIn}
-              handleOnClickBurger={handleOnClickBurger}
-              isBurgerOpened={isBurgerOpened} />
-        })}
 
-    </Routes>
 
+
+
+        <Route path="/" element={<Footer />} />
+
+      </Routes>
+    </>
   )
 }
 

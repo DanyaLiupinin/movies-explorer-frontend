@@ -18,7 +18,16 @@ function Main({ loggedIn, setLoggedIn, handleOnClickBurger, isBurgerOpened }) {
                 handleOnClickBurger={handleOnClickBurger}
                 isBurgerOpened={isBurgerOpened} />
 
-            <main className="main">
+
+            <Footer />
+        </>
+    )
+}
+
+export default Main;
+
+/* 
+<main className="main">
                 
                 <Promo />
 
@@ -31,10 +40,4 @@ function Main({ loggedIn, setLoggedIn, handleOnClickBurger, isBurgerOpened }) {
                 <Portfolio />
 
             </main>
-
-            <Footer />
-        </>
-    )
-}
-
-export default Main;
+*/

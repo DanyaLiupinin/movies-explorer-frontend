@@ -18,6 +18,12 @@ function Main({ loggedIn, setLoggedIn, handleOnClickBurger, isBurgerOpened }) {
                 handleOnClickBurger={handleOnClickBurger}
                 isBurgerOpened={isBurgerOpened} />
 
+            <main className="main">
+
+                <Promo />
+
+            </main>
+
 
             <Footer />
         </>

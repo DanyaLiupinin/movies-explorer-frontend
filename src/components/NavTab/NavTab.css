@@ -13,7 +13,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
-    padding: 10px 13.5px;
+    padding: 10px 17px;
     background-color: #303030;
     border-radius: 10px;
     display: block;
@@ -21,4 +21,8 @@
 
 .navtab__link:not(:last-child) {
     margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+
 }

@@ -9,6 +9,7 @@ import Portfolio from '../Portfolio/Portfolio';
 
 function Main({ loggedIn, setLoggedIn, handleOnClickBurger, isBurgerOpened }) {
 
+
     return (
         <>
             <Header
@@ -17,15 +18,19 @@ function Main({ loggedIn, setLoggedIn, handleOnClickBurger, isBurgerOpened }) {
                 handleOnClickBurger={handleOnClickBurger}
                 isBurgerOpened={isBurgerOpened} />
 
-            <Promo />
+            <main className="main">
+                
+                <Promo />
 
-            <AboutProject />
+                <AboutProject />
 
-            <Techs />
+                <Techs />
 
-            <AboutMe />
+                <AboutMe />
 
-            <Portfolio />
+                <Portfolio />
+
+            </main>
 
             <Footer />
         </>

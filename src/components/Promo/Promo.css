@@ -1,3 +1,23 @@
-.promo {
-    background-color: red;
+
+
+.promo__container {
+    margin: 0 40px;
+    background-color: #272727;
+    outline: 1px solid red;
+    padding-bottom: 30px;
+}
+
+.promo__title {
+    margin: 0 auto;
+    padding: 160px 0;
+    color: white;
+    text-align: center;
+
+    max-width: 730px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
 }

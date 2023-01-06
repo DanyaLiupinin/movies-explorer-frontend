@@ -1,9 +1,7 @@
 import './App.css';
-import Header from '../Header/Header';
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import { Route } from 'react-router-dom';
-import Footer from '../Footer/Footer'
+import Main from '../Main/Main';
 
 function App() {
 
@@ -25,19 +23,16 @@ function App() {
  
   return (
     <>
-      <Header
+      <Routes>
+
+        <Route path="/" element={
+        <Main
         loggedIn={loggedIn}
         setLoggedIn={setLoggedIn}
         handleOnClickBurger={handleOnClickBurger}
-        isBurgerOpened={isBurgerOpened} />
-
-      <Routes>
-
-
-
-
-
-        <Route path="/" element={<Footer />} />
+        isBurgerOpened={isBurgerOpened}
+        />
+        } />
 
       </Routes>
     </>

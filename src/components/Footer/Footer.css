@@ -1,5 +1,4 @@
 .footer {
-    outline: 1px solid red;
     text-align: center;
     background-color: #202020;
 }
@@ -21,7 +20,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-top: 20px;
-    min-height: 56px;
+    min-height: 57px;
     border-top: 1px solid #424242;
 }
 

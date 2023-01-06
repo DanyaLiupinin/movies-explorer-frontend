@@ -11,7 +11,7 @@ function Footer() {
             <div className="footer__container">
                 <p className="footer__description">Учебный проект Яндекс.Практикум х BeatFilm.</p>
                 <div className="footer__information">
-                    <p className="footer__year">© 2020</p>
+                    <p className="footer__year">© 2023</p>
                     <div className="footer__links">
                         <a href="https://practicum.yandex.ru/" target="_blank" rel="noreferrer" className="footer__link">Яндекс.Практикум</a>
                         <a href="https://github.com/DanyaLiupinin" target="_blank" rel="noreferrer" className="footer__link">Github</a>

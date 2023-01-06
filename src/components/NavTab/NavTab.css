@@ -3,6 +3,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .navtab__link {
@@ -23,6 +24,29 @@
     margin-right: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 320px) {
+
+    .navtab {
+        padding: 0 17px;
+    }
+
+    .navtab__link {
+        padding: 5px 15px;
+        border-radius: 6px;
+        font-size: 9px;
+        width: 78px;
+        box-sizing: border-box;
+       
+        text-align: center;
+    }
+
+    .navtab__link:not(:nth-child(3n)) {
+        margin-right: 6px;
+    }
+
+    .navtab__link:nth-child(n+4) {
+        margin-top: 6px;
+    }
+
 
 }

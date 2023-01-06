@@ -5,7 +5,6 @@
 .promo__container {
     margin: 0 40px;
     background-color: #272727;
-    outline: 1px solid red;
     padding-bottom: 30px;
     border-radius: 10px;
 }
@@ -32,5 +31,25 @@
         font-size: 40px;
         line-height: 52px;
     }
+
+    .promo__container {
+        margin: 0 20px;
+    }
+
 }
 
+@media (max-width: 320px) {
+
+    .promo__title {
+        padding: 220px 0 212px;
+        font-size: 29px;
+        line-height: 37px;
+    }
+
+    .promo__container {
+        margin: 0 14px;
+        padding-bottom: 17px;
+    }
+    
+
+}

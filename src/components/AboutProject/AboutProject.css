@@ -1,3 +1,11 @@
-.aboutProjects {
-    color: red;
+.aboutProject {
+    color: white;
+}
+
+.aboutProject__title {
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 22px;
+line-height: 27px;
 }

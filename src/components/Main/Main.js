@@ -22,6 +22,14 @@ function Main({ loggedIn, setLoggedIn, handleOnClickBurger, isBurgerOpened }) {
 
                 <Promo />
 
+                <AboutProject />
+
+                <Techs />
+
+                <AboutMe />
+
+                <Portfolio />
+
             </main>
 
 

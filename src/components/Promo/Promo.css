@@ -3,10 +3,11 @@
 }
 
 .promo__container {
-    margin: 0 40px;
+    margin: 0 auto;
     background-color: #272727;
     padding-bottom: 30px;
     border-radius: 10px;
+    max-width: 1200px;
 }
 
 .promo__title {

@@ -138,3 +138,66 @@
         font-weight: 400;
     }
 }
+
+@media (max-width: 600px) {
+    .aboutProject__sprint_type_backend {
+        width: 28.5%;
+    }
+
+    .aboutProject__sprint_type_frontend {
+        width: 71.5%;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .aboutProject__container {
+        margin: 0 18px;
+        padding: 70px 0;
+    }
+
+    .aboutProject__title {
+        line-height: 22px;
+    }
+
+    .aboutProject__thesis {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .aboutProject__information {
+        margin-top: 60px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aboutProject__information-block {
+        width: 100%;
+    }
+
+    .aboutProject__description {
+        margin-top: 16px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutProject__information-block:not(:first-child) {
+        margin-top: 56px;
+    }
+
+    .aboutProject__sprints {
+        margin-top: 60px;
+    }
+
+    .aboutProject__sprint-title {
+        margin-top: 10px;
+        font-size: 11px;
+        line-height: 13px;
+    }
+
+    .aboutProject__sprint-duration {
+        font-size: 11px;
+        line-height: 13px;
+    }
+
+}

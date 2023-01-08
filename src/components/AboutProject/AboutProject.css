@@ -10,6 +10,12 @@
     padding: 110px 0;
 }
 
+@media (max-width: 1280px) {
+    .aboutProject__container {
+        margin: 0 70px;
+    }
+}
+
 .aboutProject__title {
     font-family: 'Inter';
     font-style: normal;
@@ -31,7 +37,7 @@
 }
 
 .aboutProject__information-block {
-    width: 550px;
+    width: 48%;
 
 }
 
@@ -110,4 +116,25 @@
     text-align: center;
 
     margin: 14px 0 0;
+}
+
+@media (max-width: 768px) {
+    .aboutProject__container {
+        margin: 0 50px;
+        padding: 90px 0;
+    }
+
+    .aboutProject__description {
+        margin-top: 22px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutProject__sprints {
+        margin-top: 93px;
+    }
+
+    .aboutProject__sprint-title {
+        font-weight: 400;
+    }
 }

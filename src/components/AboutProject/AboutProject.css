@@ -1,11 +1,111 @@
 .aboutProject {
     color: white;
+    max-width: 1280px;
+    margin: 110px auto 0;
+}
+
+.aboutProject__container {
+    outline: 1px solid red;
 }
 
 .aboutProject__title {
     font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 22px;
-line-height: 27px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    margin: 0;
+    padding-bottom: 23px;
+    border-bottom: 1px solid #DADADA;
+}
+
+.aboutProject__information {
+    margin-top: 70px;
+    outline: 1px solid blue;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.aboutProject__information-block {
+    width: 550px;
+
+}
+
+.aboutProject__thesis {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    margin: 0;
+}
+
+.aboutProject__description {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 26px 0 0;
+}
+
+.aboutProject__sprints {
+    display: flex;
+    flex-direction: row;
+    margin-top: 110px;
+}
+
+.aboutProject__sprint {
+    display: flex;
+    flex-direction: column;
+    outline: 1px solid red;
+}
+
+.aboutProject__sprint_type_backend {
+    width: 20%;
+}
+
+.aboutProject__sprint_type_frontend {
+    width: 80%;
+}
+
+.aboutProject__sprint-duration {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    height: 36px;
+
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutProject__sprint-duration_type_backend {
+    background-color: #3DDC84;
+    color: black;
+}
+
+.aboutProject__sprint-duration_type_frontend {
+    background-color: #303030;
+    color: #FFFFFF;
+}
+
+.aboutProject__sprint-title {
+    color: #8B8B8B;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+
+    text-align: center;
+
+    margin: 14px 0 0;
 }

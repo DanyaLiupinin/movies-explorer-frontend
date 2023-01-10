@@ -3,14 +3,15 @@
 }
 
 .aboutMe__student {
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.aboutMe__photo {
-    position: absolute;
-    top: 0;
-    right: 0;
+.aboutMe__information {
+    margin-right: 49px;
 }
+
 
 .aboutMe__name {
     font-weight: 400;
@@ -43,4 +44,76 @@
 .aboutMe__link {
     text-decoration: none;
     color: white;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media (max-width: 768px) {
+    .aboutMe__name {
+        margin-top: 66px;
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    .aboutMe__profession {
+        margin-top: 16px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutMe__description {
+        margin-top: 20px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutMe__links {
+        margin-top: 87px;
+    }
+
+}
+
+@media (max-width: 620px) {
+
+    .aboutMe__student {
+        flex-direction: column-reverse;
+    }
+
+    .aboutMe__title {
+        margin-bottom: 60px;
+    }
+
+    .aboutMe__name {
+        margin-top: 40px;
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .aboutMe__profession {
+        margin-top: 20px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutMe__description {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutMe__information {
+        width: 100%;
+        margin: 0;
+    }
+
+    .aboutMe__links {
+        margin-top: 40px;
+    }
+
+}
+
+@media (max-width: 320px) {
+    .aboutMe__container {
+        margin: 0 14px;
+    }
 }

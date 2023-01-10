@@ -1,3 +1,34 @@
 .main {
     background-color: #202020;
 }
+
+
+.main__container {
+    color: white;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+@media (max-width: 1280px) {
+    .main__container {
+        margin: 0 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main__container {
+        max-width: 668px;
+        padding: 90px 0;
+        margin: 0 50px;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .main__container {
+        max-width: 284px;
+        padding: 70px 0;
+        margin: 0 18px;
+    }
+}

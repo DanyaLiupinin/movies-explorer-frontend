@@ -2,17 +2,6 @@
     color: white;
 }
 
-.aboutProject__container {
-    margin: 0 auto;
-    max-width: 1140px;
-    padding: 110px 0;
-}
-
-@media (max-width: 1280px) {
-    .aboutProject__container {
-        margin: 0 70px;
-    }
-}
 
 .aboutProject__information {
     margin-top: 70px;
@@ -104,10 +93,6 @@
 }
 
 @media (max-width: 768px) {
-    .aboutProject__container {
-        margin: 0 50px;
-        padding: 90px 0;
-    }
 
     .aboutProject__description {
         margin-top: 22px;
@@ -135,11 +120,6 @@
 }
 
 @media (max-width: 320px) {
-
-    .aboutProject__container {
-        margin: 0 18px;
-        padding: 70px 0;
-    }
 
     .aboutProject__title {
         line-height: 22px;

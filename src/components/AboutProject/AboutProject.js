@@ -1,10 +1,11 @@
 import './AboutProject.css'
+import '../App/App.css'
 
 function AboutProject() {
     return (
         <section className="aboutProject">
             <div className="aboutProject__container">
-                <h2 className="aboutProject__title">О проекте</h2>
+                <h2 className="aboutProject__title title">О проекте</h2>
                 <div className="aboutProject__information">
                     <div className="aboutProject__information-block">
                         <p className="aboutProject__thesis">

@@ -48,3 +48,11 @@
   border-bottom: 1px solid #DADADA;
   color: white;
 }
+
+@media (max-width: 320px) {
+
+  .title {
+    line-height: 22px;
+  }
+  
+}

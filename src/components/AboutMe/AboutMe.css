@@ -115,5 +115,10 @@
 @media (max-width: 320px) {
     .aboutMe__container {
         margin: 0 14px;
+        max-width: 292px;
     }
-}
+
+    .aboutMe__title {
+        max-width: 292px;
+    }
+} 

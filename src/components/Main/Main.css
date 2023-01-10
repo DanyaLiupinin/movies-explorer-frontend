@@ -8,6 +8,9 @@
     max-width: 1140px;
     margin: 0 auto;
     padding: 100px 0;
+    outline: 1px solid red;
+    font-family: 'Inter';
+    font-style: normal;
 }
 
 @media (max-width: 1280px) {

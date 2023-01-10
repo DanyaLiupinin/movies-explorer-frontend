@@ -2,6 +2,9 @@
     color: white;
 }
 
+.aboutProject__container {
+    padding: 110px 0;
+}
 
 .aboutProject__information {
     margin-top: 70px;

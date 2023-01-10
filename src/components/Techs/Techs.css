@@ -5,6 +5,12 @@
     padding: 100px 0;
 }
 
+@media (max-width: 1280px) {
+    .techs__container {
+        margin: 0 70px;
+    }
+}
+
 .techs__subtitle {
     font-family: 'Inter';
     font-style: normal;

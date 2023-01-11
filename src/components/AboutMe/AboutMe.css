@@ -110,6 +110,17 @@
         margin-top: 40px;
     }
 
+    .aboutMe__photo {
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .aboutMe__photo {
+        width: 100%;
+    }
 }
 
 @media (max-width: 320px) {

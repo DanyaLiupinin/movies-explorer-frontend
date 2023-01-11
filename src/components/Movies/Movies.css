@@ -1,5 +1,4 @@
-.movies {
-    background-color: red;
-    width: 500px;
-    height: 500px;
+.movies__main {
+    font-family: 'Inter';
+    font-style: normal;
 }

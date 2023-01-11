@@ -1,5 +1,6 @@
 import './AboutMe.css'
 import aboutMePhoto from '../../images/aboutme-photo.png'
+import Portfolio from '../Portfolio/Portfolio'
 
 function AboutMe() {
     return (
@@ -19,9 +20,7 @@ function AboutMe() {
                 <div className="aboutMe__links">
                     <a className="aboutMe__link" href="https://github.com/DanyaLiupinin">Github</a>
                 </div>
-                <div>
-                    <p>тут должен быть компонент портфолио</p>
-                </div>
+                <Portfolio />
             </div>
         </section>
     )

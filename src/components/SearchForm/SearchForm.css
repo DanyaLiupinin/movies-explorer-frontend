@@ -9,7 +9,7 @@
     outline: 1px solid blue;
     max-width: 1140px;
     margin: 0 auto;
-    padding-top: 60px;
+    padding: 60px 0 70px;
 }
 
 .searchForm__form {

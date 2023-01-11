@@ -24,11 +24,7 @@
     margin-right: 10px;
 }
 
-@media (max-width: 320px) {
-
-    .navtab {
-        padding: 0 17px;
-    }
+@media (max-width: 400px) {
 
     .navtab__link {
         padding: 5px 15px;
@@ -38,6 +34,13 @@
         box-sizing: border-box;
        
         text-align: center;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .navtab {
+        padding: 0 17px;
     }
 
     .navtab__link:not(:nth-child(3n)) {

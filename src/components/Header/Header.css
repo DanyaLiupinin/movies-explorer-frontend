@@ -13,9 +13,10 @@
     flex-direction: row;
     justify-content: space-between;
     max-width: 1140px;
-    padding: 18px 0 38px;
+    padding: 18px 0 18px;
     position: relative;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 @media (max-width: 1280px) {

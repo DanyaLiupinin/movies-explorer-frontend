@@ -7,7 +7,7 @@ import Movies from '../Movies/Movies';
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(true)
-  const [isBurgerOpened, setIsBurgerOpened] = useState(false)
+  const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
 
 
   function handleOnClickBurger() {
@@ -29,7 +29,12 @@ function App() {
 
         {
           loggedIn ?
-            <Route path="/movies" element={<Movies />} /> :
+            <Route path="/movies" element={<Movies 
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              handleOnClickBurger={handleOnClickBurger}
+              isBurgerOpened={isBurgerOpened}
+            />} /> :
             <Route path="/movies" element={<Navigate to="/signup" />} />
         }
 

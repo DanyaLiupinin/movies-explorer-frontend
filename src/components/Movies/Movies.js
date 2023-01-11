@@ -1,9 +1,14 @@
 import './Movies.css'
+import Header from '../Header/Header'
 
-function Movies () {
+function Movies ({ loggedIn, setLoggedIn, handleOnClickBurger, isBurgerOpened }) {
     
     return (
-        <h3 className='movies'>MOVIES</h3>
+        <Header
+                loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
+                handleOnClickBurger={handleOnClickBurger}
+                isBurgerOpened={isBurgerOpened} />
     )
 }
 

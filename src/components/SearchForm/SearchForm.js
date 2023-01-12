@@ -23,7 +23,8 @@ function SearchForm({ movieRequest, setMovieRequest }) {
                     />
                     <button
                         className="searchForm__button"
-                        type="submit">Найти</button>
+                        type="submit">Найти
+                    </button>
                     <FilterCheckbox />
                 </form>
             </div>

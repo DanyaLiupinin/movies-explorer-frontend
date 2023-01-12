@@ -78,6 +78,7 @@
         align-items: center;
         background-color: #202020;
         transition: 1s right;
+        z-index: 1;
     }
 
     .navigation_burger_opened {

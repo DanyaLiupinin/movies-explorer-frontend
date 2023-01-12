@@ -1,6 +1,6 @@
 .movie {
-    width: 270px;
-    height: 218px;
+    width: 100%;
+    height: auto;
     outline: 1px solid green;
     color: white;
 }
@@ -11,8 +11,10 @@
 }
 
 .movie__image {
+    margin: 0 auto;
+    display: block;
     height: 100%;
-    width: auto;
+    width: 100%;
 }
 
 .movie__description {

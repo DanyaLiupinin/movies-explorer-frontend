@@ -4,6 +4,7 @@ import movieImage from '../../images/movie-image.png'
 function MoviesCard() {
 
     return (
+
         <div className='movie'>
             <div className='movie__image-container'>
                 <img className='movie__image' src={movieImage} alt='кадр из фильма'></img>
@@ -21,6 +22,7 @@ function MoviesCard() {
                 </div>
             </div>
         </div>
+        
     )
 }
 

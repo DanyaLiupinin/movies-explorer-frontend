@@ -7,9 +7,25 @@
 
 .moviesCardList__container {
     outline: 1px solid blue;
-    
     max-width: 1140px;
     margin: 70px auto 0;
-    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 20px;
 }
 
+@media (max-width: 1280px) {
+
+    .moviesCardList__container {
+        margin-left: 70px;
+        margin-right: 70px;
+    }
+}
+
+@media (max-width: 1050px) {
+
+    .moviesCardList__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

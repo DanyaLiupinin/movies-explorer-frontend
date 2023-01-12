@@ -33,16 +33,17 @@
 
 .movie__title {
     font-weight: 500;
-font-size: 13px;
-line-height: 16px;
-margin: 14px 0 0 12px;
+    font-size: 13px;
+    line-height: 16px;
+    margin: 14px 0 0 12px;
 }
 
 .movie__duration {
     font-weight: 400;
-font-size: 11px;
-line-height: 13px;
-margin: 10px 0 0 12px;
+    font-size: 11px;
+    line-height: 13px;
+    margin: 10px 0 0 12px;
+    color: rgba(139, 139, 139, 1);
 }
 
 .movie__button {
@@ -75,7 +76,7 @@ margin: 10px 0 0 12px;
     opacity: 0;
 }
 
-.movie__button:checked + .movie__custom-button::before {
+.movie__button:checked+.movie__custom-button::before {
     opacity: 1;
 }
 

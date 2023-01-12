@@ -3,6 +3,9 @@
     height: auto;
     outline: 1px solid green;
     color: white;
+    padding-bottom: 14px;
+    background: rgba(34, 34, 34, 1);
+    border-radius: 10px;
 }
 
 .movie__image-container {
@@ -85,4 +88,19 @@ margin: 10px 0 0 12px;
     width: fit-content;
     height: fit-content;
     margin: 14px 12px 0 0;
+}
+
+@media (max-width: 450px) {
+
+    .movie {
+        width: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .movie {
+        width: auto;
+    }
 }

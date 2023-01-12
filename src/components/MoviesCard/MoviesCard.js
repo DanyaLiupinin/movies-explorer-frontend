@@ -1,5 +1,5 @@
 import './MoviesCard.css'
-import movieImage from '../../images/movie-image.png'
+import movieImage from '../../images/movie-image2.png'
 
 function MoviesCard() {
 
@@ -22,7 +22,7 @@ function MoviesCard() {
                 </div>
             </div>
         </div>
-        
+
     )
 }
 

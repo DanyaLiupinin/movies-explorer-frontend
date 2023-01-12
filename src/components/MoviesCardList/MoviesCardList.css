@@ -1,0 +1,15 @@
+.moviesCardList {
+    padding: 10px 0 30px;
+    outline: 1px solid red;
+    background: rgba(32, 32, 32, 1);
+
+}
+
+.moviesCardList__container {
+    outline: 1px solid blue;
+    
+    max-width: 1140px;
+    margin: 70px auto 0;
+    
+}
+

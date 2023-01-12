@@ -27,6 +27,9 @@ const [allMovies, setAllMovies] = React.useState(movies)
             }
 
             </div>
+            <div className='movieCardList__button-container'>
+                <button className='movieCardList__button' type='button'>Ещё</button>
+            </div>
         </section>
     )
 }

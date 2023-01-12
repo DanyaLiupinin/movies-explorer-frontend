@@ -16,6 +16,23 @@
     padding-bottom: 30px;
 }
 
+.movieCardList__button-container {
+    min-height: 166px;
+}
+
+.movieCardList__button {
+    margin: 50px auto auto;
+    display: block;
+    width: 320px;
+    height: 36px;
+    background-color: unset;
+    border: 1px solid #424242;
+    color: white;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+}
+
 @media (max-width: 1280px) {
 
     .moviesCardList__container {

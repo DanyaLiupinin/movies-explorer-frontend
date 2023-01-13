@@ -1,12 +1,10 @@
 .searchForm {
     width: 100%;
-    outline: 1px solid red;
     background-color: #202020;
 }
 
 
 .searchForm__form-container {
-    outline: 1px solid blue;
     max-width: 1140px;
     margin: 0 auto;
     padding: 60px 0 70px;

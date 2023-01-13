@@ -1,12 +1,10 @@
 .moviesCardList {
     padding: 10px 0 0;
-    outline: 1px solid red;
     background: rgba(32, 32, 32, 1);
 
 }
 
 .moviesCardList__container {
-    outline: 1px solid blue;
     max-width: 1140px;
     margin: 70px auto 0;
     display: grid;
@@ -18,7 +16,6 @@
 
 .movieCardList__button-container {
     min-height: 166px;
-    outline: 1px solid red;
     padding: 50px 0 80px;
     box-sizing: border-box;
 }

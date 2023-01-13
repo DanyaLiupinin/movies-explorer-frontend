@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
+import Register from '../Register/Register';
 
 function App() {
 
@@ -37,6 +38,11 @@ function App() {
             />} /> :
             <Route path="/movies" element={<Navigate to="/signup" />} />
         }
+
+      <Route path='/signup' element={
+        <Register />
+      }
+      />
 
 
       </Routes>

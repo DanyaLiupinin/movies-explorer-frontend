@@ -18,10 +18,14 @@
 
 .movieCardList__button-container {
     min-height: 166px;
+    outline: 1px solid red;
+    padding: 50px 0 80px;
+    box-sizing: border-box;
 }
 
 .movieCardList__button {
-    margin: 50px auto auto;
+    margin: 0 auto;
+    padding: 0;
     display: block;
     width: 320px;
     height: 36px;
@@ -63,6 +67,8 @@
         grid-column-gap: 30px;
         grid-row-gap: 36px;
     }
+
+
 }
 
 @media (max-width: 450px) {
@@ -83,5 +89,9 @@
     .moviesCardList__container {
         margin-left: 10px;
         margin-right: 10px;
+    }
+
+    .movieCardList__button {
+        width: 240px;
     }
 }

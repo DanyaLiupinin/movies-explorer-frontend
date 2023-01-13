@@ -54,6 +54,10 @@
     line-height: 18px;
 }
 
+.searchForm__button:focus {
+    outline: 1px solid white;
+}
+
 @media (max-width: 1280px) {
 
     .searchForm__form-container {

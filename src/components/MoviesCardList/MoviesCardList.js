@@ -12,7 +12,8 @@ function MoviesCardList() {
     const [visibleMovies, setVisibleMovies] = React.useState(allMovies.slice(0, movieCounter))
 
     function showMoreHandler() {
-        setMovieCounter (movieCounter + 4)
+        setMovieCounter (movieCounter + 4) // разобраться почему карточки рендерятся только после второго клика
+                                            // перенести рендер начального массива карточек в useeffect
 
         setVisibleMovies(allMovies.slice(0, movieCounter))  
 
@@ -29,7 +30,8 @@ function MoviesCardList() {
                             key={i}
                             title={movie.title}
                             image={movie.image}
-                            duration={movie.duration} />
+                            duration={movie.duration} 
+                            /> // посмотреть в каком виде приходят фильмы с базы данных яндекса
                         )
                     })
                 }

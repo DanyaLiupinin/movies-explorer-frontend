@@ -1,18 +1,18 @@
 import './MoviesCard.css'
-import movieImage from '../../images/movie-image2.png'
 
-function MoviesCard() {
+
+function MoviesCard(props) {
 
     return (
 
         <div className='movie'>
             <div className='movie__image-container'>
-                <img className='movie__image' src={movieImage} alt='кадр из фильма'></img>
+                <img className='movie__image' src={props.image} alt={`кадр из фильма ${props.title}`}></img>
             </div>
             <div className='movie__description'>
                 <div className='movie__information'>
-                    <p className='movie__title'>33 слова о дизайне</p>
-                    <p className='movie__duration'>1ч42м</p>
+                    <p className='movie__title'>{props.title}</p>
+                    <p className='movie__duration'>{props.duration}</p>
                 </div>
                 <div className='movie__button-container'>
                     <label className='movie__button-label'>

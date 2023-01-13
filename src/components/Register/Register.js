@@ -14,14 +14,17 @@ function Register() {
 
                     <label className='register__input-label auth__input-label'> Имя
                         <input className='register__input auth__input' type='text' required placeholder='Имя' ></input>
+                        <span className='register__error auth__error'>Что то пошло не так</span>
                     </label>
 
                     <label className='register__input-label auth__input-label'> E-mail
                         <input className='register__input auth__input' type='email' placeholder='E-mail' required></input>
+                        <span className='register__error auth__error'>Что то пошло не так</span>
                     </label>
 
                     <label className='register__input-label auth__input-label'> Пароль
-                    <input className='register__input auth__input' type='password' placeholder='Пароль' required></input>
+                        <input className='register__input auth__input' type='password' placeholder='Пароль' required></input>
+                        <span className='register__error auth__error'>Что то пошло не так</span>
                     </label>
 
                     <button type='submit' className='register__button auth__button' >Зарегистрироваться</button>

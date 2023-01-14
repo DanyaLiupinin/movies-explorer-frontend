@@ -1,4 +1,6 @@
+import '../Auth/Auth.css'
 import './Register.css'
+
 import logo from '../../images/logo.svg'
 
 function Register() {

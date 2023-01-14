@@ -44,7 +44,12 @@ function App() {
 
         {
           loggedIn ?
-            <Route path="/profile" element={<Profile />} /> :
+            <Route path="/profile" element={<Profile
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              handleOnClickBurger={handleOnClickBurger}
+              isBurgerOpened={isBurgerOpened}
+            />} /> :
             <Route path="/profile" element={<Navigate to="/signup" />} />
         }
 

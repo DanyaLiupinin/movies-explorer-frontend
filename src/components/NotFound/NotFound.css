@@ -3,7 +3,7 @@
     font-style: normal;
     background-color: rgba(32, 32, 32, 1);
     color: white;
-    padding-top: 246px;
+    padding: 246px 0 60px;
     height: 100vh;
     box-sizing: border-box;
 }
@@ -22,4 +22,27 @@
     line-height: 19px;
     margin: 5px 0 0;
     text-align: center;
+}
+
+.notFound__navigate {
+    color: rgba(66, 133, 244, 1);
+    background-color: unset;
+    border: 0;
+    padding: 0;
+    margin: 0 auto;
+    padding-top: 184px;
+    display: block;
+    cursor: pointer;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media (max-width: 768px) {
+
+    .notFound {
+        padding: 408px 0 222px;
+        height: auto;
+    }
 }

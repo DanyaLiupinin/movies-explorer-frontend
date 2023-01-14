@@ -6,6 +6,7 @@ import Movies from '../Movies/Movies';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
+import Profile from '../Profile/Profile';
 
 function App() {
 
@@ -39,6 +40,12 @@ function App() {
               isBurgerOpened={isBurgerOpened}
             />} /> :
             <Route path="/movies" element={<Navigate to="/signup" />} />
+        }
+
+        {
+          loggedIn ?
+            <Route path="/profile" element={<Profile />} /> :
+            <Route path="/profile" element={<Navigate to="/signup" />} />
         }
 
         <Route path='/signup' element={

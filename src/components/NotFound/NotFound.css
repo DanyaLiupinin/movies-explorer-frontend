@@ -4,7 +4,6 @@
     background-color: rgba(32, 32, 32, 1);
     color: white;
     padding: 246px 0 60px;
-    height: 100vh;
     box-sizing: border-box;
 }
 
@@ -43,6 +42,30 @@
 
     .notFound {
         padding: 408px 0 222px;
-        height: auto;
     }
+}
+
+@media (max-width: 320px) {
+
+    .notFound {
+        padding: 329px 0 30px;
+    }
+
+    .notFound__error {
+        font-size: 80px;
+        line-height: 97px;
+    }
+
+    .notFound__error-text {
+        font-size: 12px;
+        line-height: 15px;
+        margin-top: 10px;
+    }
+
+    .notFound__navigate {
+        margin-top: 284px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
 }

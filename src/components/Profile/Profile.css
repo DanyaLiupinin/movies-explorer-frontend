@@ -91,3 +91,44 @@
 .profile__button_type_signup {
     color: #EE3465;
 }
+
+@media (max-width: 768px) {
+
+    .profile__container {
+        padding-top: 236px;
+        padding-bottom: 269px;
+    }
+
+    .profile__inputs {
+        margin-top: 96px;
+    }
+
+    .profile__buttons {
+        margin-top: 210px;
+    }
+
+}
+
+@media (max-width: 525px) {
+    
+    .profile__container {
+        margin: 0 55px;
+    }
+}
+
+@media (max-width: 320px) {
+    
+    .profile__container {
+        margin: 0 30px;
+        padding: 70px 0 40px;
+    }
+
+    .profile__inputs {
+        margin-top: 80px;
+    }
+
+    .profile__buttons {
+        margin-top: 379px;
+    }
+
+}

@@ -1,5 +1,6 @@
 import '../Auth/Auth.css'
 import './Register.css'
+import { Link } from 'react-router-dom'
 
 import logo from '../../images/logo.svg'
 
@@ -30,7 +31,7 @@ function Register() {
                     </label>
 
                     <button type='submit' className='register__button auth__button' >Зарегистрироваться</button>
-                    <p className='register__capion auth__caption'>Уже зарегистрированы? Войти</p>
+                    <p className='register__capion auth__caption'>Уже зарегистрированы?<Link to='/signin' className='register__redirection auth__redirection'>Войти</Link></p>
 
                 </form>
             </div>

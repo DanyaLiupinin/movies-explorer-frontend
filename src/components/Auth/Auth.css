@@ -106,6 +106,14 @@
     line-height: 17px;
 }
 
+.auth__redirection {
+    color: rgba(66, 133, 244, 1);
+    margin-left: 6px;
+    text-decoration: none;
+}
+
+
+
 @media (max-width: 768px) {
 
     .auth__container {

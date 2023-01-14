@@ -5,6 +5,7 @@ import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import NotFound from '../NotFound/NotFound';
 
 function App() {
 
@@ -46,6 +47,10 @@ function App() {
 
         <Route path='/signin' element={
           <Login />
+        } />
+
+        <Route path='*' element={
+          <NotFound />
         } />
 
 

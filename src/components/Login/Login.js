@@ -25,7 +25,7 @@ function Login() {
                     </label>
 
                     <button type='submit' className='login__button auth__button' >Зарегистрироваться</button>
-                    <p className='login__capion auth__caption'>Ещё не зарегистрированы?<Link to='/signup' className='register__redirection auth__redirection'>Войти</Link></p>
+                    <p className='login__capion auth__caption'>Ещё не зарегистрированы?<Link to='/signup' className='register__redirection auth__redirection'>Зарегистрироваться</Link></p>
 
                 </form>
             </div>

@@ -1,0 +1,25 @@
+.notFound {
+    font-family: 'Inter';
+    font-style: normal;
+    background-color: rgba(32, 32, 32, 1);
+    color: white;
+    padding-top: 246px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.notFound__error {
+    font-weight: 400;
+    font-size: 140px;
+    line-height: 169px;
+    text-align: center;
+    margin: 0;
+}
+
+.notFound__error-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 5px 0 0;
+    text-align: center;
+}

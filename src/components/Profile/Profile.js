@@ -21,7 +21,7 @@ function Profile(props) {
                         </div>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>E-mail</p>
-                            <input className='profile__input' type='text' placeholder='E-mail' maxLength='60'></input>
+                            <input className='profile__input' type='text' placeholder='E-mail' maxLength='35'></input>
                         </div>
                     </div>
                     <div className='profile__buttons'>

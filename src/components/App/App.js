@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import Register from '../Register/Register';
+import Login from '../Login/Login';
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
 
         {
           loggedIn ?
-            <Route path="/movies" element={<Movies 
+            <Route path="/movies" element={<Movies
               loggedIn={loggedIn}
               setLoggedIn={setLoggedIn}
               handleOnClickBurger={handleOnClickBurger}
@@ -39,14 +40,17 @@ function App() {
             <Route path="/movies" element={<Navigate to="/signup" />} />
         }
 
-      <Route path='/signup' element={
-        <Register />
-      }
-      />
+        <Route path='/signup' element={
+          <Register />
+        } />
+
+        <Route path='/signin' element={
+          <Login />
+        } />
 
 
       </Routes>
-    </> 
+    </>
   )
 }
 

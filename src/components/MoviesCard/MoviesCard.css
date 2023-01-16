@@ -73,6 +73,7 @@
     border: 2px solid white;
     transition: .2s;
     opacity: 0;
+    cursor: pointer;
 }
 
 .movie__button:checked+.movie__custom-button::before {

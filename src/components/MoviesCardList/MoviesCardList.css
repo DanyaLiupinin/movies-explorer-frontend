@@ -33,6 +33,11 @@
     font-size: 12px;
     line-height: 15px;
     cursor: pointer;
+    transition: .3s;
+}
+
+.movieCardList__button:hover {
+    opacity: .8;
 }
 
 .moviesCardList__button-container_type_saved {

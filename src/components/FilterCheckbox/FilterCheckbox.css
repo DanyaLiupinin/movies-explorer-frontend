@@ -36,7 +36,7 @@
 
 }
 
-.checkbox__name:before {
+.checkbox__name::before {
     display: block;
     content: "";
     position: absolute;
@@ -47,6 +47,7 @@
     border-radius: 20px;
     background-color: white;
     transition: background-color .3s;
+    cursor: pointer;
 }
 
 .checkbox__name::after {
@@ -60,6 +61,7 @@
     left: -46px;
     top: 2.2px;
     transition: background-color .3s, left .3s;
+    cursor: pointer;
 }
 
 .checkbox__checkbox:checked+.checkbox__name::before {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Movies.css'
 import Header from '../Header/Header'
 import SearchForm from '../SearchForm/SearchForm'
@@ -11,7 +11,7 @@ function Movies(props) {
 
     // FOR MovieCardList
 
-    const [width, setWidth] = useState(window.innerWidth) // ширина окна
+    const width = window.innerWidth // ширина окна
 
     const numberOfVisibleFilms = (width) => {
         if (width >= 1051) {
@@ -38,8 +38,7 @@ function Movies(props) {
     }
 
     const [movieCounter, setMovieCounter] = useState(numberOfVisibleFilms(width)) // в заивимсоти от ширины устанавливаем кол-во видимых фильмов
-    const [movieStep, setMovieStep] = useState(showMoreStep(width)) // сколько фильмов появится при 'показать ещё'
-                                                                 // надо ли для этого стейт? или просто переменной  достаточно? 
+    const movieStep = showMoreStep(width) // сколько фильмов появится при 'показать ещё'
     const [visibleMovies, setVisibleMovies] = useState(props.allMovies.slice(0, movieCounter)) // загружаем в стейт видимые фильмы
 
     function showMoreHandler() {

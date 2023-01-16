@@ -35,6 +35,11 @@
     cursor: pointer;
 }
 
+.moviesCardList__button-container_type_saved {
+    min-height: 140px;
+    padding: 0;
+}
+
 @media (max-width: 1280px) {
 
     .moviesCardList__container {

@@ -47,6 +47,7 @@
   padding-bottom: 23px;
   border-bottom: 1px solid #DADADA;
   color: white;
+  letter-spacing: -0.04em;
 }
 
 @media (max-width: 320px) {

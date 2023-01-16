@@ -1,5 +1,12 @@
 
 
+.techs {
+    background: rgba(39, 39, 39, 1);
+    max-width: 1280px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
 .techs__subtitle {
     font-family: 'Inter';
     font-style: normal;
@@ -8,6 +15,7 @@
     line-height: 58px;
     text-align: center;
     margin: 90px 0 0;
+    letter-spacing: -0.04em;
 }
 
 .techs__text {
@@ -25,12 +33,11 @@
 .techs__technologies-block {
     display: grid;
     grid-template-columns: repeat(7, 90px);
-    grid-template-rows: 54px 54px;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     justify-content: center;
 
-    margin-top: 110px;
+    margin-top: 100px;
 }
 
 .techs__technology {

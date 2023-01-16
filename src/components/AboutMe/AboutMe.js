@@ -14,11 +14,11 @@ function AboutMe() {
                         <p className="aboutMe__description">Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена
                             и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.
                         </p>
+                        <div className="aboutMe__links">
+                            <a className="aboutMe__link" href="https://github.com/DanyaLiupinin">Github</a>
+                        </div>
                     </div>
                     <img className="aboutMe__photo" alt='фотография' src={aboutMePhoto} ></img>
-                </div>
-                <div className="aboutMe__links">
-                    <a className="aboutMe__link" href="https://github.com/DanyaLiupinin">Github</a>
                 </div>
                 <Portfolio />
             </div>

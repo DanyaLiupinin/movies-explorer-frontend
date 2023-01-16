@@ -19,6 +19,7 @@
     font-size: 50px;
     line-height: 58px;
     margin: 60px 0 0;
+    letter-spacing: -0.04em;
 }
 
 .aboutMe__profession {
@@ -53,6 +54,10 @@
 .aboutMe__link:hover {
     transition: .3s;
     opacity: 0.8;
+}
+
+.aboutMe__photo {
+    margin-top: 66px;
 }
 
 @media (max-width: 768px) {
@@ -118,7 +123,7 @@
 
     .aboutMe__photo {
         width: fit-content;
-        margin: 0 auto;
+        margin: 0;
     }
 
 }

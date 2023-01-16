@@ -39,6 +39,7 @@
         padding: 350px 0 314px;
         font-size: 40px;
         line-height: 52px;
+        max-width: 680px;
     }
 
     .promo__container {

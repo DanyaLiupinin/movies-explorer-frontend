@@ -23,6 +23,11 @@
     width: fit-content;
 }
 
+.navigation__link:hover {
+    transition: .3s;
+    opacity: 0.8;
+}
+
 .navigation__link_active_desktop {
     font-weight: 500;
 }

@@ -19,6 +19,11 @@
     box-sizing: border-box;
 }
 
+.header__link:hover {
+    transition: .3s;
+    opacity: 0.8;
+}
+
 @media (max-width: 1280px) {
     .header__container {
         margin: 0 70px;

@@ -60,6 +60,11 @@
     line-height: 16px;
 }
 
+.footer__link:hover {
+    transition: .3s;
+    opacity: 0.8;
+}
+
 .footer__link:not(:last-child) {
     margin-right: 20px;
 }

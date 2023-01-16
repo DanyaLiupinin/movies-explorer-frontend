@@ -50,6 +50,11 @@
     line-height: 17px;
 }
 
+.aboutMe__link:hover {
+    transition: .3s;
+    opacity: 0.8;
+}
+
 @media (max-width: 768px) {
     .aboutMe__name {
         margin-top: 66px;

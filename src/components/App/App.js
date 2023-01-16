@@ -7,11 +7,14 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
+import SavedMovies from '../SavedMovies/SavedMovies';
+import movies from '../../utils/constants'
 
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(true)
   const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
+  const [allMovies, setAllMovies] = React.useState(movies) // все фильмы
 
 
   function handleOnClickBurger() {
@@ -38,8 +41,26 @@ function App() {
               setLoggedIn={setLoggedIn}
               handleOnClickBurger={handleOnClickBurger}
               isBurgerOpened={isBurgerOpened}
+
+              allMovies={allMovies}
+              setAllMovies={setAllMovies}
             />} /> :
             <Route path="/movies" element={<Navigate to="/signup" />} />
+        }
+
+        {
+          loggedIn ?
+            <Route path="/saved-movies" element={<SavedMovies 
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              handleOnClickBurger={handleOnClickBurger}
+              isBurgerOpened={isBurgerOpened}
+
+              allMovies={allMovies}
+              setAllMovies={setAllMovies}
+            />} />
+            :
+            <Route path="/profile" element={<Navigate to="/signup" />} />
         }
 
         {
@@ -72,3 +93,9 @@ function App() {
 }
 
 export default App;
+
+// TODO
+
+// Preloader
+
+// Состояние когда фильмов нет

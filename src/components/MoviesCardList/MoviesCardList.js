@@ -2,20 +2,19 @@ import React from 'react';
 import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard';
 // import movieImage from '../../images/movie-image2.png'
-import movies from '../../utils/constants'
 
-function MoviesCardList() {
+function MoviesCardList(props) {
 
 
     const [movieCounter, setMovieCounter] = React.useState(16)
-    const [allMovies, setAllMovies] = React.useState(movies)
-    const [visibleMovies, setVisibleMovies] = React.useState(allMovies.slice(0, movieCounter))
+
+    const [visibleMovies, setVisibleMovies] = React.useState(props.allMovies.slice(0, movieCounter))
 
     function showMoreHandler() {
         setMovieCounter (movieCounter + 4) // разобраться почему карточки рендерятся только после второго клика
                                             // перенести рендер начального массива карточек в useeffect
 
-        setVisibleMovies(allMovies.slice(0, movieCounter))  
+        setVisibleMovies(props.allMovies.slice(0, movieCounter))  
 
     }
 

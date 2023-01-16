@@ -5,17 +5,17 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Footer from '../Footer/Footer'
 import React from 'react';
 
-function Movies({ loggedIn, setLoggedIn, handleOnClickBurger, isBurgerOpened }) {
+function Movies(props) {
 
     const [movieRequest, setMovieRequest] = React.useState('')
 
     return (
         <>
             <Header
-                loggedIn={loggedIn}
-                setLoggedIn={setLoggedIn}
-                handleOnClickBurger={handleOnClickBurger}
-                isBurgerOpened={isBurgerOpened} />
+                loggedIn={props.loggedIn}
+                setLoggedIn={props.setLoggedIn}
+                handleOnClickBurger={props.handleOnClickBurger}
+                isBurgerOpened={props.isBurgerOpened} />
 
             <main className="movies__main">
 
@@ -24,7 +24,11 @@ function Movies({ loggedIn, setLoggedIn, handleOnClickBurger, isBurgerOpened }) 
                     setMovieRequest={setMovieRequest}
                 />
 
-                <MoviesCardList />
+                <MoviesCardList 
+                allMovies={props.allMovies}
+                setAllMovies={props.setAllMovies}
+                setSavedMovie={props.setSavedMovie}
+                />
 
             </main>
 

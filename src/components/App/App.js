@@ -14,9 +14,10 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(true)
   const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
-  const [allMovies, setAllMovies] = React.useState(movies) // все фильмы
+  const [allMovies, setAllMovies] = useState(movies) // все фильмы
+  const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
 
-
+  
   function handleOnClickBurger() {
     setIsBurgerOpened(!isBurgerOpened)
   }
@@ -44,6 +45,7 @@ function App() {
 
               allMovies={allMovies}
               setAllMovies={setAllMovies}
+              setSavedMovies={setSavedMovies}
             />} /> :
             <Route path="/movies" element={<Navigate to="/signup" />} />
         }

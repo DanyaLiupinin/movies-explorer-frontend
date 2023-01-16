@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard';
 // import movieImage from '../../images/movie-image2.png'
 
-function MoviesCardList(props) {
+function MoviesCardList({ allMovies, setAllMovies, setSavedMovies }) {
 
+    const [width, setWidth] = useState(window.innerWidth) // ширина окна
 
-    const [movieCounter, setMovieCounter] = React.useState(16)
+    const numberOfVisibleFilms = (width) => {
+        if (width >= 1280) {
+            return 16;
+        } else if (width >= 768) {
+            return 8;
+        } else {
+            return 5;
+        }
+    }
 
-    const [visibleMovies, setVisibleMovies] = React.useState(props.allMovies.slice(0, movieCounter))
+    const [movieCounter, setMovieCounter] = useState(numberOfVisibleFilms(width))
+    const [visibleMovies, setVisibleMovies] = useState(allMovies.slice(0, movieCounter))
+
+    
+    useEffect(() => {
+
+        setWidth(window.innerWidth)
+
+    }, [width])
+    
+
 
     function showMoreHandler() {
-        setMovieCounter (movieCounter + 4) // разобраться почему карточки рендерятся только после второго клика
-                                            // перенести рендер начального массива карточек в useeffect
+        setMovieCounter(movieCounter + 4) // разобраться почему карточки рендерятся только после второго клика
+        // перенести рендер начального массива карточек в useeffect
 
-        setVisibleMovies(props.allMovies.slice(0, movieCounter))  
+        setVisibleMovies(allMovies.slice(0, movieCounter))
 
     }
 
@@ -25,11 +44,11 @@ function MoviesCardList(props) {
                 {
                     visibleMovies.map((movie, i) => {
                         return (
-                            <MoviesCard 
-                            key={i}
-                            title={movie.title}
-                            image={movie.image}
-                            duration={movie.duration} 
+                            <MoviesCard
+                                key={i}
+                                title={movie.title}
+                                image={movie.image}
+                                duration={movie.duration}
                             /> // посмотреть в каком виде приходят фильмы с базы данных яндекса
                         )
                     })

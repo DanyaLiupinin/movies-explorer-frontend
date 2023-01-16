@@ -37,11 +37,8 @@ function MoviesCardList({ allMovies, setAllMovies, setSavedMovies }) {
     const [visibleMovies, setVisibleMovies] = useState(allMovies.slice(0, movieCounter)) // загружаем в стейт видимые фильмы
 
     function showMoreHandler() {
-        setMovieCounter(movieCounter + movieStep) // разобраться почему карточки рендерятся только после второго клика
-        // перенести рендер начального массива карточек в useeffect
-
-        setVisibleMovies(allMovies.slice(0, movieCounter))
-
+        setMovieCounter(movieCounter + movieStep) // обновляем кол-во видимых фильмов (асинхронно)
+        setVisibleMovies(allMovies.slice(0, movieCounter + movieStep)) // предыдущее действие асинхронно, нельзя сразу использоваться counter
     }
 
     return (

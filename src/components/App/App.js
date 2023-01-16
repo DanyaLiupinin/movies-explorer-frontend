@@ -17,7 +17,6 @@ function App() {
   const [allMovies, setAllMovies] = useState(movies) // все фильмы
   const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
 
-  
   function handleOnClickBurger() {
     setIsBurgerOpened(!isBurgerOpened)
   }

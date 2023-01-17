@@ -87,7 +87,6 @@ function App() {
           <NotFound />
         } />
 
-
       </Routes>
     </>
   )

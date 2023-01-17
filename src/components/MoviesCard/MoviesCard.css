@@ -92,6 +92,17 @@
     margin: 14px 12px 0 0;
 }
 
+.movie__button-delete {
+    width: 16px;
+    height: 16px;
+    background-color: unset;
+    background-image: url('../../images/card-delete.png');
+    outline: none;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
 @media (max-width: 450px) {
 
     .movie {

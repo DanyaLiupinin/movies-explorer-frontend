@@ -1,7 +1,11 @@
 import './MoviesCard.css'
+import { useLocation } from 'react-router-dom';
 
 
 function MoviesCard(props) {
+
+    const location = useLocation();
+
 
     return (
 
@@ -15,10 +19,20 @@ function MoviesCard(props) {
                     <p className='movie__duration'>{props.duration}</p>
                 </div>
                 <div className='movie__button-container'>
+
+                {location.pathname === '/movies' ?  
+
                     <label className='movie__button-label'>
                         <input className='movie__button' type='checkbox' id="movie__save-button"></input>
                         <span className='movie__custom-button'></span>
                     </label>
+
+                    :
+
+                    <button type='button' className='movie__button-delete'></button>
+
+                }
+
                 </div>
             </div>
         </div>

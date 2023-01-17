@@ -9,7 +9,9 @@ function NotFound() {
         <section className='notFound'>
             <h1 className="notFound__error">404</h1>
             <h2 className="notFound__error-text">Страница не найдена</h2>
-            <button className="notFound__navigate" onClick={() => navigate(-1)}>Назад</button>
+            <div className='notFound__navigation'>
+                <button className="notFound__navigate" onClick={() => navigate(-1)}>Назад</button>
+            </div>
         </section>
     )
 }

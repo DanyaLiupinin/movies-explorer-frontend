@@ -24,8 +24,8 @@ function Login() {
                         <span className='login__error auth__error'>Что то пошло не так</span>
                     </label>
 
-                    <button type='submit' className='login__button auth__button' >Зарегистрироваться</button>
-                    <p className='login__capion auth__caption'>Ещё не зарегистрированы?<Link to='/signup' className='register__redirection auth__redirection'>Зарегистрироваться</Link></p>
+                    <button type='submit' className='login__button auth__button' >Войти</button>
+                    <p className='login__capion auth__caption'>Ещё не зарегистрированы?<Link to='/signup' className='register__redirection auth__redirection'>Регистрация</Link></p>
 
                 </form>
             </div>

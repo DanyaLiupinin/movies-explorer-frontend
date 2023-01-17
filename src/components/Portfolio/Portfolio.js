@@ -15,7 +15,7 @@ function Portfolio () {
                     <img src={arrow} alt="стрелочка-ссылка" className="portfolio__link-image"></img>
                 </div>
                  <div className="portfolio__link-container">
-                    <a href="https://github.com/DanyaLiupinin/react-mesto-api-full" className="portfolio__link">Одностраниченое приложение</a>
+                    <a href="https://github.com/DanyaLiupinin/react-mesto-api-full" className="portfolio__link">Одностраничное приложение</a>
                     <img src={arrow} alt="стрелочка-ссылка" className="portfolio__link-image"></img>
                 </div>
             </div>

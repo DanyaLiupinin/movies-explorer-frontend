@@ -97,6 +97,10 @@
 
 @media (max-width: 768px) {
 
+    .aboutProject__container {
+        padding: 90px 0;
+    }
+
     .aboutProject__description {
         margin-top: 22px;
         font-size: 12px;

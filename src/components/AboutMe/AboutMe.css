@@ -136,6 +136,7 @@
 @media (max-width: 380px) {
     .aboutMe__photo {
         width: 100%;
+        height: auto;
     }
 }
 

@@ -105,4 +105,9 @@
         margin-left: 0;
     }
 
+    .portfolio__title {
+        font-size: 14px;
+        margin-top: 70px;
+    }
+
 }

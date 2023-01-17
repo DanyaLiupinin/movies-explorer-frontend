@@ -118,11 +118,11 @@
 
 @media (max-width: 600px) {
     .aboutProject__sprint_type_backend {
-        width: 28.5%;
+        width: 35%;
     }
 
     .aboutProject__sprint_type_frontend {
-        width: 71.5%;
+        width: 65%;
     }
 }
 
@@ -148,6 +148,10 @@
 }
 
 @media (max-width: 320px) {
+
+    .aboutProject__container {
+        padding: 70px 0;
+    }
 
     .aboutProject__title {
         line-height: 22px;

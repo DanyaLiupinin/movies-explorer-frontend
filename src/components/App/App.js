@@ -12,7 +12,7 @@ import movies from '../../utils/constants'
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(true)
   const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
   const [allMovies, setAllMovies] = useState(movies) // все фильмы
   const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы

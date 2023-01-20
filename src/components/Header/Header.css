@@ -1,7 +1,7 @@
 .header {
     background-color: #202020;
     min-height: 74px;
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -42,9 +42,6 @@
 @media (max-width: 768px) {
     .header__container {
         margin: 0 30px;
-
-        font-family: 'Inter';
-        font-style: normal;
         font-weight: 500;
         font-size: 18px;
         line-height: 22px;

@@ -10,7 +10,7 @@ function MoviesCardList(props) {
 
     return (
         <section className='moviesCardList'>
-            <div className='moviesCardList__container'>
+            <ul className='moviesCardList__container'>
 
                 {
                     props.visibleMovies.map((movie, i) => {
@@ -25,12 +25,12 @@ function MoviesCardList(props) {
                     })
                 }
 
-            </div>
+            </ul>
 
-            <div className={`movieCardList__button-container ${location.pathname === '/saved-movies' ? 'moviesCardList__button-container_type_saved' : ''}`}>
+            <div className={`moviesCardList__button-container ${location.pathname === '/saved-movies' ? 'moviesCardList__button-container_type_saved' : ''}`}>
 
                 {location.pathname === '/movies' ?
-                    <button className='movieCardList__button' type='button' onClick={props.showMoreHandler}>Ещё</button>
+                    <button className='moviesCardList__button' type='button' onClick={props.showMoreHandler}>Ещё</button>
                     :
                     ''
                 }

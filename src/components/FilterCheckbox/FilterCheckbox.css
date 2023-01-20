@@ -4,13 +4,21 @@
     text-align: center;
     display: flex;
     flex-direction: row;
-
     margin-right: 42%;
 }
 
-
 .checkbox__label {
     display: inline-block;
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 140%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.checkbox__container {
+    position: relative;
 }
 
 .checkbox__checkbox {
@@ -33,6 +41,7 @@
     display: inline-block;
     position: relative;
     width: fit-content;
+    
 
 }
 

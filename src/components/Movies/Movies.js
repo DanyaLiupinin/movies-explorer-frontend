@@ -56,7 +56,7 @@ function Movies(props) {
                 handleOnClickBurger={props.handleOnClickBurger}
                 isBurgerOpened={props.isBurgerOpened} />
 
-            <main className="movies__main">
+            <main className="movies">
 
                 <SearchForm
                     moviesRequest={movieRequest}

@@ -9,7 +9,7 @@ function Register() {
     return (
         <section className='register auth'>
             <div className='register__container auth__container'>
-                <a href="https://yandex.ru" className="register__logo auth__logo" targer="_blank">
+                <a href="https://yandex.ru" className="register__logo auth__logo">
                     <img className='register__logo-image auth__logo-image' src={logo} alt="логотип" />
                 </a>
                 <h2 className='register__regards auth__regards'>Добро пожаловать!</h2>

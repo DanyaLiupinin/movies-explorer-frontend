@@ -9,13 +9,13 @@ function MoviesCard(props) {
 
     return (
 
-        <div className='movie'>
+        <li className='movie'>
             <div className='movie__image-container'>
                 <img className='movie__image' src={props.image} alt={`кадр из фильма ${props.title}`}></img>
             </div>
             <div className='movie__description'>
                 <div className='movie__information'>
-                    <p className='movie__title'>{props.title}</p>
+                    <h3 className='movie__title'>{props.title}</h3>
                     <p className='movie__duration'>{props.duration}</p>
                 </div>
                 <div className='movie__button-container'>
@@ -35,7 +35,7 @@ function MoviesCard(props) {
 
                 </div>
             </div>
-        </div>
+        </li>
 
     )
 }

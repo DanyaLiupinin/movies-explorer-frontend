@@ -8,7 +8,7 @@ function Header({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
     return (
         <header className="header">
             <div className="header__container">
-                <Link to='/' className="header__link" targer="_blank">
+                <Link to='/' className="header__link">
                     <img src={logo} alt="логотип" />
                 </Link>
                 <Navigation 

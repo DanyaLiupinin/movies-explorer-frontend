@@ -15,6 +15,7 @@ function SearchForm({ movieRequest, setMovieRequest }) {
             <div className="searchForm__form-container">
                 <form className="searchForm__form">
                     <input
+                        required
                         className="searchForm__input"
                         placeholder='Фильм'
                         name="movie__request"

@@ -4,13 +4,13 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
 }
 
 .navtab__link {
     text-decoration: none;
     color: white;
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
@@ -37,7 +37,6 @@
         font-size: 9px;
         width: 78px;
         box-sizing: border-box;
-       
         text-align: center;
     }
 }

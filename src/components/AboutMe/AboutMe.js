@@ -15,7 +15,7 @@ function AboutMe() {
                             и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.
                         </p>
                         <div className="aboutMe__links">
-                            <a className="aboutMe__link" href="https://github.com/DanyaLiupinin">Github</a>
+                            <a target="_blank" rel='noreferrer' className="aboutMe__link" href="https://github.com/DanyaLiupinin">Github</a>
                         </div>
                     </div>
                     <img className="aboutMe__photo" alt='фотография' src={aboutMePhoto} ></img>

@@ -8,7 +8,7 @@ function Login() {
     return (
         <section className='auth login'>
             <div className='login__container auth__container'>
-                <a href="https://yandex.ru" className="login__logo auth__logo" targer="_blank">
+                <a href="https://yandex.ru" className="login__logo auth__logo">
                     <img className='login__logo-image auth__logo-image' src={logo} alt="логотип" />
                 </a>
                 <h2 className='login__regards auth__regards'>Рады видеть!</h2>
@@ -25,7 +25,7 @@ function Login() {
                     </label>
 
                     <button type='submit' className='login__button auth__button' >Войти</button>
-                    <p className='login__capion auth__caption'>Ещё не зарегистрированы?<Link to='/signup' className='register__redirection auth__redirection'>Регистрация</Link></p>
+                    <p className='login__capion auth__caption'>Ещё не зарегистрированы?<Link to='/signup' className='login__redirection auth__redirection'>Регистрация</Link></p>
 
                 </form>
             </div>

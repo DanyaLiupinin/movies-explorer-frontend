@@ -5,6 +5,7 @@
     padding-bottom: 14px;
     background: rgba(34, 34, 34, 1);
     border-radius: 10px;
+    list-style-type: none;
 }
 
 .movie__image-container {
@@ -96,7 +97,7 @@
     width: 16px;
     height: 16px;
     background-color: unset;
-    background-image: url('../../images/card-delete.png');
+    background-image: url('../../images/card-delete.svg');
     outline: none;
     padding: 0;
     border: 0;

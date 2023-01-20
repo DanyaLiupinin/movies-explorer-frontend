@@ -20,8 +20,6 @@
 }
 
 .aboutProject__thesis {
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
@@ -30,8 +28,6 @@
 }
 
 .aboutProject__description {
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -58,8 +54,6 @@
 }
 
 .aboutProject__sprint-duration {
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
@@ -84,8 +78,6 @@
 
 .aboutProject__sprint-title {
     color: #8B8B8B;
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;

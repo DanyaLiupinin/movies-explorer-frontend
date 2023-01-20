@@ -12,15 +12,16 @@
     grid-row-gap: 30px;
     grid-column-gap: 20px;
     padding-bottom: 30px;
+    padding-left: 0;
 }
 
-.movieCardList__button-container {
+.moviesCardList__button-container {
     min-height: 166px;
     padding: 50px 0 80px;
     box-sizing: border-box;
 }
 
-.movieCardList__button {
+.moviesCardList__button {
     margin: 0 auto;
     padding: 0;
     display: block;
@@ -34,9 +35,10 @@
     line-height: 15px;
     cursor: pointer;
     transition: .3s;
+    border-radius: 5px;
 }
 
-.movieCardList__button:hover {
+.moviesCardList__button:hover {
     opacity: .8;
 }
 
@@ -99,7 +101,7 @@
         margin-top: 40px;
     }
 
-    .movieCardList__button {
+    .moviesCardList__button {
         width: 240px;
     }
 }

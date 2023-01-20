@@ -1,7 +1,7 @@
 .profile {
     background-color: rgba(32, 32, 32, 1);
     color: white;
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
     height: 100vh;
 }

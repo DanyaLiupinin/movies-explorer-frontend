@@ -1,7 +1,6 @@
 .moviesCardList {
     padding: 10px 0 0;
     background: rgba(32, 32, 32, 1);
-
 }
 
 .moviesCardList__container {
@@ -71,8 +70,6 @@
 
     .moviesCardList__container {
         grid-template-columns: repeat(2, 1fr);
-
-
         grid-column-gap: 30px;
         grid-row-gap: 36px;
     }

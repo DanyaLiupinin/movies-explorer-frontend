@@ -16,7 +16,6 @@
 
 .aboutProject__information-block {
     width: 48%;
-
 }
 
 .aboutProject__thesis {
@@ -59,7 +58,6 @@
     line-height: 17px;
     text-align: center;
     height: 36px;
-
     display: flex;
     margin: 0;
     justify-content: center;
@@ -81,9 +79,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
-
     text-align: center;
-
     margin: 14px 0 0;
 }
 

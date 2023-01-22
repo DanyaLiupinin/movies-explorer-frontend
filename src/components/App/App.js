@@ -20,7 +20,7 @@ function App() {
   function handleOnClickBurger() {
     setIsBurgerOpened(!isBurgerOpened)
   }
- 
+
   return (
     <>
       <Routes>

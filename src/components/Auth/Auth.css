@@ -41,7 +41,6 @@
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
-
     color: #8B8B8B;
     position: relative;
 }
@@ -75,7 +74,6 @@
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
-
     color: #EE3465;
     position: absolute;
     bottom: -16px;
@@ -100,7 +98,6 @@
     margin: 16px 0 232px;
     text-align: center;
     color: rgba(139, 139, 139, 1);
-
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;

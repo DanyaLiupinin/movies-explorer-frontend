@@ -1,0 +1,110 @@
+.checkbox {
+    width: fit-content;
+    margin: 41px auto 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin-right: 42%;
+}
+
+.checkbox__label {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 140%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.checkbox__container {
+    position: relative;
+}
+
+.checkbox__checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    appearance: none;
+}
+
+.checkbox__name {
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    min-height: 20px;
+    color: white;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    width: fit-content;
+}
+
+.checkbox__name::before {
+    display: block;
+    content: "";
+    position: absolute;
+    left: -48px;
+    top: 0;
+    width: 36px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: white;
+    transition: background-color .3s;
+    cursor: pointer;
+}
+
+.checkbox__name::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background-color: rgba(61, 220, 132, 1);
+    left: -46px;
+    top: 2.2px;
+    transition: background-color .3s, left .3s;
+    cursor: pointer;
+}
+
+.checkbox__checkbox:checked+.checkbox__name::before {
+    background-color: rgba(61, 220, 132, 1);
+} /* это как конструкция if 
+    если checkbox__checkbox checked, то элемент рядом меняет стиль
+*/
+
+.checkbox__checkbox:checked+.checkbox__name::after {
+    background-color: white;
+    left: -31px;
+}
+
+@media (max-width: 768px) {
+    .checkbox {
+        margin-right: 38%;
+    }
+}
+
+@media (max-width: 637px) {
+    .checkbox {
+        margin-right: 28%;
+    }
+}
+
+@media (max-width: 393px) {
+    .checkbox {
+        margin-right: 23%;
+    }
+}
+
+@media (max-width: 320px) {
+    .checkbox {
+        margin-right: 25%;
+    }
+
+    .checkbox__name {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,40 @@
+/* BURGER MENU */
+
+.burger-button {
+    width: 44px;
+    height: 44px;
+    background-color: inherit;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    padding: 0;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    display: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.burger-button_closed {
+    background-image: url('../../images/burger-menu.svg');
+}
+
+.burger-button_opened {
+    background-image: url('../../images/header-cross.svg');
+}
+
+/* BURGER ACTIVE */
+
+@media (max-width: 768px) {
+    .burger-button {
+        display: block;
+    }
+}
+
+@media (max-width: 320px) {
+    .burger-button {
+        width: 40px;
+        height: 43px;
+    }
+}

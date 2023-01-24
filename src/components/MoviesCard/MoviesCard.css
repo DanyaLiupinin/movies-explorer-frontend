@@ -1,0 +1,120 @@
+.movie {
+    width: 100%;
+    min-height: fit-content;
+    color: white;
+    padding-bottom: 14px;
+    background: rgba(34, 34, 34, 1);
+    border-radius: 10px;
+    list-style-type: none;
+}
+
+.movie__image-container {
+    width: 100%;
+    height: fit-content;
+}
+
+.movie__image {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+
+.movie__description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.movie__information {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie__title {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    margin: 14px 0 0 12px;
+}
+
+.movie__duration {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    margin: 10px 0 0 12px;
+    color: rgba(139, 139, 139, 1);
+}
+
+.movie__button {
+    display: none;
+}
+
+.movie__custom-button {
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    display: block;
+    position: relative;
+    border: 2px solid white;
+    box-sizing: border-box;
+}
+
+
+.movie__custom-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background-color: rgba(43, 224, 128, 1);
+    border: 2px solid white;
+    transition: .2s;
+    opacity: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.movie__button:checked+.movie__custom-button::before {
+    opacity: 1;
+}
+
+.movie__button-label {
+    height: 16px;
+    width: 16px;
+}
+
+.movie__button-container {
+    width: fit-content;
+    height: fit-content;
+    margin: 14px 12px 0 0;
+}
+
+.movie__button-delete {
+    width: 16px;
+    height: 16px;
+    background-color: unset;
+    background-image: url('../../images/card-delete.svg');
+    outline: none;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+@media (max-width: 450px) {
+
+    .movie {
+        width: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .movie {
+        width: auto;
+    }
+}

@@ -1,0 +1,152 @@
+
+.aboutMe__container {
+    padding: 110px 0 125px;
+}
+
+.aboutMe__student {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.aboutMe__information {
+    margin-right: 49px;
+}
+
+
+.aboutMe__name {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    margin: 60px 0 0;
+    letter-spacing: -0.04em;
+}
+
+.aboutMe__profession {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    margin: 18px 0 0;
+}
+
+.aboutMe__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 26px 0 0;
+    max-width: 600px;
+}
+
+.aboutMe__links {
+    margin: 99px 0 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.aboutMe__link {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.aboutMe__link:hover {
+    transition: .3s;
+    opacity: 0.8;
+}
+
+.aboutMe__photo {
+    margin-top: 66px;
+}
+
+@media (max-width: 768px) {
+    .aboutMe__name {
+        margin-top: 66px;
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    .aboutMe__profession {
+        margin-top: 16px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutMe__description {
+        margin-top: 20px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutMe__links {
+        margin-top: 87px;
+    }
+
+    .aboutMe__photo {
+        width: 255px;
+        height: 307px;
+    }
+
+}
+
+@media (max-width: 620px) {
+
+    .aboutMe__student {
+        flex-direction: column-reverse;
+    }
+
+    .aboutMe__title {
+        margin-bottom: 60px;
+    }
+
+    .aboutMe__name {
+        margin-top: 40px;
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .aboutMe__profession {
+        margin-top: 20px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutMe__description {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .aboutMe__information {
+        width: 100%;
+        margin: 0;
+    }
+
+    .aboutMe__links {
+        margin-top: 40px;
+    }
+
+    .aboutMe__photo {
+        width: fit-content;
+        margin: 0;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .aboutMe__photo {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 320px) {
+    .aboutMe__container {
+        margin: 0 14px;
+        max-width: 292px;
+    }
+
+    .aboutMe__title {
+        max-width: 292px;
+    }
+} 

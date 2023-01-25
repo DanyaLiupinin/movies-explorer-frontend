@@ -1,6 +1,6 @@
 const moviesUrl = 'https://api.nomoreparties.co/beatfilm-movies'
 
-export function getAllMovies() {
+export const getAllMovies = () => {
     return fetch(moviesUrl, {
         method: 'GET',
         headers: {
@@ -15,6 +15,6 @@ const checkRes = (res) => {
     if (res.ok) {
         return res.json();
     }
-    return Promise.reject(`Error: ${res.status}`);
+    return Promise.reject(`Ошибка: ${res.status}`);
 };
 

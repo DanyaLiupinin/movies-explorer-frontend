@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -9,6 +9,7 @@ import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import movies from '../../utils/constants'
+import { getAllMovies } from '../../utils/MoviesApi';
 
 function App() {
 
@@ -21,11 +22,22 @@ function App() {
     setIsBurgerOpened(!isBurgerOpened)
   }
 
-  return (
+  useEffect(() => {
     
+    getAllMovies()
+    .then((res) => {
+      setAllMovies(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
+  }, [])
+
+
+  return (
     <>
       <Routes>
-
         <Route path="/" exact element={
           <Main
             loggedIn={loggedIn}

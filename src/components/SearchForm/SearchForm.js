@@ -13,6 +13,7 @@ function SearchForm({ onQueryMovies }) {
     }
 
     function handleSubmit(e) {
+        
         e.preventDefault();
 
         if (query.trim().length !== 0) {

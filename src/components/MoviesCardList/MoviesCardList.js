@@ -7,9 +7,9 @@ function MoviesCardList(props) {
 
     const location = useLocation();
 
-    const width = window.innerWidth // ширина окна
+    const width = window.innerWidth
 
-    const numberOfVisibleFilms = (width) => {
+    const numberOfVisibleFilms = (width) => { // REFACTORING: заменить на конфиг-объект
         if (width >= 1051) {
             return 16;
         } else if (width >= 769) {
@@ -54,7 +54,6 @@ function MoviesCardList(props) {
                             <React.Fragment key={movie.id}>
                                 <MoviesCard
                                     image={movie.image.url}
-                                    
                                     title={movie.nameRU}
                                     duration={movie.duration}
                                 />
@@ -67,7 +66,7 @@ function MoviesCardList(props) {
 
             <div className={`moviesCardList__button-container ${location.pathname === '/saved-movies' ? 'moviesCardList__button-container_type_saved' : ''}`}>
 
-                {location.pathname === '/movies' ?
+                {location.pathname === '/movies' && props.movies.length > 0 ?
                     <button className='moviesCardList__button' type='button' onClick={showMoreHandler}>Ещё</button>
                     :
                     ''

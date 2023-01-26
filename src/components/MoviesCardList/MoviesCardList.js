@@ -52,9 +52,10 @@ function MoviesCardList(props) {
                         return (
                             <React.Fragment key={movie.id}>
                                 <MoviesCard
+                                    image={movie.image.url}
+                                    
                                     title={movie.nameRU}
                                     duration={movie.duration}
-                                    image={`https://api.nomoreparties.co/${movie.image.url}`}
                                 />
                             </React.Fragment>
                         )

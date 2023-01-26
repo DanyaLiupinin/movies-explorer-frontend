@@ -10,13 +10,14 @@
 
 .movie__image-container {
     width: 100%;
-    height: fit-content;
+    height: 151px;
 }
 
 .movie__image {
     margin: 0 auto;
     display: block;
     width: 100%;
+    height: 100%;
 }
 
 .movie__description {
@@ -104,12 +105,25 @@
     cursor: pointer;
 }
 
+@media (max-width: 760px) {
+
+    .movie__image-container {
+        height: 190px;
+    }
+
+}
+
 @media (max-width: 450px) {
 
     .movie {
         width: 300px;
         margin: 0 auto;
     }
+
+    .movie__image-container {
+        height: 168px;
+    }
+    
 }
 
 @media (max-width: 320px) {

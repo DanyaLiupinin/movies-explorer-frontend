@@ -8,5 +8,11 @@ export function filterMovies(movies, userQuery) { //не забыть про к�
 
     return moviesByUserQuery
   
-    
+    /*
+    if (shortMoviesCheckbox) {
+      return filterShortMovies(moviesByUserQuery);
+    } else {
+      return moviesByUserQuery;
+    }
+    */
   }

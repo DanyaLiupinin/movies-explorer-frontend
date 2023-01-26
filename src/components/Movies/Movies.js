@@ -21,10 +21,10 @@ function Movies(props) {
         
         setFilteredMovies(moviesList)
 
-
+        
       }
 
-     
+      
 
 
     return (

@@ -11,7 +11,7 @@ function MoviesCard(props) {
 
         <li className='movie'>
             <div className='movie__image-container'>
-                <img className='movie__image' src={props.image} alt={`кадр из фильма ${props.title}`}></img>
+                <img className='movie__image' src={`https://api.nomoreparties.co${props.image}`} alt={`кадр из фильма ${props.title}`}></img>
             </div>
             <div className='movie__description'>
                 <div className='movie__information'>

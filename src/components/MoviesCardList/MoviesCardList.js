@@ -1,26 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard';
 import { useLocation } from 'react-router-dom';
-// import movieImage from '../../images/movie-image2.png'
 
 function MoviesCardList(props) {
 
     const location = useLocation();
+
+    const width = window.innerWidth // ширина окна
+
+    const numberOfVisibleFilms = (width) => {
+        if (width >= 1051) {
+            return 16;
+        } else if (width >= 769) {
+            return 12;
+        } else if (width >= 451) {
+            return 8;
+        } else {
+            return 5;
+        }
+    }
+
+    const showMoreStep = (width) => {
+
+        if (width >= 1051) {
+            return 4;
+        } else if (width >= 769) {
+            return 3;
+        } else if (width >= 451) {
+            return 2;
+        } else {
+            return 1;
+        }
+    }
+
+    const [movieCounter, setMovieCounter] = useState(numberOfVisibleFilms(width)) 
+    // кол-во фильмов в зависимсоти от ширины
+    const movieStep = showMoreStep(width) // сколько фильмов появится при 'показать ещё'
+
+    
+    function showMoreHandler() {
+        setMovieCounter(movieCounter + movieStep)
+    }
 
     return (
         <section className='moviesCardList'>
             <ul className='moviesCardList__container'>
 
                 {
-                    props.visibleMovies.map((movie, i) => {
+                    props.movies.slice(0, movieCounter).map((movie) => {
                         return (
-                            <MoviesCard
-                                key={i}
-                                title={movie.title}
-                                image={movie.image}
-                                duration={movie.duration}
-                            /> // посмотреть в каком виде приходят фильмы с базы данных яндекса
+                            <React.Fragment key={movie.id}>
+                                <MoviesCard
+                                    title={movie.nameRU}
+                                    duration={movie.duration}
+                                    image={`https://api.nomoreparties.co/${movie.image.url}`}
+                                />
+                            </React.Fragment>
                         )
                     })
                 }
@@ -30,7 +66,7 @@ function MoviesCardList(props) {
             <div className={`moviesCardList__button-container ${location.pathname === '/saved-movies' ? 'moviesCardList__button-container_type_saved' : ''}`}>
 
                 {location.pathname === '/movies' ?
-                    <button className='moviesCardList__button' type='button' onClick={props.showMoreHandler}>Ещё</button>
+                    <button className='moviesCardList__button' type='button' onClick={showMoreHandler}>Ещё</button>
                     :
                     ''
                 }

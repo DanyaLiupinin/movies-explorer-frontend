@@ -1,52 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Movies.css'
 import Header from '../Header/Header'
 import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Footer from '../Footer/Footer'
+import { filterMovies } from '../../utils/utils';
 
 function Movies(props) {
 
-    const [movieRequest, setMovieRequest] = React.useState('')
 
-    // FOR MovieCardList
+    //const [visibleMovies, setVisibleMovies] = useState(props.filteredMovies.slice(0, numberOfVisibleFilms)) // загружаем в стейт видимые фильмы
 
-    const width = window.innerWidth // ширина окна
-
-    const numberOfVisibleFilms = (width) => {
-        if (width >= 1051) {
-            return 16;
-        } else if (width >= 769) {
-            return 12;
-        } else if (width >= 451) {
-            return 8;
-        } else {
-            return 5;
-        }
-    }
-
-    const showMoreStep = (width) => {
-        if (width >= 1051) {
-            return 4;
-        } else if (width >= 769) {
-            return 3;
-        } else if (width >= 451) {
-            return 2;
-        } else {
-            return 1;
-        }
-    }
-
-    const [movieCounter, setMovieCounter] = useState(numberOfVisibleFilms(width)) // в заивимсоти от ширины устанавливаем кол-во видимых фильмов
-    const movieStep = showMoreStep(width) // сколько фильмов появится при 'показать ещё'
-    const [visibleMovies, setVisibleMovies] = useState(props.allMovies.slice(0, movieCounter)) // загружаем в стейт видимые фильмы
-
-    function showMoreHandler() {
-        setMovieCounter(movieCounter + movieStep) // обновляем кол-во видимых фильмов (асинхронно)
-        setVisibleMovies(props.allMovies.slice(0, movieCounter + movieStep)) // предыдущее действие асинхронно, нельзя сразу использоваться counter
-    }
+    const [filteredMovies, setFilteredMovies] = useState([])
 
     //
+
+    function onQueryMovies (query) { //потом добавить короткометражки
+
+        const moviesList = filterMovies(props.allMovies, query); //фильтруем полученный массив по запросу
+        
+        setFilteredMovies(moviesList)
+
+
+      }
+
+     
+
 
     return (
         <>
@@ -59,17 +38,16 @@ function Movies(props) {
             <main className="movies">
 
                 <SearchForm
-                    moviesRequest={movieRequest}
-                    setMovieRequest={setMovieRequest}
+
+                    onQueryMovies={onQueryMovies}
                 />
 
                 <MoviesCardList 
                 allMovies={props.allMovies}
                 setAllMovies={props.setAllMovies}
                 setSavedMovie={props.setSavedMovie}
-                visibleMovies={visibleMovies}
-                setVisibleMovies={setVisibleMovies}
-                showMoreHandler={showMoreHandler}
+
+                movies={filteredMovies}
                 />
 
             </main>

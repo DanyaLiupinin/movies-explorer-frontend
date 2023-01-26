@@ -1,26 +1,35 @@
+import React, { useState } from 'react';
 import './SearchForm.css'
 import '../Movies/Movies.css'
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm({ movieRequest, setMovieRequest }) {
+function SearchForm({ onQueryMovies }) {
+    
+    const [query, setQuery] = useState('');
 
-
-    const handleMovuesRequestChange = (e) => {
-        setMovieRequest(e.target);
+    const handleMoviesRequestChange = (e) => {
+        setQuery(e.target.value);
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+
+       
+            onQueryMovies(query);
+
+    }
 
     return (
         <div className="searchForm">
             <div className="searchForm__form-container">
-                <form className="searchForm__form">
+                <form className="searchForm__form" onSubmit={handleSubmit}>
                     <input
                         required
                         className="searchForm__input"
                         placeholder='Фильм'
                         name="movie__request"
-                        onChange={handleMovuesRequestChange}
-                        value={movieRequest}
+                        onChange={handleMoviesRequestChange}
+                        value={query}
                     />
                     <button
                         className="searchForm__button"

@@ -8,14 +8,13 @@ import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
-import movies from '../../utils/constants'
 import { getAllMovies } from '../../utils/MoviesApi';
 
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(true)
   const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
-  const [allMovies, setAllMovies] = useState(movies) // все фильмы
+  const [allMovies, setAllMovies] = useState([]) // все фильмы
   const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
 
   function handleOnClickBurger() {
@@ -23,7 +22,7 @@ function App() {
   }
 
   useEffect(() => {
-    
+
     getAllMovies()
     .then((res) => {
       setAllMovies(res)

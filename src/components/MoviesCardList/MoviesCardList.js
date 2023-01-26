@@ -36,7 +36,8 @@ function MoviesCardList(props) {
 
     const [movieCounter, setMovieCounter] = useState(numberOfVisibleFilms(width)) 
     // кол-во фильмов в зависимсоти от ширины
-    const movieStep = showMoreStep(width) // сколько фильмов появится при 'показать ещё'
+    const movieStep = showMoreStep(width) 
+    // сколько фильмов появится при 'показать ещё'
 
     
     function showMoreHandler() {

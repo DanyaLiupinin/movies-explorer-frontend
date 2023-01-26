@@ -9,8 +9,6 @@ import { filterMovies } from '../../utils/utils';
 function Movies(props) {
 
 
-    //const [visibleMovies, setVisibleMovies] = useState(props.filteredMovies.slice(0, numberOfVisibleFilms)) // загружаем в стейт видимые фильмы
-
     const [filteredMovies, setFilteredMovies] = useState([])
 
     //
@@ -21,10 +19,21 @@ function Movies(props) {
         
         setFilteredMovies(moviesList)
 
-        
+        //setFilteredMovies(short ? filterDuration(moviesList) : moviesList); //если чекбокс тру, то фильруем по длине и записываем в стейт
+        /*
+        localStorage.setItem('movies', JSON.stringify(moviesList));
+        localStorage.setItem('allMovies', JSON.stringify(movies));
+        */
+        // setIsNotFound(moviesList.length === 0 ? true : false);
       }
 
-      
+      /*
+      useEffect(() => {
+        if (filteredMovies.length === 0) {
+            setFilteredMovies(props.allMovies)
+        }
+      }, [filteredMovies, props.allMovies])
+      */
 
 
     return (

@@ -66,7 +66,7 @@ function MoviesCardList(props) {
 
             <div className={`moviesCardList__button-container ${location.pathname === '/saved-movies' ? 'moviesCardList__button-container_type_saved' : ''}`}>
 
-                {location.pathname === '/movies' && props.movies.length > 0 ?
+                {location.pathname === '/movies' && props.movies.length > movieCounter ?
                     <button className='moviesCardList__button' type='button' onClick={showMoreHandler}>Ещё</button>
                     :
                     ''

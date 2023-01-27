@@ -37,7 +37,7 @@ function SearchForm({ onQueryMovies, shortMovies, handleShortMovies }) {
                         onChange={handleMoviesRequestChange}
                         value={query}
                     />
-                    <span className={`searchForm__error ${queryError ? 'searchForm__error_active' : ''}`}>Введите запрос</span>
+                    <span className={`searchForm__error ${queryError ? 'searchForm__error_active' : ''}`}>Нужно ввести ключевое слово</span>
                     <button
                         className="searchForm__button"
                         type="submit">Найти

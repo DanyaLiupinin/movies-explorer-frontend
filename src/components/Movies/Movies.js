@@ -18,9 +18,13 @@ function Movies(props) {
     function onQueryMovies(query) { //потом добавить короткометражки
 
         const moviesList = filterQueryMovies(props.allMovies, query); //фильтруем полученный массив по запросу
+        setQueryMovies(moviesList) // добавляем в список запрошенных фильмов
 
-        setQueryMovies(moviesList)
-        setFilteredMovies(moviesList)
+        if (shortMovies) {
+            setFilteredMovies(filterShortMovies(moviesList))
+        } else {
+            setFilteredMovies(moviesList)
+        }
 
         //setFilteredMovies(short ? filterDuration(moviesList) : moviesList); //если чекбокс тру, то фильруем по длине и записываем в стейт
         /*

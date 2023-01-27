@@ -69,6 +69,7 @@ function Movies(props) {
                     onQueryMovies={onQueryMovies}
                     shortMovies={shortMovies}
                     handleShortMovies={handleShortMovies}
+                    queryError={props.queryError}
                 />
 
                 <MoviesCardList

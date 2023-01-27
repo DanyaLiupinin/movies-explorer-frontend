@@ -3,10 +3,10 @@ import './SearchForm.css'
 import '../Movies/Movies.css'
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm({ onQueryMovies, shortMovies, handleShortMovies }) {
+function SearchForm({ onQueryMovies, shortMovies, handleShortMovies, queryError }) {
 
     const [query, setQuery] = useState('');
-    const [queryError, setQueryError] = useState(false)
+    const [noMovies, setNoMovies] = useState(false)
 
     const handleMoviesRequestChange = (e) => {
         setQuery(e.target.value);
@@ -17,10 +17,10 @@ function SearchForm({ onQueryMovies, shortMovies, handleShortMovies }) {
         e.preventDefault();
 
         if (query.trim().length !== 0) {
-            setQueryError(false)
+            setNoMovies(false)
             onQueryMovies(query)
         } else {
-            setQueryError(true)
+            setNoMovies(true)
         }
 
     }
@@ -37,7 +37,10 @@ function SearchForm({ onQueryMovies, shortMovies, handleShortMovies }) {
                         onChange={handleMoviesRequestChange}
                         value={query}
                     />
-                    <span className={`searchForm__error ${queryError ? 'searchForm__error_active' : ''}`}>Нужно ввести ключевое слово</span>
+                    <span className={`searchForm__error ${noMovies || queryError ? 'searchForm__error_active' : ''}`}>
+                        {noMovies ? 'Нужно ввести ключевое слово' : 
+                        '«Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз».' }
+                        </span>
                     <button
                         className="searchForm__button"
                         type="submit">Найти

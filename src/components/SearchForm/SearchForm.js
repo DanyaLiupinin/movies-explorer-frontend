@@ -3,7 +3,7 @@ import './SearchForm.css'
 import '../Movies/Movies.css'
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm({ onQueryMovies }) {
+function SearchForm({ onQueryMovies, shortMovies, handleShortMovies }) {
 
     const [query, setQuery] = useState('');
     const [queryError, setQueryError] = useState(false)
@@ -42,7 +42,10 @@ function SearchForm({ onQueryMovies }) {
                         className="searchForm__button"
                         type="submit">Найти
                     </button>
-                    <FilterCheckbox />
+                    <FilterCheckbox
+                    shortMovies={shortMovies}
+                    handleShortMovies={handleShortMovies}
+                    />
                 </form>
             </div>
         </div>

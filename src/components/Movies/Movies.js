@@ -10,13 +10,14 @@ function Movies(props) {
 
 
     const [filteredMovies, setFilteredMovies] = useState([])
+    const [shortMovies, setShortMovies] = useState(false);
 
     //
 
-    function onQueryMovies (query) { //потом добавить короткометражки
+    function onQueryMovies(query) { //потом добавить короткометражки
 
         const moviesList = filterMovies(props.allMovies, query); //фильтруем полученный массив по запросу
-        
+
         setFilteredMovies(moviesList)
 
         //setFilteredMovies(short ? filterDuration(moviesList) : moviesList); //если чекбокс тру, то фильруем по длине и записываем в стейт
@@ -25,15 +26,20 @@ function Movies(props) {
         localStorage.setItem('allMovies', JSON.stringify(movies));
         */
         // setIsNotFound(moviesList.length === 0 ? true : false);
-      }
+    }
 
-      /*
-      useEffect(() => {
-        if (filteredMovies.length === 0) {
-            setFilteredMovies(props.allMovies)
-        }
-      }, [filteredMovies, props.allMovies])
-      */
+    /*
+    useEffect(() => {
+      if (filteredMovies.length === 0) {
+          setFilteredMovies(props.allMovies)
+      }
+    }, [filteredMovies, props.allMovies])
+    */
+
+    function handleShortMovies() {
+        setShortMovies(!shortMovies)
+    }
+
 
 
     return (
@@ -49,14 +55,16 @@ function Movies(props) {
                 <SearchForm
 
                     onQueryMovies={onQueryMovies}
+                    shortMovies={shortMovies}
+                    handleShortMovies={handleShortMovies}
                 />
 
-                <MoviesCardList 
-                allMovies={props.allMovies}
-                setAllMovies={props.setAllMovies}
-                setSavedMovie={props.setSavedMovie}
+                <MoviesCardList
+                    allMovies={props.allMovies}
+                    setAllMovies={props.setAllMovies}
+                    setSavedMovie={props.setSavedMovie}
 
-                movies={filteredMovies}
+                    movies={filteredMovies}
                 />
 
             </main>

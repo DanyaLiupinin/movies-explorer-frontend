@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SearchForm.css'
 import '../Movies/Movies.css'
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm({ onQueryMovies, shortMovies, handleShortMovies, queryError }) {
+function SearchForm({ onQueryMovies, shortMovies, handleShortMovies, queryError, lastQuery }) {
 
     const [query, setQuery] = useState('');
     const [noMovies, setNoMovies] = useState(false)
+
+    useEffect(() => {
+        setQuery(lastQuery)
+    }, [lastQuery])
 
     const handleMoviesRequestChange = (e) => {
         setQuery(e.target.value);

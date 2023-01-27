@@ -12,8 +12,33 @@ function Movies(props) {
     const [queryMovies, setQueryMovies] = useState([]) // список фильмов по запросу
     const [filteredMovies, setFilteredMovies] = useState([]) // конечный видимый массив
     const [shortMovies, setShortMovies] = useState(false); // состояние чекбокса
+    const [lastQuery, setLastQuery] = useState('')
 
-    //
+    // возвращаем запрос при возвращении на страницу
+
+    useEffect(() => {
+
+        if (localStorage.getItem('visibleMovies')) {
+            const movies = JSON.parse(localStorage.getItem('visibleMovies'));
+            setFilteredMovies(movies);
+
+        if (localStorage.getItem('query')) {
+            const query = localStorage.getItem('query')
+            setLastQuery(query)
+        }
+
+            /*
+            if (localStorage.getItem('shortMovies') === 'true') {
+              setFilteredMovies(filterDuration(movies));
+            } else {
+              setFilteredMovies(movies);
+            }
+          } else {
+            // setIsNotFound(true);
+          } 
+          */
+        }
+    }, [])
 
     function onQueryMovies(query) { //потом добавить короткометражки
 
@@ -27,10 +52,8 @@ function Movies(props) {
         }
 
         //setFilteredMovies(short ? filterDuration(moviesList) : moviesList); //если чекбокс тру, то фильруем по длине и записываем в стейт
-        /*
-        localStorage.setItem('movies', JSON.stringify(moviesList));
-        localStorage.setItem('allMovies', JSON.stringify(movies));
-        */
+        localStorage.setItem('visibleMovies', JSON.stringify(moviesList));
+        localStorage.setItem('query', query)
         // setIsNotFound(moviesList.length === 0 ? true : false);
     }
 
@@ -70,6 +93,7 @@ function Movies(props) {
                     shortMovies={shortMovies}
                     handleShortMovies={handleShortMovies}
                     queryError={props.queryError}
+                    lastQuery={lastQuery}
                 />
 
                 <MoviesCardList

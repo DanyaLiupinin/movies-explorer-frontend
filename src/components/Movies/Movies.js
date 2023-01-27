@@ -4,21 +4,23 @@ import Header from '../Header/Header'
 import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Footer from '../Footer/Footer'
-import { filterMovies } from '../../utils/utils';
+import { filterQueryMovies, filterShortMovies } from '../../utils/utils';
 
 function Movies(props) {
 
 
-    const [queryMovies, setQueryMovies] = useState([]) // фильмы по запросу
-    const [shortMovies, setShortMovies] = useState(false);
+    const [queryMovies, setQueryMovies] = useState([]) // список фильмов по запросу
+    const [filteredMovies, setFilteredMovies] = useState([]) // конечный видимый массив
+    const [shortMovies, setShortMovies] = useState(false); // состояние чекбокса
 
     //
 
     function onQueryMovies(query) { //потом добавить короткометражки
 
-        const moviesList = filterMovies(props.allMovies, query); //фильтруем полученный массив по запросу
+        const moviesList = filterQueryMovies(props.allMovies, query); //фильтруем полученный массив по запросу
 
         setQueryMovies(moviesList)
+        setFilteredMovies(moviesList)
 
         //setFilteredMovies(short ? filterDuration(moviesList) : moviesList); //если чекбокс тру, то фильруем по длине и записываем в стейт
         /*
@@ -38,6 +40,12 @@ function Movies(props) {
 
     function handleShortMovies() {
         setShortMovies(!shortMovies)
+
+        if (!shortMovies) {
+            setFilteredMovies(filterShortMovies(filteredMovies));
+        } else {
+            setFilteredMovies(queryMovies)
+        }
     }
 
 
@@ -64,7 +72,7 @@ function Movies(props) {
                     setAllMovies={props.setAllMovies}
                     setSavedMovie={props.setSavedMovie}
 
-                    movies={queryMovies}
+                    movies={filteredMovies}
                 />
 
             </main>

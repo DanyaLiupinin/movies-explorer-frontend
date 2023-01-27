@@ -1,4 +1,4 @@
-export function filterMovies(movies, userQuery) { //не забыть про короткометражки
+export function filterQueryMovies(movies, userQuery) { //не забыть про короткометражки
     const moviesByUserQuery = movies.filter((movie) => {
       const movieTitleRu = String(movie.nameRU).toLowerCase().trim();
       const movieTitleEng = String(movie.nameEN).toLowerCase().trim();
@@ -15,4 +15,8 @@ export function filterMovies(movies, userQuery) { //не забыть про к�
       return moviesByUserQuery;
     }
     */
+  }
+
+  export function filterShortMovies(movies) {
+    return movies.filter(movie => movie.duration < 40);
   }

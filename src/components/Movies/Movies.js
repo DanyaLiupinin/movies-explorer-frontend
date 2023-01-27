@@ -12,103 +12,102 @@ function Movies(props) {
     const [queryMovies, setQueryMovies] = useState([]) // список фильмов по запросу
     const [filteredMovies, setFilteredMovies] = useState([]) // конечный видимый массив
     const [shortMovies, setShortMovies] = useState(false); // состояние чекбокса
-    const [lastQuery, setLastQuery] = useState('')
+    const [query, setQuery] = useState('')
 
-    // возвращаем запрос при возвращении на страницу
+    // возвращаем состояния при возвращении на страницу
 
     useEffect(() => {
 
-        if (localStorage.getItem('visibleMovies')) {
-            const movies = JSON.parse(localStorage.getItem('visibleMovies'));
+        const movies = JSON.parse(localStorage.getItem('visibleMovies'));
+        const query = localStorage.getItem('query')
+
+        if (movies) {
             setFilteredMovies(movies);
-
-        if (localStorage.getItem('query')) {
-            const query = localStorage.getItem('query')
-            setLastQuery(query)
         }
 
-            /*
-            if (localStorage.getItem('shortMovies') === 'true') {
-              setFilteredMovies(filterDuration(movies));
-            } else {
-              setFilteredMovies(movies);
-            }
-          } else {
-            // setIsNotFound(true);
-          } 
-          */
+        if (query) {
+            setQuery(query)
         }
-    }, [])
 
-    function onQueryMovies(query) { //потом добавить короткометражки
+        /*
 
-        const moviesList = filterQueryMovies(props.allMovies, query); //фильтруем полученный массив по запросу
-        setQueryMovies(moviesList) // добавляем в список запрошенных фильмов
-
-        if (shortMovies) {
-            setFilteredMovies(filterShortMovies(moviesList))
+        if (checkbox) {
+            setFilteredMovies(filterShortMovies(movies))
         } else {
-            setFilteredMovies(moviesList)
+            setFilteredMovies(movies)
         }
-
-        //setFilteredMovies(short ? filterDuration(moviesList) : moviesList); //если чекбокс тру, то фильруем по длине и записываем в стейт
-        localStorage.setItem('visibleMovies', JSON.stringify(moviesList));
-        localStorage.setItem('query', query)
-        // setIsNotFound(moviesList.length === 0 ? true : false);
-    }
-
-    /*
-    useEffect(() => {
-      if (filteredMovies.length === 0) {
-          setFilteredMovies(props.allMovies)
-      }
-    }, [filteredMovies, props.allMovies])
     */
 
-    function handleShortMovies() {
-        setShortMovies(!shortMovies)
+    }, [])
 
-        if (!shortMovies) {
-            setFilteredMovies(filterShortMovies(filteredMovies));
-        } else {
-            setFilteredMovies(queryMovies)
-        }
+    useEffect(() => {
+
+        const checkbox = localStorage.getItem('checkbox')
+        setShortMovies(checkbox)
+
+    }, [])
+
+function onQueryMovies(query) {
+
+    const moviesList = filterQueryMovies(props.allMovies, query); //фильтруем полученный массив по запросу
+    setQueryMovies(moviesList) // добавляем в список запрошенных фильмов
+
+    if (shortMovies) {
+        setFilteredMovies(filterShortMovies(moviesList))
+    } else {
+        setFilteredMovies(moviesList)
     }
 
+    localStorage.setItem('visibleMovies', JSON.stringify(moviesList));
+    localStorage.setItem('query', query)
+}
+
+function handleShortMovies() {
+    localStorage.setItem('checkbox', !shortMovies)
+    setShortMovies(!shortMovies)
+
+    if (!shortMovies) {
+        setFilteredMovies(filterShortMovies(filteredMovies));
+    } else {
+        setFilteredMovies(queryMovies)
+    }
+}
 
 
-    return (
-        <>
-            <Header
-                loggedIn={props.loggedIn}
-                setLoggedIn={props.setLoggedIn}
-                handleOnClickBurger={props.handleOnClickBurger}
-                isBurgerOpened={props.isBurgerOpened} />
 
-            <main className="movies">
+return (
+    <>
+        <Header
+            loggedIn={props.loggedIn}
+            setLoggedIn={props.setLoggedIn}
+            handleOnClickBurger={props.handleOnClickBurger}
+            isBurgerOpened={props.isBurgerOpened} />
 
-                <SearchForm
+        <main className="movies">
 
-                    onQueryMovies={onQueryMovies}
-                    shortMovies={shortMovies}
-                    handleShortMovies={handleShortMovies}
-                    queryError={props.queryError}
-                    lastQuery={lastQuery}
-                />
+            <SearchForm
 
-                <MoviesCardList
-                    allMovies={props.allMovies}
-                    setAllMovies={props.setAllMovies}
-                    setSavedMovie={props.setSavedMovie}
+                onQueryMovies={onQueryMovies}
+                shortMovies={shortMovies}
+                handleShortMovies={handleShortMovies}
+                queryError={props.queryError}
+                query={query}
+                setQuery={setQuery}
+            />
 
-                    movies={filteredMovies}
-                />
+            <MoviesCardList
+                allMovies={props.allMovies}
+                setAllMovies={props.setAllMovies}
+                setSavedMovie={props.setSavedMovie}
 
-            </main>
+                movies={filteredMovies}
+            />
 
-            <Footer />
-        </>
-    )
+        </main>
+
+        <Footer />
+    </>
+)
 }
 
 export default Movies

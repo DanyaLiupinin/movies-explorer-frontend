@@ -2,8 +2,6 @@ import './FilterCheckbox.css'
 
 function FilterCheckbox({handleShortMovies, shortMovies}) {
 
-    // хз меняется ли стейт когда щелкаю по чекбоксу
-
     return (
         <div className="checkbox" tabIndex="0" >
             <div className='checkbox__container'>

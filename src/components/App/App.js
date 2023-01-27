@@ -112,3 +112,5 @@ export default App;
 // TODO
 
 // Preloader
+
+// Заменить фотку и информацию на свои в maim

@@ -9,7 +9,7 @@ import { filterMovies } from '../../utils/utils';
 function Movies(props) {
 
 
-    const [filteredMovies, setFilteredMovies] = useState([])
+    const [queryMovies, setQueryMovies] = useState([]) // фильмы по запросу
     const [shortMovies, setShortMovies] = useState(false);
 
     //
@@ -18,7 +18,7 @@ function Movies(props) {
 
         const moviesList = filterMovies(props.allMovies, query); //фильтруем полученный массив по запросу
 
-        setFilteredMovies(moviesList)
+        setQueryMovies(moviesList)
 
         //setFilteredMovies(short ? filterDuration(moviesList) : moviesList); //если чекбокс тру, то фильруем по длине и записываем в стейт
         /*
@@ -64,7 +64,7 @@ function Movies(props) {
                     setAllMovies={props.setAllMovies}
                     setSavedMovie={props.setSavedMovie}
 
-                    movies={filteredMovies}
+                    movies={queryMovies}
                 />
 
             </main>

@@ -7,7 +7,7 @@ function MoviesCardList(props) {
 
     const location = useLocation();
 
-    const width = window.innerWidth
+    const [width, setWidth] = useState(window.innerWidth)
 
     const numberOfVisibleFilms = (width) => { // REFACTORING: заменить на конфиг-объект
         if (width >= 1051) {
@@ -34,12 +34,17 @@ function MoviesCardList(props) {
         }
     }
 
-    const [movieCounter, setMovieCounter] = useState(numberOfVisibleFilms(width)) 
+    const [movieCounter, setMovieCounter] = useState(numberOfVisibleFilms(width))
     // кол-во фильмов в зависимсоти от ширины
-    const movieStep = showMoreStep(width) 
+    const movieStep = showMoreStep(width)
     // сколько фильмов появится при 'показать ещё'
 
-    
+    useEffect(() => {
+        setTimeout(() => {
+            window.addEventListener('resize', setWidth(window.innerWidth));  // проетстить в конце изменение кол-ва фильмов
+        }, 500);
+    });
+
     function showMoreHandler() {
         setMovieCounter(movieCounter + movieStep)
     }

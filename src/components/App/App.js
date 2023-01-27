@@ -15,26 +15,10 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(true)
   const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
   const [allMovies, setAllMovies] = useState([]) // все фильмы
-  const [queryError, setQueryError] = useState(false)
 
   function handleOnClickBurger() {
     setIsBurgerOpened(!isBurgerOpened)
   }
-
-  useEffect(() => {
-
-    getAllMovies()
-    .then((res) => {
-      setQueryError(false)
-      setAllMovies(res)
-    })
-    .catch((err) => {
-      setQueryError(true)
-      console.log(err)
-    })
-
-  }, [])
-
 
   return (
     <>
@@ -59,7 +43,6 @@ function App() {
               allMovies={allMovies}
               setAllMovies={setAllMovies}
 
-              queryError={queryError}
             />} /> :
             <Route path="/movies" element={<Navigate to="/signup" />} />
         }

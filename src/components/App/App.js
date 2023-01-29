@@ -16,6 +16,7 @@ function App() {
   const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
   const [allMovies, setAllMovies] = useState([]) // все фильмы
   const [queryError, setQueryError] = useState(false) // ошибка запроса
+  const [savedMovies, setSavedMovie] = useState([])
 
   function handleOnClickBurger() {
     setIsBurgerOpened(!isBurgerOpened)
@@ -53,8 +54,6 @@ function App() {
               isBurgerOpened={isBurgerOpened}
 
               allMovies={allMovies}
-              setAllMovies={setAllMovies}
-
               queryError={queryError}
 
             />} /> :
@@ -70,7 +69,9 @@ function App() {
               isBurgerOpened={isBurgerOpened}
 
               allMovies={allMovies}
-              setAllMovies={setAllMovies}
+              queryError={queryError}
+              savedMovies={savedMovies}
+              setSavedMovie={setSavedMovie}
             />} />
             :
             <Route path="/profile" element={<Navigate to="/signup" />} />

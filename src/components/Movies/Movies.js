@@ -88,6 +88,7 @@ function Movies(props) {
                     onQueryMovies={onQueryMovies}
                     shortMovies={shortMovies}
                     handleShortMovies={handleShortMovies}
+                    
                     queryError={props.queryError}
                     query={query}
                     setQuery={setQuery}
@@ -95,8 +96,8 @@ function Movies(props) {
 
                 <MoviesCardList
                     allMovies={props.allMovies}
-                    setAllMovies={props.setAllMovies}
-                    setSavedMovie={props.setSavedMovie}
+                    //setAllMovies={props.setAllMovies}
+                    //setSavedMovie={props.setSavedMovie}
 
                     movies={filteredMovies}
                 />

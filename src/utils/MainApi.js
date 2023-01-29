@@ -29,8 +29,7 @@ export const saveMovie = (data) => {
         }),
     })
         .then((res) => {
-            checkRequest(res)
-            console.log(res)
+            return checkRequest(res)
         })
 }
 

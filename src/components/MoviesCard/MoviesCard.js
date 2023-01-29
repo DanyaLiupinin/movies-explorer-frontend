@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { saveMovie } from '../../utils/MainApi';
 import './MoviesCard.css'
 
 function MoviesCard(props) {
 
     const location = useLocation();
 
-    const [savedMovie, setSavedMovie] = useState(false)
-
     function toggleMovieState () {
-        setSavedMovie(!savedMovie)
+
+        //localStorage.setItem(`${props.movie.title} is saved`, savedMovie)
         
-        if (!savedMovie) {
+        if (!props.movieSaved) {
             props.saveMovie(props.movie)
         } else {
             props.deleteMovie(props.movie)
@@ -38,7 +36,7 @@ function MoviesCard(props) {
                 {location.pathname === '/movies' ?  
 
                     <label className='movie__button-label'>
-                        <input className='movie__button' checked={savedMovie ? true : false} type='checkbox' id="movie__save-button" onChange={toggleMovieState}></input>
+                        <input className='movie__button' checked={props.movieSaved ? true : false} type='checkbox' id="movie__save-button" onChange={toggleMovieState}></input>
                         <span className='movie__custom-button'></span>
                     </label>
 

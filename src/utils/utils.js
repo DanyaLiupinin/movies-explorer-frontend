@@ -20,3 +20,15 @@ export function filterQueryMovies(movies, userQuery) { //не забыть пр�
   export function filterShortMovies(movies) {
     return movies.filter(movie => movie.duration < 40);
   }
+
+  export function isMovieSaved(savedMovies, movie) {
+
+    if (savedMovies.length !== 0) {
+
+      return savedMovies.find((item) => {
+        return item.movieId === (movie.id || movie.movieId);
+      });
+
+    }
+    
+  }

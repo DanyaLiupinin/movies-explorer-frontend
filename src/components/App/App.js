@@ -10,6 +10,7 @@ import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { getAllMovies } from '../../utils/MoviesApi';
 import { saveMovie, deleteMovie } from '../../utils/MainApi';
+import { isMovieSaved } from '../../utils/utils';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
   const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
   const [allMovies, setAllMovies] = useState([]) // все фильмы
   const [queryError, setQueryError] = useState(false) // ошибка запроса
-  const [savedMovies, setSavedMovie] = useState([])
+  const [savedMovies, setSavedMovie] = useState([]) // сохраненные фильмы
 
   function handleOnClickBurger() {
     setIsBurgerOpened(!isBurgerOpened)
@@ -38,7 +39,6 @@ function App() {
     saveMovie(movie)
       .then((movie) => {
         setSavedMovie([movie, ...savedMovies])
-        console.log('zbs')
       })
       .catch((err) => {
         console.log(err)
@@ -92,6 +92,8 @@ function App() {
 
                 saveMovie={saveMoviehandler}
                 deleteMovie={deleteMovieHandler}
+
+                savedMovies={savedMovies}
 
               />} /> :
               <Route path="/movies" element={<Navigate to="/signup" />} />

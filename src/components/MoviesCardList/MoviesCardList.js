@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard';
 import { useLocation } from 'react-router-dom';
+import { isMovieSaved } from '../../utils/utils';
 
 function MoviesCardList(props) {
 
@@ -65,6 +66,8 @@ function MoviesCardList(props) {
                                     trailer={movie.trailerLink}
                                     saveMovie={props.saveMovie}
                                     deleteMovie={props.deleteMovie}
+
+                                    movieSaved={isMovieSaved(props.savedMovies, movie)}
                                 />
                             </React.Fragment>
                         )

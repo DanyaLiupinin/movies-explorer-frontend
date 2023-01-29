@@ -9,8 +9,7 @@ import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { getAllMovies } from '../../utils/MoviesApi';
-import { saveMovie, deleteMovie } from '../../utils/MainApi';
-import { isMovieSaved } from '../../utils/utils';
+import { saveMovie, deleteMovie, getSavedMovies } from '../../utils/MainApi';
 
 function App() {
 
@@ -34,6 +33,13 @@ function App() {
         setQueryError(true)
       })
   }, [])
+
+  useEffect(() => {
+    getSavedMovies()
+    .then((movies) => {
+      setSavedMovie(movies)
+    })
+  })
 
   function saveMoviehandler(movie) {
     saveMovie(movie)

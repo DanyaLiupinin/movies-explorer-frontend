@@ -6,6 +6,9 @@ function MoviesCard(props) {
 
     const location = useLocation();
 
+    function saveMovie () {
+        console.log('privki')
+    }
 
     return (
 
@@ -25,7 +28,7 @@ function MoviesCard(props) {
                 {location.pathname === '/movies' ?  
 
                     <label className='movie__button-label'>
-                        <input className='movie__button' type='checkbox' id="movie__save-button"></input>
+                        <input className='movie__button' type='checkbox' id="movie__save-button" onClick={saveMovie}></input>
                         <span className='movie__custom-button'></span>
                     </label>
 

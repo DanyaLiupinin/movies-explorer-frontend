@@ -22,7 +22,7 @@ function SavedMovies(props) {
             <SearchForm />
 
             <MoviesCardList 
-            visibleMovies={props.allMovies}
+            
             />
 
         </main>

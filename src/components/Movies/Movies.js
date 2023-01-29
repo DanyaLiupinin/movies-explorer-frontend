@@ -5,16 +5,13 @@ import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Footer from '../Footer/Footer'
 import { filterQueryMovies, filterShortMovies } from '../../utils/utils';
-import { getAllMovies } from '../../utils/MoviesApi'
 
 function Movies(props) {
 
-    const [allMovies, setAllMovies] = useState([])
     const [queryMovies, setQueryMovies] = useState([]) // список фильмов по запросу
     const [filteredMovies, setFilteredMovies] = useState([]) // конечный видимый массив
     const [shortMovies, setShortMovies] = useState(false); // состояние чекбокса
     const [query, setQuery] = useState('')
-    const [queryError, setQueryError] = useState(false)
 
     // возвращаем состояния при возвращении на страницу
 
@@ -53,7 +50,7 @@ function Movies(props) {
             //localStorage.setItem('visibleMovies', JSON.stringify(filterShortMovies(moviesList)));
         } else {
             setFilteredMovies(moviesList)
-            
+
         }
 
         localStorage.setItem('visibleMovies', JSON.stringify(moviesList))
@@ -61,24 +58,9 @@ function Movies(props) {
 
     }
 
-
     function onQueryMovies(query) {
-
-        if (allMovies.length === 0) {
-        
-            getAllMovies()
-                .then(movies => {
-                    setAllMovies(movies);
-                    setFilteredMoviesHandler(movies, query);
-                })
-                .catch(() =>
-                    setQueryError(true)
-                )
-            
-        } else {
-            setFilteredMoviesHandler(allMovies, query);
-        }
-    } 
+        setFilteredMoviesHandler(props.allMovies, query);
+    }
 
     function handleShortMovies() {
         localStorage.setItem('checkbox', !shortMovies)
@@ -106,7 +88,7 @@ function Movies(props) {
                     onQueryMovies={onQueryMovies}
                     shortMovies={shortMovies}
                     handleShortMovies={handleShortMovies}
-                    queryError={queryError}
+                    queryError={props.queryError}
                     query={query}
                     setQuery={setQuery}
                 />

@@ -23,41 +23,24 @@ function Movies(props) {
         const movies = JSON.parse(localStorage.getItem('visibleMovies'));
         const query = localStorage.getItem('query')
         const check = JSON.parse(localStorage.getItem('check'))
-        console.log(check)
-
-        if (check) {
-            setShortMovies(true)
-        } else {
-            setShortMovies(false)
-        }
 
         if (query) {
             setQuery(query)
         }
 
-
         if (movies) {
-
-            if (shortMovies) {
-                setFilteredMovies(filterShortMovies(movies))
-
-            } else {
-                setFilteredMovies(movies)
-            }
-
             setQueryMovies(movies)
-
-
         }
 
-    }, [shortMovies])
+        if (movies && check) {
+            setFilteredMovies(filterShortMovies(movies))
+            setShortMovies(true)
+        } else if (movies && !check) {
+            setFilteredMovies(movies)
+            setShortMovies(false)
+        }
 
-
-
-
-
-
-
+    }, [])
 
 
     function setFilteredMoviesHandler(movies, query) {

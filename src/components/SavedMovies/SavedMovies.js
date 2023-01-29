@@ -8,10 +8,10 @@ import { filterQueryMovies, filterShortMovies } from '../../utils/utils';
 
 function SavedMovies(props) {
 
-    const [filteredMovies, setFilteredMovies] = useState([])
+    const [filteredMovies, setFilteredMovies] = useState([]) // отфильтрованные фильмы
     const [queryMovies, setQueryMovies] = useState([]) // список фильмов по запросу
     const [shortMovies, setShortMovies] = useState(false); // состояние чекбокса
-    const [query, setQuery] = useState('')
+    const [query, setQuery] = useState('') // запрос
 
     function setFilteredMoviesHandler(movies, query) {
 

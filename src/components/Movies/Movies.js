@@ -22,7 +22,7 @@ function Movies(props) {
 
         const movies = JSON.parse(localStorage.getItem('visibleMovies'));
         const query = localStorage.getItem('query')
-        const check = JSON.parse(localStorage.getItem('check'))
+        const checkbox = JSON.parse(localStorage.getItem('checkbox'))
 
         if (query) {
             setQuery(query)
@@ -32,10 +32,10 @@ function Movies(props) {
             setQueryMovies(movies)
         }
 
-        if (movies && check) {
+        if (movies && checkbox) {
             setFilteredMovies(filterShortMovies(movies))
             setShortMovies(true)
-        } else if (movies && !check) {
+        } else if (movies && !checkbox) {
             setFilteredMovies(movies)
             setShortMovies(false)
         }
@@ -81,7 +81,7 @@ function Movies(props) {
     } 
 
     function handleShortMovies() {
-        localStorage.setItem('check', !shortMovies)
+        localStorage.setItem('checkbox', !shortMovies)
         setShortMovies(!shortMovies)
 
         if (!shortMovies) {

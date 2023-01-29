@@ -3,7 +3,7 @@ import { checkRequest } from "./checkRequest";
 const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhZjEzN2YwMzU0ZDk5NDEyZjlhYWEiLCJpYXQiOjE2NzQ5OTMzOTQsImV4cCI6MTY3NTU5ODE5NH0.81jqyiSLIt7I5aAxq7J7vigQqmniVgbi1QeHfOz8SjQ'
 
 const apiLink = 'https://api.cinema-explorer.nomoredomains.club'
-    
+
 
 export const saveMovie = (data) => {
     return fetch(`${apiLink}/movies`, {
@@ -12,7 +12,7 @@ export const saveMovie = (data) => {
             //authorization: `Bearer ${localStorage.getItem('jwt')}`,
             authorization: token,
             'Content-Type': 'application/json',
-            
+
         },
         body: JSON.stringify({
             country: data.country,
@@ -35,11 +35,21 @@ export const saveMovie = (data) => {
 
 export const deleteMovie = (data) => {
     return fetch(`${apiLink}/movies/${data}`, {
-      method: 'DELETE',
-      headers: {
-        authorization: token
-        //authorization: `Bearer ${localStorage.getItem('jwt')}`,
-      },
+        method: 'DELETE',
+        headers: {
+            authorization: token
+            //authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        },
     })
-    .then(res => checkRequest(res));
-  }
+        .then(res => checkRequest(res));
+}
+
+export const getSavedMovies = () => {
+    return fetch(`${apiLink}/movies`, {
+        headers: {
+            //authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            authorization: token
+        },
+    })
+        .then(res => checkRequest(res));
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './MoviesCard.css'
 
@@ -8,7 +8,7 @@ function MoviesCard(props) {
 
     function toggleMovieState () {
 
-        //localStorage.setItem(`${props.movie.title} is saved`, savedMovie)
+        //localStorage.setItem(`${props.movie.title} is saved`, props.movieSaved)
         
         if (!props.movieSaved) {
             props.saveMovie(props.movie)

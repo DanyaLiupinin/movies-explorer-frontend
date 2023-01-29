@@ -61,6 +61,7 @@ function MoviesCardList(props) {
                                     image={movie.image.url}
                                     title={movie.nameRU}
                                     duration={movie.duration}
+                                    trailer={movie.trailerLink}
                                 />
                             </React.Fragment>
                         )

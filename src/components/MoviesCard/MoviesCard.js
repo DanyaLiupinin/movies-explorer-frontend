@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { saveMovie } from '../../utils/MainApi';
 import './MoviesCard.css'
 
 function MoviesCard(props) {
@@ -10,6 +11,13 @@ function MoviesCard(props) {
 
     function toggleMovieState () {
         setSavedMovie(!savedMovie)
+        
+        if (!savedMovie) {
+            props.saveMovie(props.movie)
+        } else {
+            props.deleteMovie(props.movie)
+        }
+
     }
 
     return (

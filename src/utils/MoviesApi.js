@@ -1,3 +1,5 @@
+import { checkRequest } from "./checkRequest";
+
 const moviesUrl = 'https://api.nomoreparties.co/beatfilm-movies'
 
 export const getAllMovies = () => {
@@ -7,14 +9,7 @@ export const getAllMovies = () => {
             'Content-Type': 'application/json',
         },
     })
-        .then((res) => checkRes(res));
+        .then((res) => checkRequest(res));
 }
 
-
-const checkRes = (res) => {
-    if (res.ok) {
-        return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-};
 

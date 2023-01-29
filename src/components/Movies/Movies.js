@@ -88,7 +88,7 @@ function Movies(props) {
                     onQueryMovies={onQueryMovies}
                     shortMovies={shortMovies}
                     handleShortMovies={handleShortMovies}
-                    
+
                     queryError={props.queryError}
                     query={query}
                     setQuery={setQuery}
@@ -100,6 +100,9 @@ function Movies(props) {
                     //setSavedMovie={props.setSavedMovie}
 
                     movies={filteredMovies}
+
+                    saveMovie={props.saveMovie}
+                    deleteMovie={props.deleteMovie}
                 />
 
             </main>

@@ -58,10 +58,13 @@ function MoviesCardList(props) {
                         return (
                             <React.Fragment key={movie.id}>
                                 <MoviesCard
+                                    movie={movie}
                                     image={movie.image.url}
                                     title={movie.nameRU}
                                     duration={movie.duration}
                                     trailer={movie.trailerLink}
+                                    saveMovie={props.saveMovie}
+                                    deleteMovie={props.deleteMovie}
                                 />
                             </React.Fragment>
                         )

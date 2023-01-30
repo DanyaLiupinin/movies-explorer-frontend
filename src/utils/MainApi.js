@@ -5,6 +5,20 @@ const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhZjEzN
 const apiLink = 'https://api.cinema-explorer.nomoredomains.club'
 
 
+export const authorization = (email, password) => {
+    return fetch(`${apiLink}/signin`, {
+        method: 'POST',
+        headers: { 
+            'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify({ email, password }),
+    })
+    .then((res) => {
+        return checkRequest(res)
+    })
+}
+
+
 export const saveMovie = (data) => {
     return fetch(`${apiLink}/movies`, {
         method: 'POST',
@@ -58,3 +72,4 @@ export const getSavedMovies = () => {
             return checkRequest(res)
         })
 }
+

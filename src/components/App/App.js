@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import Register from '../Register/Register';
@@ -9,15 +9,16 @@ import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { getAllMovies } from '../../utils/MoviesApi';
-import { saveMovie, deleteMovie, getSavedMovies } from '../../utils/MainApi';
+import { saveMovie, deleteMovie, getSavedMovies, authorization } from '../../utils/MainApi';
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = useState(true)
+  const [loggedIn, setLoggedIn] = useState(false)
   const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
   const [allMovies, setAllMovies] = useState([]) // все фильмы
   const [queryError, setQueryError] = useState(false) // ошибка запроса
   const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
+  const navigate = useNavigate()
 
   function handleOnClickBurger() {
     setIsBurgerOpened(!isBurgerOpened)
@@ -76,6 +77,22 @@ function App() {
         .catch((err) => {
           console.log(err)  // написать нормальную обработку ошибок
         }) 
+      }
+
+      function authorizationHandler () {
+        
+        authorization()
+        .then((jwt) => {
+          if (jwt.token) {
+            localStorage.setItem('jwt', jwt.token);
+            setLoggedIn(true)
+            navigate('/movies')
+            console.log(jwt)
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
       }
 
   return (
@@ -146,7 +163,9 @@ function App() {
           } />
 
           <Route path='/signin' element={
-            <Login />
+            <Login 
+            authorizationHandler={authorizationHandler}
+            />
           } />
 
           <Route path='*' element={

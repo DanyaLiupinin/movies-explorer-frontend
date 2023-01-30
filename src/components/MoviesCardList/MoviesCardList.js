@@ -70,6 +70,7 @@ function MoviesCardList(props) {
                                             title={movie.nameRU}
                                             duration={movie.duration}
                                             trailer={movie.trailerLink}
+                                            
                                             saveMovie={props.saveMovie}
                                             deleteMovie={props.deleteMovie}
 

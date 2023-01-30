@@ -6,16 +6,12 @@ function MoviesCard(props) {
 
     const location = useLocation();
 
-    function toggleMovieState () {
+    function saveMovie () {
+        props.saveMovie(props.movie)
+    }
 
-        //localStorage.setItem(`${props.movie.title} is saved`, props.movieSaved)
-        
-        if (!props.movieSaved) {
-            props.saveMovie(props.movie)
-        } else {
-            props.deleteMovie(props.movie)
-        }
-
+    function deleteMovie () {
+        props.deleteMovie(props.movie)
     }
 
     return (
@@ -36,13 +32,13 @@ function MoviesCard(props) {
                 {location.pathname === '/movies' ?  
 
                     <label className='movie__button-label'>
-                        <input className='movie__button' checked={props.movieSaved ? true : false} type='checkbox' id="movie__save-button" onChange={toggleMovieState}></input>
+                        <input className='movie__button' checked={props.movieSaved ? true : false} type='checkbox' id="movie__save-button" onChange={props.movieSaved ? deleteMovie : saveMovie}></input>
                         <span className='movie__custom-button'></span>
                     </label>
 
                     :
 
-                    <button type='button' className='movie__button-delete'></button>
+                    <button type='button' className='movie__button-delete' onClick={deleteMovie}></button>
 
                 }
 

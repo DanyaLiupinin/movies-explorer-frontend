@@ -60,11 +60,12 @@ function App() {
     const savedMovie = savedMovies.find(
       (i) => i.movieId === movie.id || i.movieId === movie.movieId
     );
-
+    
     deleteMovie(savedMovie._id)
       .then((movie) => {
+
         const newSavedMoviesList = savedMovies.filter(m => {
-          if (movie.id === m.movieId || movie.movieId === m.movieId) {
+          if (movie._id === m.movieId || movie.movieId === m.movieId) {
             return false
           } else {
             return true
@@ -74,7 +75,7 @@ function App() {
         })
         .catch((err) => {
           console.log(err)  // написать нормальную обработку ошибок
-        })
+        }) 
       }
 
   return (

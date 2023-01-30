@@ -55,6 +55,7 @@ function App() {
     if (jwt) {
 
       setLoggedIn(true)
+      navigate('/')
 
       getUserInfo()
         .then((userData) => {

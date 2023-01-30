@@ -80,3 +80,17 @@ export const getUserInfo = () => {
         return checkRequest(res)
     })
   }
+
+  export const updateUserInfo = (name, email) => {
+    return fetch(`${apiLink}/users/me`, {
+      method: 'PATCH',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email }),
+    })
+    .then((res) => {
+        return checkRequest(res)
+    })
+  }

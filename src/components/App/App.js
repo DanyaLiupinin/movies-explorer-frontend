@@ -95,6 +95,12 @@ function App() {
         })
       }
 
+      function signOut () {
+        localStorage.clear()
+        setLoggedIn(false)
+        navigate('/')
+      }
+
   return (
       <>
         <Routes>
@@ -154,6 +160,8 @@ function App() {
                 setLoggedIn={setLoggedIn}
                 handleOnClickBurger={handleOnClickBurger}
                 isBurgerOpened={isBurgerOpened}
+
+                signOut={signOut}
               />} /> :
               <Route path="/profile" element={<Navigate to="/signup" />} />
           }

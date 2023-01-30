@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, createContext } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -9,10 +9,13 @@ import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { getAllMovies } from '../../utils/MoviesApi';
-import { saveMovie, deleteMovie, getSavedMovies, authorization } from '../../utils/MainApi';
+import { saveMovie, deleteMovie, getSavedMovies, authorization, getUserInfo } from '../../utils/MainApi';
 
 function App() {
 
+  const CurrentUserContext = createContext();
+
+  const [currentUser, setCurrentUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
   const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
   const [allMovies, setAllMovies] = useState([]) // все фильмы
@@ -38,18 +41,18 @@ function App() {
 
   useEffect(() => {
     getSavedMovies()
-    .then((movies) => {
-      setSavedMovies(movies.reverse())
-    })
-    .catch((err) => {
-      console.log(`ошибка ${err}`)
-    })
+      .then((movies) => {
+        setSavedMovies(movies.reverse())
+      })
+      .catch((err) => {
+        console.log(`ошибка ${err}`)
+      })
   }, [])
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt') // +добавление информации о пользователе
 
-    if(jwt) {
+    if (jwt) {
       setLoggedIn(true)
     } else {
       setLoggedIn(false)
@@ -73,7 +76,7 @@ function App() {
     const savedMovie = savedMovies.find(
       (i) => i.movieId === movie.id || i.movieId === movie.movieId
     );
-    
+
     deleteMovie(savedMovie._id)
       .then((movie) => {
 
@@ -85,36 +88,37 @@ function App() {
           }
         })
         setSavedMovies(newSavedMoviesList)
-        })
-        .catch((err) => {
-          console.log(err)  // написать нормальную обработку ошибок
-        }) 
-      }
+      })
+      .catch((err) => {
+        console.log(err)  // написать нормальную обработку ошибок
+      })
+  }
 
-      function authorizationHandler (email, password) {
-        
-        authorization(email, password)
-        .then((jwt) => {
-          if (jwt.token) {
-            localStorage.setItem('jwt', jwt.token);
-            setLoggedIn(true)
-            navigate('/')
-            console.log(jwt)
-          }
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-      }
+  function authorizationHandler(email, password) {
 
-      function signOut () {
-        localStorage.clear()
-        setLoggedIn(false)
-        navigate('/')
-      }
+    authorization(email, password)
+      .then((jwt) => {
+        if (jwt.token) {
+          localStorage.setItem('jwt', jwt.token);
+          setLoggedIn(true)
+          navigate('/')
+          console.log(jwt)
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  function signOut() {
+    localStorage.clear()
+    setLoggedIn(false)
+    navigate('/')
+  }
 
   return (
-      <>
+    <>
+      <CurrentUserContext.Provider value={currentUser}>
         <Routes>
           <Route path="/" exact element={
             <Main
@@ -183,8 +187,8 @@ function App() {
           } />
 
           <Route path='/signin' element={
-            <Login 
-            authorizationHandler={authorizationHandler}
+            <Login
+              authorizationHandler={authorizationHandler}
             />
           } />
 
@@ -193,11 +197,12 @@ function App() {
           } />
 
         </Routes>
-      </>
-    )
-  }
+      </CurrentUserContext.Provider>
+    </>
+  )
+}
 
-  export default App;
+export default App;
 
 // TODO
 

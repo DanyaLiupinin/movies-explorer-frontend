@@ -25,7 +25,7 @@ function Login({ authorizationHandler }) {
     function authorizationHandle (e) {
 
         e.preventDefault()
-
+        authorizationHandler(email, password)
 
     }
 

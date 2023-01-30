@@ -79,14 +79,14 @@ function App() {
         }) 
       }
 
-      function authorizationHandler () {
+      function authorizationHandler (email, password) {
         
-        authorization()
+        authorization(email, password)
         .then((jwt) => {
           if (jwt.token) {
             localStorage.setItem('jwt', jwt.token);
             setLoggedIn(true)
-            navigate('/movies')
+            navigate('/')
             console.log(jwt)
           }
         })

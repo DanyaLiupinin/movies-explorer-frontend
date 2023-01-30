@@ -44,7 +44,7 @@ function Login({ authorizationHandler }) {
                     </label>
 
                     <label className='login__input-label auth__input-label'> Пароль
-                        <input className='login__input auth__input' type='password' placeholder='Пароль' value={[password]} onChange={onInputChange} required></input>
+                        <input className='login__input auth__input' type='password' placeholder='Пароль' value={password} onChange={onInputChange} required></input>
                         <span className='login__error auth__error'>Что то пошло не так</span>
                     </label>
 

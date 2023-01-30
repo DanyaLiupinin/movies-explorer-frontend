@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useEffect, useState, createContext } from 'react';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import Register from '../Register/Register';
@@ -22,6 +22,7 @@ function App() {
   const [queryError, setQueryError] = useState(false) // ошибка запроса
   const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
   const navigate = useNavigate()
+  const root = useLocation();
 
   function handleOnClickBurger() {
     setIsBurgerOpened(!isBurgerOpened)
@@ -51,11 +52,12 @@ function App() {
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt') // +добавление информации о пользователе
+    const path = root.pathname;
 
     if (jwt) {
 
       setLoggedIn(true)
-      navigate('/')
+      navigate(path)
 
       getUserInfo()
         .then((userData) => {
@@ -69,7 +71,7 @@ function App() {
       setLoggedIn(false)
     }
 
-  }, [loggedIn])
+  }, [loggedIn, navigate, root.pathname])
 
 
   function saveMoviehandler(movie) {

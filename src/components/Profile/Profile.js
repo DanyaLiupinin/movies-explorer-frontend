@@ -4,13 +4,8 @@ import Header from '../Header/Header'
 
 function Profile(props) {
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-
-    useEffect(() => {
-        setName(props.currentUser.name)
-        setEmail(props.currentUser.email)
-    }, [props.currentUser.name, props.currentUser.email])
+    const [name, setName] = useState(props.currentUser.name)
+    const [email, setEmail] = useState(props.currentUser.email)
 
     function onInputChange (e) {
 

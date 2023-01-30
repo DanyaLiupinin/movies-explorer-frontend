@@ -51,7 +51,7 @@ function SavedMovies(props) {
         if (!shortMovies) {
             setFilteredMovies(filterShortMovies(filteredMovies));
         } else {
-            setFilteredMovies(queryMovies)
+            setFilteredMovies(queryMovies.length !== 0 ? queryMovies : props.savedMovies)
         }
     }
 

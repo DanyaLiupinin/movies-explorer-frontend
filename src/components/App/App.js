@@ -192,6 +192,7 @@ function App() {
 
                 signOut={signOut}
                 currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
               />} /> :
               <Route path="/profile" element={<Navigate to="/signup" />} />
           }

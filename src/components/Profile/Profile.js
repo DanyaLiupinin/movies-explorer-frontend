@@ -7,6 +7,10 @@ function Profile(props) {
     const [name, setName] = useState(props.currentUser.name)
     const [email, setEmail] = useState(props.currentUser.email)
 
+    useEffect(() => {
+        console.log(props.currentUser)
+    }, [])
+
     function onInputChange (e) {
 
         if (e.target.name === 'name') {
@@ -17,6 +21,13 @@ function Profile(props) {
             setEmail(e.target.value)
         }
 
+    }
+
+    function saveEditData () {
+        props.setCurrentUser({
+            name: name,
+            email: email
+        })
     }
 
     return (
@@ -43,7 +54,7 @@ function Profile(props) {
                         </div>
                     </div>
                     <div className='profile__buttons'>
-                        <button className='profile__button profile__button_type_edit' type='button'>Редактировать</button>
+                        <button className='profile__button profile__button_type_edit' type='button' onClick={saveEditData}>Редактировать</button>
                         <button className='profile__button profile__button_type_signup' type='button' onClick={props.signOut}>Выйти из аккаунта</button>
                     </div>
                 </div>

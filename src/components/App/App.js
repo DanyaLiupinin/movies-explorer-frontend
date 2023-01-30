@@ -17,7 +17,7 @@ function App() {
   const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
   const [allMovies, setAllMovies] = useState([]) // все фильмы
   const [queryError, setQueryError] = useState(false) // ошибка запроса
-  const [savedMovies, setSavedMovie] = useState([]) // сохраненные фильмы
+  const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
 
   function handleOnClickBurger() {
     setIsBurgerOpened(!isBurgerOpened)
@@ -34,17 +34,21 @@ function App() {
       })
   }, [])
 
+
   useEffect(() => {
     getSavedMovies()
     .then((movies) => {
-      setSavedMovie(movies)
+      setSavedMovies(movies)
     })
-  })
+    .catch((err) => {
+      console.log(`ошибка ${err}`)
+    })
+  }, [])
 
   function saveMoviehandler(movie) {
     saveMovie(movie)
       .then((movie) => {
-        setSavedMovie([movie, ...savedMovies])
+        setSavedMovies([movie, ...savedMovies])
       })
       .catch((err) => {
         console.log(err)
@@ -66,7 +70,7 @@ function App() {
             return true
           }
         })
-        setSavedMovie(newSavedMoviesList)
+        setSavedMovies(newSavedMoviesList)
         })
         .catch((err) => {
           console.log(err)
@@ -113,10 +117,13 @@ function App() {
                 handleOnClickBurger={handleOnClickBurger}
                 isBurgerOpened={isBurgerOpened}
 
-                allMovies={allMovies}
+                //allMovies={allMovies}
                 queryError={queryError}
-                savedMovies={savedMovies}
-                setSavedMovie={setSavedMovie}
+
+                saveMovie={saveMoviehandler}
+                deleteMovie={deleteMovieHandler}
+
+                savedMoviesss={savedMovies}
               />} />
               :
               <Route path="/profile" element={<Navigate to="/signup" />} />

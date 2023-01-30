@@ -15,12 +15,12 @@ export function filterQueryMovies(movies, userQuery) {
 
   export function isMovieSaved(savedMovies, movie) {
 
-    if (savedMovies.length !== 0) {
+    if (savedMovies) {
 
       return savedMovies.find((item) => {
         return item.movieId === (movie.id || movie.movieId);
       });
 
-    }
+    } 
     
   }

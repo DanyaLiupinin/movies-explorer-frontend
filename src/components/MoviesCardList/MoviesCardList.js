@@ -50,35 +50,75 @@ function MoviesCardList(props) {
         setMovieCounter(movieCounter + movieStep)
     }
 
+    useEffect(() => {
+
+        console.log('из кард листа')
+        console.log(props.movies)
+
+    }, [props.movies])
+
+
     return (
         <section className='moviesCardList'>
             <ul className='moviesCardList__container'>
 
                 {
-                    props.movies.slice(0, movieCounter).map((movie) => {
-                        return (
-                            <React.Fragment key={movie.id}>
-                                <MoviesCard
-                                    movie={movie}
-                                    image={movie.image.url}
-                                    title={movie.nameRU}
-                                    duration={movie.duration}
-                                    trailer={movie.trailerLink}
-                                    saveMovie={props.saveMovie}
-                                    deleteMovie={props.deleteMovie}
 
-                                    movieSaved={isMovieSaved(props.savedMovies, movie)}
-                                />
-                            </React.Fragment>
-                        )
-                    })
+                    props.movies ?
+
+                        location.pathname === '/movies' ?
+
+                            props.movies.slice(0, movieCounter).map((movie) => {
+                               
+                                return (
+                                    <React.Fragment key={movie.id}>
+                                        <MoviesCard
+                                            movie={movie}
+                                            image={`https://api.nomoreparties.co${movie.image.url}`}
+                                            title={movie.nameRU}
+                                            duration={movie.duration}
+                                            trailer={movie.trailerLink}
+                                            saveMovie={props.saveMovie}
+                                            deleteMovie={props.deleteMovie}
+
+                                            movieSaved={isMovieSaved(props.savedMovies, movie)}
+                                        />
+                                    </React.Fragment>
+                                )
+                            
+                            })
+
+                            :
+
+                            props.movies.slice(0, movieCounter).map((movie) => {
+                                return (
+                                    <React.Fragment key={movie.id}>
+                                        <MoviesCard
+                                            movie={movie}
+                                            image={movie.image}
+                                            title={movie.nameRU}
+                                            duration={movie.duration}
+                                            trailer={movie.trailerLink}
+
+                                            saveMovie={props.saveMovie}
+                                            deleteMovie={props.deleteMovie}
+
+                                            movieSaved={isMovieSaved(props.savedMovies, movie)}
+                                        />
+                                    </React.Fragment>
+                                )
+                            })
+
+                        : ''
                 }
+
+
 
             </ul>
 
             <div className={`moviesCardList__button-container ${location.pathname === '/saved-movies' ? 'moviesCardList__button-container_type_saved' : ''}`}>
 
-                {location.pathname === '/movies' && props.movies.length > movieCounter ?
+                {/*location.pathname === '/movies' && */ props.movies.length > movieCounter ?
                     <button className='moviesCardList__button' type='button' onClick={showMoreHandler}>Ещё</button>
                     :
                     ''

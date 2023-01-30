@@ -3,7 +3,7 @@ import Header from '../Header/Header'
 import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Footer from '../Footer/Footer'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { filterQueryMovies, filterShortMovies } from '../../utils/utils';
 
 function SavedMovies(props) {
@@ -12,6 +12,14 @@ function SavedMovies(props) {
     const [queryMovies, setQueryMovies] = useState([]) // список фильмов по запросу
     const [shortMovies, setShortMovies] = useState(false); // состояние чекбокса
     const [query, setQuery] = useState('') // запрос
+
+    
+    useEffect(() => {
+
+        setFilteredMovies(props.savedMoviesss)
+
+    }, [props.savedMoviesss]) 
+    
 
     function setFilteredMoviesHandler(movies, query) {
 
@@ -33,7 +41,7 @@ function SavedMovies(props) {
     }
 
     function onQueryMovies(query) {
-        setFilteredMoviesHandler(props.allMovies, query);
+        setFilteredMoviesHandler(props.savedMovies, query);
     }
 
     function handleShortMovies() {
@@ -72,9 +80,12 @@ function SavedMovies(props) {
                 />
 
                 <MoviesCardList
-                    allMovies={props.allMovies}
                     movies={filteredMovies}
 
+                    saveMovie={props.saveMovie}
+                    deleteMovie={props.deleteMovie}
+
+                    savedMovies={props.savedMoviess}
                 />
 
             </main>

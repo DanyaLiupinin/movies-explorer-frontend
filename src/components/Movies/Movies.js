@@ -95,14 +95,11 @@ function Movies(props) {
                 />
 
                 <MoviesCardList
-                    allMovies={props.allMovies}
-                    //setAllMovies={props.setAllMovies}
-                    //setSavedMovie={props.setSavedMovie}
-
                     movies={filteredMovies}
 
                     saveMovie={props.saveMovie}
                     deleteMovie={props.deleteMovie}
+
                     savedMovies={props.savedMovies}
                 />
 

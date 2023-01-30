@@ -41,15 +41,20 @@ export const deleteMovie = (data) => {
             //authorization: `Bearer ${localStorage.getItem('jwt')}`,
         },
     })
-        .then(res => checkRequest(res));
+        .then((res) => {
+            return checkRequest(res)
+        })
 }
 
 export const getSavedMovies = () => {
     return fetch(`${apiLink}/movies`, {
+        method: 'GET',
         headers: {
             //authorization: `Bearer ${localStorage.getItem('jwt')}`,
             authorization: token
         },
     })
-        .then(res => checkRequest(res));
+        .then((res) => {
+            return checkRequest(res)
+        })
 }

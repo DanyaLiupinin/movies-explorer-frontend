@@ -1,6 +1,6 @@
 import { checkRequest } from "./checkRequest";
 
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhZjEzN2YwMzU0ZDk5NDEyZjlhYWEiLCJpYXQiOjE2NzQ5OTMzOTQsImV4cCI6MTY3NTU5ODE5NH0.81jqyiSLIt7I5aAxq7J7vigQqmniVgbi1QeHfOz8SjQ'
+//const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhZjEzN2YwMzU0ZDk5NDEyZjlhYWEiLCJpYXQiOjE2NzQ5OTMzOTQsImV4cCI6MTY3NTU5ODE5NH0.81jqyiSLIt7I5aAxq7J7vigQqmniVgbi1QeHfOz8SjQ'
 
 const apiLink = 'https://api.cinema-explorer.nomoredomains.club'
 
@@ -23,8 +23,7 @@ export const saveMovie = (data) => {
     return fetch(`${apiLink}/movies`, {
         method: 'POST',
         headers: {
-            //authorization: `Bearer ${localStorage.getItem('jwt')}`,
-            authorization: token,
+            authorization: `Bearer ${localStorage.getItem('jwt')}`,
             'Content-Type': 'application/json',
 
         },
@@ -51,8 +50,7 @@ export const deleteMovie = (data) => {
     return fetch(`${apiLink}/movies/${data}`, {
         method: 'DELETE',
         headers: {
-            authorization: token
-            //authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            authorization: `Bearer ${localStorage.getItem('jwt')}`,
         },
     })
         .then((res) => {
@@ -64,8 +62,7 @@ export const getSavedMovies = () => {
     return fetch(`${apiLink}/movies`, {
         method: 'GET',
         headers: {
-            //authorization: `Bearer ${localStorage.getItem('jwt')}`,
-            authorization: token
+            authorization: `Bearer ${localStorage.getItem('jwt')}`,
         },
     })
         .then((res) => {
@@ -73,3 +70,13 @@ export const getSavedMovies = () => {
         })
 }
 
+export const getUserInfo = () => {
+    return fetch(`${apiLink}/users/me`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
+    })
+    .then((res) => {
+        return checkRequest(res)
+    })
+  }

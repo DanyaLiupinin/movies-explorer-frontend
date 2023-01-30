@@ -46,6 +46,18 @@ function App() {
     })
   }, [])
 
+  useEffect(() => {
+    const jwt = localStorage.getItem('jwt') // +добавление информации о пользователе
+
+    if(jwt) {
+      setLoggedIn(true)
+    } else {
+      setLoggedIn(false)
+    }
+
+  }, [loggedIn])
+
+
   function saveMoviehandler(movie) {
     saveMovie(movie)
       .then((movie) => {

@@ -16,9 +16,9 @@ function SavedMovies(props) {
     
     useEffect(() => {
 
-        setFilteredMovies(props.savedMoviesss)
+        setFilteredMovies(props.savedMovies)
 
-    }, [props.savedMoviesss]) 
+    }, [props.savedMovies]) 
     
 
     function setFilteredMoviesHandler(movies, query) {

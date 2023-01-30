@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     getSavedMovies()
     .then((movies) => {
-      setSavedMovies(movies)
+      setSavedMovies(movies.reverse())
     })
     .catch((err) => {
       console.log(`ошибка ${err}`)
@@ -73,7 +73,7 @@ function App() {
         setSavedMovies(newSavedMoviesList)
         })
         .catch((err) => {
-          console.log(err)
+          console.log(err)  // написать нормальную обработку ошибок
         })
       }
 
@@ -123,7 +123,7 @@ function App() {
                 saveMovie={saveMoviehandler}
                 deleteMovie={deleteMovieHandler}
 
-                savedMoviesss={savedMovies}
+                savedMovies={savedMovies}
               />} />
               :
               <Route path="/profile" element={<Navigate to="/signup" />} />

@@ -50,14 +50,6 @@ function MoviesCardList(props) {
         setMovieCounter(movieCounter + movieStep)
     }
 
-    useEffect(() => {
-
-        console.log('из кард листа')
-        console.log(props.movies)
-
-    }, [props.movies])
-
-
     return (
         <section className='moviesCardList'>
             <ul className='moviesCardList__container'>
@@ -92,7 +84,7 @@ function MoviesCardList(props) {
 
                             props.movies.slice(0, movieCounter).map((movie) => {
                                 return (
-                                    <React.Fragment key={movie.id}>
+                                    <React.Fragment key={movie._id}>
                                         <MoviesCard
                                             movie={movie}
                                             image={movie.image}

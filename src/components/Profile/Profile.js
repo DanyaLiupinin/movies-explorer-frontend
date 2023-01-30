@@ -17,11 +17,11 @@ function Profile(props) {
                     <div className='profile__inputs'>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>Имя</p>
-                            <input className='profile__input' type='text' placeholder='Имя' maxLength='35' ></input>
+                            <input className='profile__input' type='text' placeholder='Имя' maxLength='35' value={props.currentUser.name}></input>
                         </div>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>E-mail</p>
-                            <input className='profile__input' type='text' placeholder='E-mail' maxLength='35'></input>
+                            <input className='profile__input' type='text' placeholder='E-mail' maxLength='35' value={props.currentUser.email}></input>
                         </div>
                     </div>
                     <div className='profile__buttons'>

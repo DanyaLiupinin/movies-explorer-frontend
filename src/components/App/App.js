@@ -53,7 +53,17 @@ function App() {
     const jwt = localStorage.getItem('jwt') // +добавление информации о пользователе
 
     if (jwt) {
+
       setLoggedIn(true)
+
+      getUserInfo()
+        .then((userData) => {
+          setCurrentUser(userData)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+
     } else {
       setLoggedIn(false)
     }
@@ -178,6 +188,7 @@ function App() {
                 isBurgerOpened={isBurgerOpened}
 
                 signOut={signOut}
+                currentUser={currentUser}
               />} /> :
               <Route path="/profile" element={<Navigate to="/signup" />} />
           }

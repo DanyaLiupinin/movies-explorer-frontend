@@ -7,10 +7,12 @@ function Profile(props) {
 
     const currentUser = useContext(CurrentUserContext);
 
-    const [name, setName] = useState(currentUser.name)
-    const [email, setEmail] = useState(currentUser.email)
 
-    function onInputChange (e) {
+    const [name, setName] = useState('Имя')
+    const [email, setEmail] = useState('Email')  // добавить валидацию
+
+
+    function onInputChange(e) {
 
         if (e.target.name === 'name') {
             setName(e.target.value)
@@ -22,13 +24,16 @@ function Profile(props) {
 
     }
 
-    function saveEditData () {
+    function saveEditData() {
         props.updateUserData(name, email)
     }
 
     useEffect(() => {
-        console.log(currentUser)
-    }, [])
+
+        setName(currentUser.name)
+        setEmail(currentUser.email)
+
+    }, [currentUser])
 
     return (
 
@@ -46,11 +51,11 @@ function Profile(props) {
                     <div className='profile__inputs'>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>Имя</p>
-                            <input className='profile__input' type='text' name='name'  placeholder='Имя' maxLength='35' value={name} onChange={onInputChange}></input>
+                            <input className='profile__input' type='text' name='name' placeholder='Имя' maxLength='35' value={currentUser.name} onChange={onInputChange}></input>
                         </div>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>E-mail</p>
-                            <input className='profile__input' type='text' name='email' placeholder='E-mail' maxLength='35' value={email} onChange={onInputChange} ></input>
+                            <input className='profile__input' type='email' name='email' placeholder='E-mail' maxLength='35' value={currentUser.email} onChange={onInputChange}></input>
                         </div>
                     </div>
                     <div className='profile__buttons'>

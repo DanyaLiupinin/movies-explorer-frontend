@@ -75,7 +75,10 @@ function App() {
   function updateUserData (name, email) {
     updateUserInfo(name, email)
     .then((newData) => {
-      console.log(newData)
+      setCurrentUser(newData)
+    })
+    .catch((err) => {
+      console.log(err)
     })
   }
 

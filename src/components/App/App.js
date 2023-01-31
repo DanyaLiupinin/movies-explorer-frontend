@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState, createContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -9,11 +9,10 @@ import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { getAllMovies } from '../../utils/MoviesApi';
-import { saveMovie, deleteMovie, getSavedMovies, authorization, getUserInfo } from '../../utils/MainApi';
+import { saveMovie, deleteMovie, getSavedMovies, authorization, getUserInfo, updateUserInfo } from '../../utils/MainApi';
+import { CurrentUserContext } from '../../contexts/currentUserContext';
 
 function App() {
-
-  const CurrentUserContext = createContext();
 
   const [currentUser, setCurrentUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
@@ -72,6 +71,13 @@ function App() {
     }
 
   }, [loggedIn, navigate, root.pathname])
+
+  function updateUserData (name, email) {
+    updateUserInfo(name, email)
+    .then((newData) => {
+      console.log(newData)
+    })
+  }
 
 
   function saveMoviehandler(movie) {
@@ -192,7 +198,7 @@ function App() {
 
                 signOut={signOut}
                 currentUser={currentUser}
-                setCurrentUser={setCurrentUser}
+                updateUserData={updateUserData}
               />} /> :
               <Route path="/profile" element={<Navigate to="/signup" />} />
           }

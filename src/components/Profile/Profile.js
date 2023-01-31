@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import './Profile.css'
 import Header from '../Header/Header'
+import { CurrentUserContext } from '../../contexts/currentUserContext'
 
 function Profile(props) {
 
-    const [name, setName] = useState(props.currentUser.name)
-    const [email, setEmail] = useState(props.currentUser.email)
+    const currentUser = useContext(CurrentUserContext);
 
-    useEffect(() => {
-        console.log(props.currentUser)
-    }, [])
+    const [name, setName] = useState(currentUser.name)
+    const [email, setEmail] = useState(currentUser.email)
 
     function onInputChange (e) {
 
@@ -24,11 +23,12 @@ function Profile(props) {
     }
 
     function saveEditData () {
-        props.setCurrentUser({
-            name: name,
-            email: email
-        })
+        props.updateUserData(name, email)
     }
+
+    useEffect(() => {
+        console.log(currentUser)
+    }, [])
 
     return (
 

@@ -8,8 +8,8 @@ function Profile(props) {
     const currentUser = useContext(CurrentUserContext);
 
 
-    const [name, setName] = useState('Имя')
-    const [email, setEmail] = useState('Email')  // добавить валидацию
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')  // добавить валидацию
 
 
     function onInputChange(e) {
@@ -47,15 +47,15 @@ function Profile(props) {
 
             <section className='profile'>
                 <div className='profile__container'>
-                    <h2 className='profile__regards'>Привет!</h2>
+                    <h2 className='profile__regards'>{`Привет, ${name}!`}</h2>
                     <div className='profile__inputs'>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>Имя</p>
-                            <input className='profile__input' type='text' name='name' placeholder='Имя' maxLength='35' value={currentUser.name} onChange={onInputChange}></input>
+                            <input className='profile__input' type='text' name='name' placeholder='Имя' maxLength='35' value={name} onChange={onInputChange}></input>
                         </div>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>E-mail</p>
-                            <input className='profile__input' type='email' name='email' placeholder='E-mail' maxLength='35' value={currentUser.email} onChange={onInputChange}></input>
+                            <input className='profile__input' type='email' name='email' placeholder='E-mail' maxLength='35' value={email} onChange={onInputChange}></input>
                         </div>
                     </div>
                     <div className='profile__buttons'>

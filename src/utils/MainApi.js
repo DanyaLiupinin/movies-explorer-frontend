@@ -18,6 +18,19 @@ export const authorization = (email, password) => {
     })
 }
 
+export const registration = (name, email, password) => {
+    return fetch(`${apiLink}/signup`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            password: password,
+        }), // дописать запрос
+    })
+}
 
 export const saveMovie = (data) => {
     return fetch(`${apiLink}/movies`, {

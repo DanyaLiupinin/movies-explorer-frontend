@@ -28,26 +28,36 @@ function App() {
   }
 
   useEffect(() => {
-    getAllMovies()
-      .then((allMovies) => {
-        setQueryError(false)
-        setAllMovies(allMovies)
-      })
-      .catch(() => {
-        setQueryError(true)
-      })
-  }, [])
+
+    if (!loggedIn) {
+      return
+    } else {
+      getAllMovies()
+        .then((allMovies) => {
+          setQueryError(false)
+          setAllMovies(allMovies)
+        })
+        .catch(() => {
+          setQueryError(true)
+        })
+    }
+  }, [loggedIn])
 
 
   useEffect(() => {
-    getSavedMovies()
-      .then((movies) => {
-        setSavedMovies(movies.reverse())
-      })
-      .catch((err) => {
-        console.log(`ошибка ${err}`)
-      })
-  }, [])
+
+    if (!loggedIn) {
+      return
+    } else {
+      getSavedMovies()
+        .then((movies) => {
+          setSavedMovies(movies.reverse())
+        })
+        .catch((err) => {
+          console.log(`ошибка ${err}`)
+        })
+    }
+  }, [loggedIn])
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt') // +добавление информации о пользователе
@@ -118,14 +128,14 @@ function App() {
 
   function registrationHandler(name, email, password) {
     registration(name, email, password)
-    .then((userData) => {
-      if (userData._id) {
-        authorizationHandler(userData.email, password)
-      } 
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+      .then((userData) => {
+        if (userData._id) {
+          authorizationHandler(userData.email, password)
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   function authorizationHandler(email, password) {

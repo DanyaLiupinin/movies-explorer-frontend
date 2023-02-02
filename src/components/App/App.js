@@ -184,6 +184,7 @@ function App() {
           {
             loggedIn ?
               <Route path="/movies" element={<Movies
+                setPreloader={setPreloader}
                 loggedIn={loggedIn}
                 setLoggedIn={setLoggedIn}
                 handleOnClickBurger={handleOnClickBurger}

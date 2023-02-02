@@ -59,7 +59,11 @@ function Movies(props) {
     }
 
     function onQueryMovies(query) {
-        setFilteredMoviesHandler(props.allMovies, query);
+        props.setPreloader(true)
+        setTimeout(() => {
+            setFilteredMoviesHandler(props.allMovies, query);
+            props.setPreloader(false)
+        }, 500)
     }
 
     function handleShortMovies() {

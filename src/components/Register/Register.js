@@ -1,9 +1,9 @@
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import '../Auth/Auth.css'
 import './Register.css'
-import { Link } from 'react-router-dom'
 
 import logo from '../../images/logo.svg'
-import { useEffect, useState } from 'react'
 
 function Register({ registrationHandler }) {
 

@@ -8,7 +8,7 @@ function Profile(props) {
 
     const currentUser = useContext(CurrentUserContext);
 
-    const { onInputChange, values, setValues, isValid, setIsValid } = FormValidation();
+    const { onInputChange, values, setValues, isValid } = FormValidation();
 
     function saveEditData() {
         props.setPreloader(true)
@@ -22,10 +22,9 @@ function Profile(props) {
     useEffect(() => {
 
         setValues({ name: currentUser.name, email: currentUser.email })
-        setIsValid(true)
 
 
-    }, [currentUser.email, currentUser.name, setValues, setIsValid])
+    }, [currentUser.email, currentUser.name, setValues])
 
     return (
 
@@ -50,9 +49,9 @@ function Profile(props) {
                             <input className='profile__input' type='email' name='email' placeholder='E-mail' maxLength='35' value={values.email} onChange={onInputChange}></input>
                         </div>
                         <div className='profile__buttons'>
-                            <button className={`profile__button profile__button_type_edit ${!isValid && 'profile__button_disabled'}`} type='button' onClick={saveEditData} disabled={!isValid}>Редактировать</button>
+                            <button className={`profile__button profile__button_type_edit ${!isValid && 'profile__button_disabled'} ${currentUser.name === values.name && currentUser.email === values.email ? 'profile__button_disabled' : ''}`} type='button' onClick={saveEditData} disabled={!isValid}>Редактировать</button>
                         </div>
-                    </form>
+                    </form> 
                     <button className='profile__button profile__button_type_signup' type='button' onClick={props.signOut} >Выйти из аккаунта</button>
                 </div>
             </section>

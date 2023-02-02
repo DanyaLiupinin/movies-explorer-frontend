@@ -45,9 +45,19 @@ function Movies(props) {
         const moviesList = filterQueryMovies(movies, query); //фильтруем полученный массив по запросу
         setQueryMovies(moviesList) // добавляем в список запрошенных фильмов
 
+        if (moviesList.length === 0) {
+            props.setInfoPopup({
+                isActive: true,
+                successful: false,
+                info: 'Извините, мы ничего не нашли. Попробуйте ещё.'
+            })
+        }
+
         if (shortMovies) {
-            setFilteredMovies(filterShortMovies(moviesList))
-            //localStorage.setItem('visibleMovies', JSON.stringify(filterShortMovies(moviesList)));
+            const filteredMovieList = filterShortMovies(moviesList)
+            setFilteredMovies(filteredMovieList)
+
+
         } else {
             setFilteredMovies(moviesList)
 
@@ -74,7 +84,17 @@ function Movies(props) {
             setShortMovies(!shortMovies)
 
             if (!shortMovies) {
-                setFilteredMovies(filterShortMovies(filteredMovies));
+                const filteredShortList = filterShortMovies(filteredMovies)
+                setFilteredMovies(filteredShortList);
+
+                if (filteredShortList.length === 0) {
+                    props.setInfoPopup({
+                        isActive: true,
+                        successful: false,
+                        info: 'Извините, мы ничего не нашли. Попробуйте ещё.'
+                    })
+                }
+
             } else {
                 setFilteredMovies(queryMovies)
             }

@@ -26,6 +26,14 @@ function SavedMovies(props) {
         const moviesList = filterQueryMovies(movies, query); //фильтруем полученный массив по запросу
         setQueryMovies(moviesList) // добавляем в список запрошенных фильмов
 
+        if (moviesList.length === 0) {
+            props.setInfoPopup({
+                isActive: true,
+                successful: false,
+                info: 'Извините, мы ничего не нашли. Попробуйте ещё.'
+            })
+        }
+
         if (shortMovies) {
             setFilteredMovies(filterShortMovies(moviesList))
         } else {

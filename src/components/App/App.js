@@ -100,7 +100,6 @@ function App() {
       })
   }
 
-
   function saveMoviehandler(movie) {
     saveMovie(movie)
       .then((movie) => {
@@ -196,6 +195,8 @@ function App() {
             loggedIn ?
               <Route path="/movies" element={<Movies
                 setPreloader={setPreloader}
+                setInfoPopup={setInfoPopup}
+
                 loggedIn={loggedIn}
                 setLoggedIn={setLoggedIn}
                 handleOnClickBurger={handleOnClickBurger}
@@ -217,6 +218,8 @@ function App() {
             loggedIn ?
               <Route path="/saved-movies" element={<SavedMovies
                 setPreloader={setPreloader}
+                setInfoPopup={setInfoPopup}
+
                 loggedIn={loggedIn}
                 setLoggedIn={setLoggedIn}
                 handleOnClickBurger={handleOnClickBurger}

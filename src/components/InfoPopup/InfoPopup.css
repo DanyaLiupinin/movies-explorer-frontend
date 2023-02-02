@@ -9,7 +9,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    
+    transition: .3s;
 }
 
 .infoPopup__container {
@@ -62,7 +62,7 @@
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     margin: 0 25px;
     word-wrap: break-word;
 }

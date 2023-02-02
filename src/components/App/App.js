@@ -18,7 +18,7 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
-  const [isBurgerOpened, setIsBurgerOpened] = useState(false)  // отрефакторить // убрать стейты в компоненты
+  const [isBurgerOpened, setIsBurgerOpened] = useState(false)
   const [allMovies, setAllMovies] = useState([]) // все фильмы
   const [queryError, setQueryError] = useState(false) // ошибка запроса
   const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
@@ -47,6 +47,12 @@ function App() {
         })
         .catch(() => {
           setQueryError(true)
+
+          setInfoPopup({
+            isActive: false,
+            successful: true,
+            info: 'Что-то пошло не так'
+          })
         })
     }
   }, [loggedIn])
@@ -74,7 +80,7 @@ function App() {
   }, [loggedIn])
 
   useEffect(() => {
-    const jwt = localStorage.getItem('jwt') // +добавление информации о пользователе
+    const jwt = localStorage.getItem('jwt')
     const path = root.pathname;
 
     if (jwt) {
@@ -351,4 +357,3 @@ export default App;
 
 // рефакторинг (отступы, && в классах)
 
-// ошибка в консоли в профиле

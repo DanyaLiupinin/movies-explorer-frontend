@@ -7,14 +7,7 @@ import Burger from '../Burger/Burger.js'
 
 function Navigation({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
 
-    // const isActive = ({isActive}) => isActive ? 'navigation__link_active_desktop' : '';
-
     const typeActiveLink = (isBurgerOpened ? ' navigation__link_active_mobile ' : ' navigation__link_active_desktop ')
-
-    // разобраться с роутерами
-    // разобраться с активным классом
-
-    // navigation__link" + "navigation__link_type_main" + "navigation__link_burger" 
 
     return (
         <>

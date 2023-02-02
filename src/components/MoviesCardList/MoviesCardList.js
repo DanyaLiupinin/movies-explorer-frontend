@@ -42,7 +42,7 @@ function MoviesCardList(props) {
 
     useEffect(() => {
         setTimeout(() => {
-            window.addEventListener('resize', setWidth(window.innerWidth));  // проетстить в конце изменение кол-ва фильмов
+            window.addEventListener('resize', setWidth(window.innerWidth)); 
         }, 500);
     });
 
@@ -61,7 +61,6 @@ function MoviesCardList(props) {
                         location.pathname === '/movies' ?
 
                             props.movies.slice(0, movieCounter).map((movie) => {
-                               
                                 return (
                                     <React.Fragment key={movie.id}>
                                         <MoviesCard

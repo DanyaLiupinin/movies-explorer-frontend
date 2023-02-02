@@ -8,14 +8,14 @@ const apiLink = 'https://api.cinema-explorer.nomoredomains.club'
 export const authorization = (email, password) => {
     return fetch(`${apiLink}/signin`, {
         method: 'POST',
-        headers: { 
-            'Content-Type': 'application/json' 
+        headers: {
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email, password }),
     })
-    .then((res) => {
-        return checkRequest(res)
-    })
+        .then((res) => {
+            return checkRequest(res)
+        })
 }
 
 export const registration = (name, email, password) => {
@@ -25,10 +25,13 @@ export const registration = (name, email, password) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            name: name,
-            email: email,
-            password: password,
-        }), // дописать запрос
+            name,
+            email,
+            password,
+        })
+            .then((res) => {
+                return checkRequest(res)
+            })
     })
 }
 
@@ -85,25 +88,25 @@ export const getSavedMovies = () => {
 
 export const getUserInfo = () => {
     return fetch(`${apiLink}/users/me`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
-      },
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        },
     })
-    .then((res) => {
-        return checkRequest(res)
-    })
-  }
+        .then((res) => {
+            return checkRequest(res)
+        })
+}
 
-  export const updateUserInfo = (name, email) => {
+export const updateUserInfo = (name, email) => {
     return fetch(`${apiLink}/users/me`, {
-      method: 'PATCH',
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, email }),
+        method: 'PATCH',
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email }),
     })
-    .then((res) => {
-        return checkRequest(res)
-    })
-  }
+        .then((res) => {
+            return checkRequest(res)
+        })
+}

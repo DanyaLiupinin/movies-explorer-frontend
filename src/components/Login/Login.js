@@ -11,7 +11,7 @@ function Login({ authorizationHandler }) {
 
     const { onInputChange, values, error, isValid } = FormValidation()
 
-    function authorizationHandle (e) {
+    function authorizationHandle(e) {
 
         e.preventDefault()
         authorizationHandler(values.email, values.password)
@@ -28,7 +28,7 @@ function Login({ authorizationHandler }) {
                 <form className='login__form auth__form' onSubmit={authorizationHandle}>
 
                     <label className='login__input-label auth__input-label'> E-mail
-                        <input className='login__input auth__input' type='email' placeholder='E-mail' value={values.email || ''} onChange={onInputChange} required name='email'formNoValidate></input>
+                        <input className='login__input auth__input' type='email' placeholder='E-mail' value={values.email || ''} onChange={onInputChange} required name='email' formNoValidate></input>
                         <span className='login__error auth__error'>{error.email}</span>
                     </label>
 
@@ -37,7 +37,7 @@ function Login({ authorizationHandler }) {
                         <span className='login__error auth__error'>{error.password}</span>
                     </label>
 
-                    <button type='submit' className={`login__button auth__button ${!isValid && 'auth__button_disabled'}`} disabled={isValid} >Войти</button>
+                    <button type='submit' className={`login__button auth__button ${!isValid && 'auth__button_disabled'}`} disabled={!isValid} >Войти</button>
                     <p className='login__capion auth__caption'>Ещё не зарегистрированы?<Link to='/signup' className='login__redirection auth__redirection'>Регистрация</Link></p>
 
                 </form>

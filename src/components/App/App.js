@@ -21,7 +21,7 @@ function App() {
   const [allMovies, setAllMovies] = useState([]) // все фильмы
   const [queryError, setQueryError] = useState(false) // ошибка запроса
   const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
-  const [preloader, setPreloader] = useState(true)
+  const [preloader, setPreloader] = useState(false)
   const navigate = useNavigate()
   const root = useLocation();
 
@@ -129,6 +129,7 @@ function App() {
   }
 
   function registrationHandler(name, email, password) {
+    setPreloader(true)
     registration(name, email, password)
       .then((userData) => {
         if (userData._id) {
@@ -138,10 +139,13 @@ function App() {
       .catch((err) => {
         console.log(err)
       })
+      .finally(() => {
+        setPreloader(false)
+      })
   }
 
   function authorizationHandler(email, password) {
-
+    setPreloader(true)
     authorization(email, password)
       .then((jwt) => {
         if (jwt.token) {
@@ -152,6 +156,9 @@ function App() {
       })
       .catch((err) => {
         console.log(err)
+      })
+      .finally(() => {
+        setPreloader(false)
       })
   }
 
@@ -246,8 +253,8 @@ function App() {
           } />
 
         </Routes>
-        <Preloader 
-        isActive={preloader}
+        <Preloader
+          isActive={preloader}
         />
 
       </CurrentUserContext.Provider>

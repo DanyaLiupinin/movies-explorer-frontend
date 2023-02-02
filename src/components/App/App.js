@@ -61,8 +61,14 @@ function App() {
         .then((movies) => {
           setSavedMovies(movies.reverse())
         })
-        .catch((err) => {
-          console.log(`ошибка ${err}`)
+        .catch(() => {
+
+          setInfoPopup({
+            isActive: false,
+            successful: true,
+            info: 'Что-то пошло не так'
+          })
+
         })
     }
   }, [loggedIn])
@@ -80,8 +86,14 @@ function App() {
         .then((userData) => {
           setCurrentUser(userData)
         })
-        .catch((err) => {
-          console.log(err)
+        .catch(() => {
+
+          setInfoPopup({
+            isActive: false,
+            successful: true,
+            info: 'Что-то пошло не так'
+          })
+
         })
 
     } else {
@@ -118,8 +130,14 @@ function App() {
       .then((movie) => {
         setSavedMovies([movie, ...savedMovies])
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
+
+        setInfoPopup({
+          isActive: false,
+          successful: true,
+          info: 'Что-то пошло не так'
+        })
+
       })
   }
 
@@ -141,8 +159,14 @@ function App() {
         })
         setSavedMovies(newSavedMoviesList)
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
+
+        setInfoPopup({
+          isActive: false,
+          successful: true,
+          info: 'Что-то пошло не так'
+        })
+
       })
   }
 
@@ -161,12 +185,12 @@ function App() {
         })
 
       })
-      .catch(() => {        
+      .catch(() => {
         setInfoPopup({
           isActive: true,
           successful: false,
           info: 'Регистрация не удалась. Попробуйте ещё раз'
-      })
+        })
       })
       .finally(() => {
         setPreloader(false)
@@ -186,14 +210,14 @@ function App() {
           isActive: true,
           successful: true,
           info: 'Авторизация прошла успешно.'
-      })
+        })
       })
       .catch(() => {
         setInfoPopup({
           isActive: true,
           successful: false,
           info: 'Авторизация не удалась. Попробуйте ещё раз'
-      })
+        })
       })
       .finally(() => {
         setPreloader(false)
@@ -325,10 +349,6 @@ export default App;
 
 // Заменить фотку и информацию на свои в maim
 
-// вместо консоль логов в app добавлять банер с ошибкой
-
-// рефакторинг (&& в классах)
-
-// при авторизации кнопка не сразу активна при автозаполнении
+// рефакторинг (отступы, && в классах)
 
 // ошибка в консоли в профиле

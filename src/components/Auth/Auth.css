@@ -46,7 +46,7 @@
 }
 
 .auth__input-label:not(:first-child) {
-    margin-top: 20px;
+    margin-top: 35px;
 }
 
 .auth__input {
@@ -76,7 +76,7 @@
     line-height: 12px;
     color: #EE3465;
     position: absolute;
-    bottom: -16px;
+    bottom: -25px;
     left: 0;
 }
 
@@ -98,6 +98,15 @@
 
 .auth__button:hover {
     opacity: .9;
+}
+
+.auth__button_disabled {
+    cursor: default;
+    opacity: .5;
+}
+
+.auth__button_disabled:hover {
+    opacity: .5;
 }
 
 .auth__caption {

@@ -5,27 +5,16 @@ import { Link } from 'react-router-dom'
 import logo from '../../images/logo.svg'
 import { useState } from 'react'
 
+import FormValidation from '../../hooks/FormValidation.js'
+
 function Login({ authorizationHandler }) {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-
-    function onInputChange (e) {
-
-        if (e.target.type === 'email') {
-            setEmail(e.target.value)
-        } 
-        
-        if (e.target.type === 'password') {
-            setPassword(e.target.value)
-        }
-
-    }
+    const { onInputChange, values, error, isValid } = FormValidation()
 
     function authorizationHandle (e) {
 
         e.preventDefault()
-        authorizationHandler(email, password)
+        authorizationHandler(values.email, values.password)
 
     }
 
@@ -39,16 +28,16 @@ function Login({ authorizationHandler }) {
                 <form className='login__form auth__form' onSubmit={authorizationHandle}>
 
                     <label className='login__input-label auth__input-label'> E-mail
-                        <input className='login__input auth__input' type='email' placeholder='E-mail' value={email} onChange={onInputChange} required></input>
-                        <span className='login__error auth__error'>Что то пошло не так</span>
+                        <input className='login__input auth__input' type='email' placeholder='E-mail' value={values.email || ''} onChange={onInputChange} required name='email'formNoValidate></input>
+                        <span className='login__error auth__error'>{error.email}</span>
                     </label>
 
                     <label className='login__input-label auth__input-label'> Пароль
-                        <input className='login__input auth__input' type='password' placeholder='Пароль' value={password} onChange={onInputChange} required></input>
-                        <span className='login__error auth__error'>Что то пошло не так</span>
+                        <input className='login__input auth__input' type='password' placeholder='Пароль' value={values.password || ''} onChange={onInputChange} required name='password'></input>
+                        <span className='login__error auth__error'>{error.password}</span>
                     </label>
 
-                    <button type='submit' className='login__button auth__button'>Войти</button>
+                    <button type='submit' className={`login__button auth__button ${!isValid && 'auth__button_disabled'}`} disabled={isValid} >Войти</button>
                     <p className='login__capion auth__caption'>Ещё не зарегистрированы?<Link to='/signup' className='login__redirection auth__redirection'>Регистрация</Link></p>
 
                 </form>

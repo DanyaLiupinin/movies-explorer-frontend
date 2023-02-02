@@ -72,14 +72,14 @@ function App() {
 
   }, [loggedIn, navigate, root.pathname])
 
-  function updateUserData (name, email) {
+  function updateUserData(name, email) {
     updateUserInfo(name, email)
-    .then((newData) => {
-      setCurrentUser(newData)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+      .then((newData) => {
+        setCurrentUser(newData)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
 
@@ -114,6 +114,12 @@ function App() {
       .catch((err) => {
         console.log(err)  // написать нормальную обработку ошибок
       })
+  }
+
+  function registrationHandler(name, email, password) {
+    console.log(name)
+    console.log(email)
+    console.log(password)
   }
 
   function authorizationHandler(email, password) {
@@ -207,7 +213,9 @@ function App() {
           }
 
           <Route path='/signup' element={
-            <Register />
+            <Register
+              registrationHandler={registrationHandler}
+            />
           } />
 
           <Route path='/signin' element={

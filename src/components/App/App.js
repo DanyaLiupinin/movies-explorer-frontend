@@ -9,6 +9,7 @@ import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Preloader from '../Preloader/Preloader';
+import InfoPopup from '../InfoPopup/InfoPopup';
 import { getAllMovies } from '../../utils/MoviesApi';
 import { saveMovie, deleteMovie, getSavedMovies, authorization, getUserInfo, updateUserInfo, registration } from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/currentUserContext';
@@ -22,6 +23,7 @@ function App() {
   const [queryError, setQueryError] = useState(false) // ошибка запроса
   const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
   const [preloader, setPreloader] = useState(false)
+  const [infoPopup, setInfoPopup] = useState(true)
   const navigate = useNavigate()
   const root = useLocation();
 
@@ -264,6 +266,9 @@ function App() {
         <Preloader
           isActive={preloader}
         />
+        <InfoPopup
+          isActive={infoPopup}
+        />
 
       </CurrentUserContext.Provider>
     </>
@@ -278,12 +283,8 @@ export default App;
 
 // сделать уведомляющий банер
 
-// ошибки в profile выводить
-
 // 'ничего не найдено' если нет фильмов при поиске (кажется в app был такой стейт)
 
 // вместо консоль логов в app добавлять банер с ошибкой
 
 // рефакторинг (&& в классах)
-
-// в имени только кириллица итд

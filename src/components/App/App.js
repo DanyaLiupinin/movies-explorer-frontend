@@ -94,9 +94,22 @@ function App() {
     updateUserInfo(name, email)
       .then((newData) => {
         setCurrentUser(newData)
+
+        setInfoPopup({
+          isActive: true,
+          successful: true,
+          info: 'Ваши данные успешно изменены!'
+        })
+
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
+
+        setInfoPopup({
+          isActive: false,
+          successful: true,
+          info: 'Что-то пошло не так'
+        })
+
       })
   }
 
@@ -140,9 +153,20 @@ function App() {
         if (userData._id) {
           authorizationHandler(userData.email, password)
         }
+
+        setInfoPopup({
+          isActive: true,
+          successful: true,
+          info: 'Регистрация прошла успешно'
+        })
+
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {        
+        setInfoPopup({
+          isActive: true,
+          successful: false,
+          info: 'Регистрация не удалась. Попробуйте ещё раз'
+      })
       })
       .finally(() => {
         setPreloader(false)
@@ -158,9 +182,18 @@ function App() {
           setLoggedIn(true)
           navigate('/')
         }
+        setInfoPopup({
+          isActive: true,
+          successful: true,
+          info: 'Авторизация прошла успешно.'
       })
-      .catch((err) => {
-        console.log(err)
+      })
+      .catch(() => {
+        setInfoPopup({
+          isActive: true,
+          successful: false,
+          info: 'Авторизация не удалась. Попробуйте ещё раз'
+      })
       })
       .finally(() => {
         setPreloader(false)
@@ -241,6 +274,8 @@ function App() {
             loggedIn ?
               <Route path="/profile" element={<Profile
                 setPreloader={setPreloader}
+                //setInfoPopup={setInfoPopup}
+
                 loggedIn={loggedIn}
                 setLoggedIn={setLoggedIn}
                 handleOnClickBurger={handleOnClickBurger}
@@ -256,6 +291,7 @@ function App() {
           <Route path='/signup' element={
             <Register
               registrationHandler={registrationHandler}
+              setInfoPopup={setInfoPopup}
             />
           } />
 

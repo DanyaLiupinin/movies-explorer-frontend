@@ -16,6 +16,7 @@ function Profile(props) {
         setTimeout(() => {
             props.updateUserData(values.name, values.email)
             props.setPreloader(false)
+
         }, 500)
     }
 

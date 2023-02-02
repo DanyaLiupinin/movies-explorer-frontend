@@ -4,13 +4,22 @@ import './Register.css'
 import logo from '../../images/logo.svg'
 import FormValidation from '../../hooks/FormValidation.js'
 
-function Register({ registrationHandler }) {
+function Register({ registrationHandler, setInfoPopup }) {
 
     const { onInputChange, values, error, isValid, setValues } = FormValidation()
 
     function registrationHandle(e) {
         e.preventDefault()
-        registrationHandler(values.name, values.email, values.password)
+        try {
+            registrationHandler(values.name, values.email, values.password)
+        } catch {
+            setInfoPopup({
+                isActive: true,
+                successful: false,
+                info: 'Извините, мы ничего не нашли. Попробуйте ещё.'
+            })
+        }
+        
         setValues({})
     }
 

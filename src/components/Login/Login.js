@@ -24,16 +24,32 @@ function Login({ authorizationHandler }) {
                 <form className='login__form auth__form' onSubmit={authorizationHandle} noValidate >
 
                     <label className='login__input-label auth__input-label'> E-mail
-                        <input className='login__input auth__input' type='email' placeholder='E-mail' value={values.email || ''} onChange={onInputChange} required name='email'></input>
+                        <input 
+                        className='login__input auth__input' 
+                        type='email' 
+                        placeholder='E-mail'
+                        value={values.email || ''} 
+                        onChange={onInputChange} 
+                        required 
+                        name='email'
+                        ></input>
                         <span className='login__error auth__error'>{error.email}</span>
                     </label>
 
                     <label className='login__input-label auth__input-label'> Пароль
-                        <input className='login__input auth__input' type='password' placeholder='Пароль' value={values.password || ''} onChange={onInputChange} required name='password'></input>
+                        <input 
+                        className='login__input auth__input' 
+                        type='password' 
+                        placeholder='Пароль' 
+                        value={values.password || ''} 
+                        onChange={onInputChange} 
+                        required 
+                        name='password'
+                        ></input>
                         <span className='login__error auth__error'>{error.password}</span>
                     </label>
 
-                    <button type='submit' className={`login__button auth__button ${!isValid && 'auth__button_disabled'}`} disabled={!isValid} >Войти</button>
+                    <button type='submit' className={`login__button auth__button ${!isValid && 'auth__button_disabled'}`} disabled={!isValid}>Войти</button>
                     <p className='login__capion auth__caption'>Ещё не зарегистрированы?<Link to='/signup' className='login__redirection auth__redirection'>Регистрация</Link></p>
 
                 </form>

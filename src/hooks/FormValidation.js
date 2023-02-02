@@ -17,15 +17,9 @@ function FormValidation() {
             input.setCustomValidity('')
         }
 
-        let checkValidity = input.closest('form').checkValidity()
-
-        if (value.length === 0) {
-            checkValidity = false
-        }
-
         setValues({ ...values, [name]: value })
         setError({ ...error, [name]: input.validationMessage });
-        setIsValid(checkValidity)
+        setIsValid(input.closest('form').checkValidity())
 
 
         /*

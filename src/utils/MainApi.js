@@ -28,11 +28,11 @@ export const registration = (name, email, password) => {
             name,
             email,
             password,
-        })
-            .then((res) => {
-                return checkRequest(res)
-            })
+        }),
     })
+        .then((res) => {
+            return checkRequest(res)
+        })
 }
 
 export const saveMovie = (data) => {

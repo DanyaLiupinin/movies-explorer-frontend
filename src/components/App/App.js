@@ -9,7 +9,7 @@ import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import { getAllMovies } from '../../utils/MoviesApi';
-import { saveMovie, deleteMovie, getSavedMovies, authorization, getUserInfo, updateUserInfo } from '../../utils/MainApi';
+import { saveMovie, deleteMovie, getSavedMovies, authorization, getUserInfo, updateUserInfo, registration } from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/currentUserContext';
 
 function App() {
@@ -117,9 +117,15 @@ function App() {
   }
 
   function registrationHandler(name, email, password) {
-    console.log(name)
-    console.log(email)
-    console.log(password)
+    registration(name, email, password)
+    .then((userData) => {
+      if (userData._id) {
+        authorizationHandler(userData.email, password)
+      } 
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
   function authorizationHandler(email, password) {
@@ -130,7 +136,6 @@ function App() {
           localStorage.setItem('jwt', jwt.token);
           setLoggedIn(true)
           navigate('/')
-          console.log(jwt)
         }
       })
       .catch((err) => {

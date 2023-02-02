@@ -1,7 +1,5 @@
 import { checkRequest } from "./checkRequest";
 
-//const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FhZjEzN2YwMzU0ZDk5NDEyZjlhYWEiLCJpYXQiOjE2NzQ5OTMzOTQsImV4cCI6MTY3NTU5ODE5NH0.81jqyiSLIt7I5aAxq7J7vigQqmniVgbi1QeHfOz8SjQ'
-
 const apiLink = 'https://api.cinema-explorer.nomoredomains.club'
 
 

@@ -92,6 +92,12 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.auth__button:hover {
+    opacity: .9;
 }
 
 .auth__caption {
@@ -107,9 +113,13 @@
     color: rgba(66, 133, 244, 1);
     margin-left: 6px;
     text-decoration: none;
+    cursor: pointer;
+    transition: .2s;
 }
 
-
+.auth__redirection:hover {
+    opacity: .9;
+}
 
 @media (max-width: 768px) {
 

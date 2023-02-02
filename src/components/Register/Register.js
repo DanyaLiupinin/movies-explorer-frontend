@@ -2,41 +2,17 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import '../Auth/Auth.css'
 import './Register.css'
-
 import logo from '../../images/logo.svg'
+import FormValidation from '../../hooks/FormValidation.js'
 
 function Register({ registrationHandler }) {
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-
-    function onInputChange (e) {
-
-        if (e.target.name === 'name') {
-            setName(e.target.value)
-        } 
-
-        if (e.target.name === 'email') {
-            setEmail(e.target.value)
-        } 
-        
-        if (e.target.name === 'password') {
-            setPassword(e.target.value)
-        }
-
-    }
+    const { onInputChange, values, error, isValid, setValues } = FormValidation()
 
     function registrationHandle (e) {
         e.preventDefault()
-        registrationHandler(name, email, password)
-        clearInputs()
-    }
-
-    function clearInputs () {
-        setName('')
-        setEmail('')
-        setPassword('')
+        registrationHandler(values.name, values.email, values.password)
+        setValues({})
     }
 
     return (
@@ -49,21 +25,21 @@ function Register({ registrationHandler }) {
                 <form className='register__form auth__form' onSubmit={registrationHandle} >
 
                     <label className='register__input-label auth__input-label'> Имя
-                        <input className='register__input auth__input' type='text' required placeholder='Имя' name='name' value={name} onChange={onInputChange} ></input>
-                        <span className='register__error auth__error'>Что то пошло не так</span>
+                        <input className='register__input auth__input' type='text' required placeholder='Имя' name='name' value={values.name || ''} onChange={onInputChange} ></input>
+                        <span className='register__error auth__error'>{error.name}</span>
                     </label>
 
                     <label className='register__input-label auth__input-label'> E-mail
-                        <input className='register__input auth__input' type='email' placeholder='E-mail' required  name='email' value={email} onChange={onInputChange}  ></input>
-                        <span className='register__error auth__error'>Что то пошло не так</span>
+                        <input className='register__input auth__input' type='email' placeholder='E-mail' required  name='email' value={values.email || ''} onChange={onInputChange}  ></input>
+                        <span className='register__error auth__error'>{error.email}</span>
                     </label>
 
                     <label className='register__input-label auth__input-label'> Пароль
-                        <input className='register__input auth__input' type='password' placeholder='Пароль' required  name='password' value={password} onChange={onInputChange}></input>
-                        <span className='register__error auth__error'>Что то пошло не так</span>
+                        <input className='register__input auth__input' type='password' placeholder='Пароль' required  name='password' value={values.password || ''} onChange={onInputChange}></input>
+                        <span className='register__error auth__error'>{error.password}</span>
                     </label>
 
-                    <button type='submit' className='register__button auth__button' >Зарегистрироваться</button>
+                    <button type='submit' className={`register__button auth__button ${!isValid && 'auth__button_disabled'}`} disabled={!isValid} >Зарегистрироваться</button>
                     <p className='register__capion auth__caption'>Уже зарегистрированы?<Link to='/signin' className='register__redirection auth__redirection'>Войти</Link></p>
 
                 </form>

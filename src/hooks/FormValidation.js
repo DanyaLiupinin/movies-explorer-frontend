@@ -13,7 +13,10 @@ function FormValidation() {
 
         setValues({ ...values, [name]: value })
         setError({ ...error, [name]: input.validationMessage });
+
+
         setIsValid(input.closest('form').checkValidity())
+
 
         /*
         if (e.target.name === 'email') {
@@ -29,7 +32,7 @@ function FormValidation() {
 
 
 
-    return { onInputChange, values, error, isValid }
+    return { onInputChange, values, error, isValid, setValues, setIsValid }
 
 }
 

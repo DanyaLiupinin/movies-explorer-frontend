@@ -1,21 +1,17 @@
 import '../Auth/Auth.css'
 import './Login.css'
 import { Link } from 'react-router-dom'
-
 import logo from '../../images/logo.svg'
-import { useState } from 'react'
-
 import FormValidation from '../../hooks/FormValidation.js'
 
 function Login({ authorizationHandler }) {
 
-    const { onInputChange, values, error, isValid } = FormValidation()
+    const { onInputChange, values, error, isValid, setValues } = FormValidation()
 
     function authorizationHandle(e) {
-
         e.preventDefault()
         authorizationHandler(values.email, values.password)
-
+        setValues({})
     }
 
     return (
@@ -25,10 +21,10 @@ function Login({ authorizationHandler }) {
                     <img className='login__logo-image auth__logo-image' src={logo} alt="логотип" />
                 </a>
                 <h2 className='login__regards auth__regards'>Рады видеть!</h2>
-                <form className='login__form auth__form' onSubmit={authorizationHandle}>
+                <form className='login__form auth__form' onSubmit={authorizationHandle} noValidate >
 
                     <label className='login__input-label auth__input-label'> E-mail
-                        <input className='login__input auth__input' type='email' placeholder='E-mail' value={values.email || ''} onChange={onInputChange} required name='email' formNoValidate></input>
+                        <input className='login__input auth__input' type='email' placeholder='E-mail' value={values.email || ''} onChange={onInputChange} required name='email'></input>
                         <span className='login__error auth__error'>{error.email}</span>
                     </label>
 

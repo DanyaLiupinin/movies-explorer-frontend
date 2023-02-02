@@ -100,6 +100,15 @@
     color: #EE3465;
 }
 
+.profile__button_disabled {
+    cursor: default;
+    opacity: .5;
+}
+
+.profile__button_disabled:hover {
+    opacity: .5;
+}
+
 @media (max-width: 768px) {
 
     .profile {

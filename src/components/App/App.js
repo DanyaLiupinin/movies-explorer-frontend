@@ -163,9 +163,14 @@ function App() {
   }
 
   function signOut() {
-    localStorage.clear()
-    setLoggedIn(false)
-    navigate('/')
+    setPreloader(true)
+
+    setTimeout(() => {
+      localStorage.clear()
+      setLoggedIn(false)
+      navigate('/')
+      setPreloader(false)
+    }, 500)
   }
 
   return (

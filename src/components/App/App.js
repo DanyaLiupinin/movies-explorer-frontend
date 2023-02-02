@@ -8,6 +8,7 @@ import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
+import Preloader from '../Preloader/Preloader';
 import { getAllMovies } from '../../utils/MoviesApi';
 import { saveMovie, deleteMovie, getSavedMovies, authorization, getUserInfo, updateUserInfo, registration } from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/currentUserContext';
@@ -20,6 +21,7 @@ function App() {
   const [allMovies, setAllMovies] = useState([]) // все фильмы
   const [queryError, setQueryError] = useState(false) // ошибка запроса
   const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
+  const [preloader, setPreloader] = useState(false)
   const navigate = useNavigate()
   const root = useLocation();
 
@@ -244,6 +246,10 @@ function App() {
           } />
 
         </Routes>
+        <Preloader 
+        isActive={preloader}
+        />
+
       </CurrentUserContext.Provider>
     </>
   )

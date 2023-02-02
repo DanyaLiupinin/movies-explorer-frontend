@@ -23,7 +23,11 @@ function App() {
   const [queryError, setQueryError] = useState(false) // ошибка запроса
   const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
   const [preloader, setPreloader] = useState(false)
-  const [infoPopup, setInfoPopup] = useState(true)
+  const [infoPopup, setInfoPopup] = useState({
+    isActive: false,
+    successful: false,
+    info: ''
+  })
   const navigate = useNavigate()
   const root = useLocation();
 
@@ -267,7 +271,8 @@ function App() {
           isActive={preloader}
         />
         <InfoPopup
-          isActive={infoPopup}
+          infoPopup={infoPopup}
+          setInfoPopup={setInfoPopup}
         />
 
       </CurrentUserContext.Provider>

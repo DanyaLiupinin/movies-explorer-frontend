@@ -1,15 +1,19 @@
 import './InfoPopup.css'
 import closeButton from '../../images/close-button.svg'
 
-function InfoPopup({ isActive, setIsActive, happy, text }) {
+function InfoPopup({ infoPopup, setInfoPopup }) {
 
-    function closePopupHandler () {
-        setIsActive(false)
+    function closePopupHandler() {
+        setInfoPopup({
+            isActive: false,
+            successful: false,
+            info: ''
+        })
     }
 
     return (
         <>
-            {isActive &&
+            {infoPopup.isActive &&
 
                 <div className="infoPopup">
                     <div className="infoPopup__container">
@@ -17,13 +21,13 @@ function InfoPopup({ isActive, setIsActive, happy, text }) {
                             <img className='infoPopup__button-image' src={closeButton} alt='закрыть попап'></img>
                         </button>
                         <div className={`infoPopup__image-container 
-                        ${happy ?
+                        ${infoPopup.successful ?
                                 'infoPopup__image-container_type_happy' :
                                 'infoPopup__image-container_type_sad'
                             }`}>
                         </div>
                         <p className='infoPopup__text'>
-                            {text}
+                            {infoPopup.info}
                         </p>
                     </div>
                 </div>

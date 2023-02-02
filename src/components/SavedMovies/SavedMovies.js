@@ -55,7 +55,18 @@ function SavedMovies(props) {
         props.setPreloader(true)
         setTimeout(() => {
             if (!shortMovies) {
-                setFilteredMovies(filterShortMovies(filteredMovies));
+
+                const filteredShortList = filterShortMovies(filteredMovies)
+                setFilteredMovies(filteredShortList);
+
+                if (filteredShortList.length === 0) {
+                    props.setInfoPopup({
+                        isActive: true,
+                        successful: false,
+                        info: 'Извините, мы ничего не нашли. Попробуйте ещё.'
+                    })
+                }
+                
             } else {
                 setFilteredMovies(queryMovies.length !== 0 ? queryMovies : props.savedMovies)
             }

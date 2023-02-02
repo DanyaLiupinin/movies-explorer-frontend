@@ -8,7 +8,7 @@ function Profile(props) {
 
     const currentUser = useContext(CurrentUserContext);
 
-    const { onInputChange, values, setValues, isValid } = FormValidation();
+    const { onInputChange, values, setValues, isValid, error } = FormValidation();
 
     function saveEditData() {
         props.setPreloader(true)
@@ -39,11 +39,13 @@ function Profile(props) {
                     <form className='profile__inputs'>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>Имя</p>
-                            <input className='profile__input' type='text' name='name' placeholder='Имя' maxLength='35' value={values.name} onChange={onInputChange}></input>
+                            <input className='profile__input' type='text' name='name' placeholder='Имя' minLength='2' maxLength='30' value={values.name} onChange={onInputChange}></input>
+                            <span className='profile__input-error'>{error.name}</span>
                         </div>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>E-mail</p>
-                            <input className='profile__input' type='email' name='email' placeholder='E-mail' maxLength='35' value={values.email} onChange={onInputChange}></input>
+                            <input className='profile__input' type='email' name='email' placeholder='E-mail' value={values.email} onChange={onInputChange}></input>
+                            <span className='profile__input-error profile__input-error_type_email'>{error.email}</span>
                         </div>
                         <div className='profile__buttons'>
                             <button className={`profile__button profile__button_type_edit

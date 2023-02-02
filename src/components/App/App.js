@@ -205,6 +205,7 @@ function App() {
           {
             loggedIn ?
               <Route path="/saved-movies" element={<SavedMovies
+                setPreloader={setPreloader}
                 loggedIn={loggedIn}
                 setLoggedIn={setLoggedIn}
                 handleOnClickBurger={handleOnClickBurger}
@@ -225,6 +226,7 @@ function App() {
           {
             loggedIn ?
               <Route path="/profile" element={<Profile
+                setPreloader={setPreloader}
                 loggedIn={loggedIn}
                 setLoggedIn={setLoggedIn}
                 handleOnClickBurger={handleOnClickBurger}

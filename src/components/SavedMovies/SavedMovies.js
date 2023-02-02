@@ -13,13 +13,13 @@ function SavedMovies(props) {
     const [shortMovies, setShortMovies] = useState(false); // состояние чекбокса
     const [query, setQuery] = useState('') // запрос
 
-    
+
     useEffect(() => {
 
         setFilteredMovies(props.savedMovies)
 
-    }, [props.savedMovies]) 
-    
+    }, [props.savedMovies])
+
 
     function setFilteredMoviesHandler(movies, query) {
 
@@ -32,42 +32,39 @@ function SavedMovies(props) {
             setFilteredMovies(moviesList)
 
         }
-
-        /*
-
-        localStorage.setItem('visibleMovies', JSON.stringify(moviesList))
-        localStorage.setItem('query', query)
-*/
     }
 
     function onQueryMovies(query) {
-        setFilteredMoviesHandler(props.savedMovies, query);
+        props.setPreloader(true)
+
+        setTimeout(() => {
+            setFilteredMoviesHandler(props.savedMovies, query);
+            props.setPreloader(false)
+        }, 500)
     }
 
     function handleShortMovies() {
-        //localStorage.setItem('checkbox', !shortMovies)
-        setShortMovies(!shortMovies)
-
-        if (!shortMovies) {
-            setFilteredMovies(filterShortMovies(filteredMovies));
-        } else {
-            setFilteredMovies(queryMovies.length !== 0 ? queryMovies : props.savedMovies)
-        }
+        props.setPreloader(true)
+        setTimeout(() => {
+            if (!shortMovies) {
+                setFilteredMovies(filterShortMovies(filteredMovies));
+            } else {
+                setFilteredMovies(queryMovies.length !== 0 ? queryMovies : props.savedMovies)
+            }
+            setShortMovies(!shortMovies)
+            props.setPreloader(false)
+        }, 300)
     }
 
     return (
-
         <>
-
             <Header
                 loggedIn={props.loggedIn}
                 setLoggedIn={props.setLoggedIn}
                 handleOnClickBurger={props.handleOnClickBurger}
                 isBurgerOpened={props.isBurgerOpened}
             />
-
             <main className='savedMovies'>
-
                 <SearchForm
                     onQueryMovies={onQueryMovies}
                     shortMovies={shortMovies}
@@ -78,7 +75,6 @@ function SavedMovies(props) {
                     setQuery={setQuery}
 
                 />
-
                 <MoviesCardList
                     movies={filteredMovies}
 
@@ -87,13 +83,9 @@ function SavedMovies(props) {
 
                     savedMovies={props.savedMoviess}
                 />
-
             </main>
-
             <Footer />
-
         </>
-
     )
 }
 

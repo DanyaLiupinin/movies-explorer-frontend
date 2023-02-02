@@ -25,7 +25,12 @@ function Profile(props) {
     }
 
     function saveEditData() {
-        props.updateUserData(name, email)
+        props.setPreloader(true)
+
+        setTimeout(() => {
+            props.updateUserData(name, email)
+            props.setPreloader(false)
+        }, 500)
     }
 
     useEffect(() => {
@@ -47,7 +52,7 @@ function Profile(props) {
 
             <section className='profile'>
                 <div className='profile__container'>
-                    <h2 className='profile__regards'>{`Привет, ${name}!`}</h2>
+                    <h2 className='profile__regards'>{`Привет, ${currentUser.name}!`}</h2>
                     <div className='profile__inputs'>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>Имя</p>

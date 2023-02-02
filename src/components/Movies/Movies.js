@@ -67,14 +67,20 @@ function Movies(props) {
     }
 
     function handleShortMovies() {
-        localStorage.setItem('checkbox', !shortMovies)
-        setShortMovies(!shortMovies)
+        props.setPreloader(true)
 
-        if (!shortMovies) {
-            setFilteredMovies(filterShortMovies(filteredMovies));
-        } else {
-            setFilteredMovies(queryMovies)
-        }
+        setTimeout(() => {
+            localStorage.setItem('checkbox', !shortMovies)
+            setShortMovies(!shortMovies)
+
+            if (!shortMovies) {
+                setFilteredMovies(filterShortMovies(filteredMovies));
+            } else {
+                setFilteredMovies(queryMovies)
+            }
+            props.setPreloader(false)
+        }, 300)
+        
     }
 
     return (

@@ -39,12 +39,31 @@ function Profile(props) {
                     <form className='profile__inputs'>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>Имя</p>
-                            <input className='profile__input' type='text' name='name' placeholder='Имя' minLength='2' maxLength='30' value={values.name} onChange={onInputChange}></input>
+                            <input 
+                            className='profile__input' 
+                            type='text' 
+                            name='name' 
+                            placeholder='Имя' 
+                            minLength='2' 
+                            maxLength='30' 
+                            value={values.name} 
+                            onChange={onInputChange}
+                            pattern="^[A-Za-zА-Яа-яЁё /s -]+$"
+                            required
+                            ></input>
                             <span className='profile__input-error'>{error.name}</span>
                         </div>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>E-mail</p>
-                            <input className='profile__input' type='email' name='email' placeholder='E-mail' value={values.email} onChange={onInputChange}></input>
+                            <input 
+                            className='profile__input' 
+                            type='email' 
+                            name='email' 
+                            placeholder='E-mail' 
+                            value={values.email} 
+                            onChange={onInputChange}
+                            required
+                            ></input>
                             <span className='profile__input-error profile__input-error_type_email'>{error.email}</span>
                         </div>
                         <div className='profile__buttons'>
@@ -52,7 +71,10 @@ function Profile(props) {
                             ${!isValid && 'profile__button_disabled'} 
                             ${currentUser.name === values.name && currentUser.email === values.email ? 
                             'profile__button_disabled' : ''}`} 
-                            type='button' onClick={saveEditData} disabled={!isValid}>Редактировать</button>
+                            type='button' 
+                            onClick={saveEditData} 
+                            disabled={!isValid}
+                            >Редактировать</button>
                         </div>
                     </form> 
                     <button className='profile__button profile__button_type_signup' type='button' onClick={props.signOut} >Выйти из аккаунта</button>

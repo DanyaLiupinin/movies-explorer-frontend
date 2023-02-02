@@ -11,11 +11,21 @@ function FormValidation() {
         const input = e.target
         const { value, name } = input;
 
+        if (name === 'name' && input.validity.patternMismatch) {
+            input.setCustomValidity('В имени должны использоваться только латиница, кириллица, пробелы и дефисы.')
+        } else {
+            input.setCustomValidity('')
+        }
+
+        let checkValidity = input.closest('form').checkValidity()
+
+        if (value.length === 0) {
+            checkValidity = false
+        }
+
         setValues({ ...values, [name]: value })
         setError({ ...error, [name]: input.validationMessage });
-
-
-        setIsValid(input.closest('form').checkValidity())
+        setIsValid(checkValidity)
 
 
         /*

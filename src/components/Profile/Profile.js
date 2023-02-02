@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import './Profile.css'
 import Header from '../Header/Header'
 import { CurrentUserContext } from '../../contexts/currentUserContext'
@@ -20,10 +20,7 @@ function Profile(props) {
     }
 
     useEffect(() => {
-
         setValues({ name: currentUser.name, email: currentUser.email })
-
-
     }, [currentUser.email, currentUser.name, setValues])
 
     return (
@@ -49,7 +46,11 @@ function Profile(props) {
                             <input className='profile__input' type='email' name='email' placeholder='E-mail' maxLength='35' value={values.email} onChange={onInputChange}></input>
                         </div>
                         <div className='profile__buttons'>
-                            <button className={`profile__button profile__button_type_edit ${!isValid && 'profile__button_disabled'} ${currentUser.name === values.name && currentUser.email === values.email ? 'profile__button_disabled' : ''}`} type='button' onClick={saveEditData} disabled={!isValid}>Редактировать</button>
+                            <button className={`profile__button profile__button_type_edit
+                            ${!isValid && 'profile__button_disabled'} 
+                            ${currentUser.name === values.name && currentUser.email === values.email ? 
+                            'profile__button_disabled' : ''}`} 
+                            type='button' onClick={saveEditData} disabled={!isValid}>Редактировать</button>
                         </div>
                     </form> 
                     <button className='profile__button profile__button_type_signup' type='button' onClick={props.signOut} >Выйти из аккаунта</button>

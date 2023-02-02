@@ -124,7 +124,7 @@ function App() {
         setSavedMovies(newSavedMoviesList)
       })
       .catch((err) => {
-        console.log(err)  // написать нормальную обработку ошибок
+        console.log(err)
       })
   }
 
@@ -204,7 +204,7 @@ function App() {
                 savedMovies={savedMovies}
 
               />} /> :
-              <Route path="/movies" element={<Navigate to="/signup" />} />
+              <Route path="/movies" element={<Navigate to="/" />} />
           }
 
           {
@@ -225,7 +225,7 @@ function App() {
                 savedMovies={savedMovies}
               />} />
               :
-              <Route path="/profile" element={<Navigate to="/signup" />} />
+              <Route path="/profile" element={<Navigate to="/" />} />
           }
 
           {
@@ -241,7 +241,7 @@ function App() {
                 currentUser={currentUser}
                 updateUserData={updateUserData}
               />} /> :
-              <Route path="/profile" element={<Navigate to="/signup" />} />
+              <Route path="/profile" element={<Navigate to="/" />} />
           }
 
           <Route path='/signup' element={
@@ -277,3 +277,11 @@ export default App;
 // Заменить фотку и информацию на свои в maim
 
 // сделать уведомляющий банер
+
+// ошибки в profile выводить
+
+// 'ничего не найдено' если нет фильмов при поиске (кажется в app был такой стейт)
+
+// вместо консоль логов в app добавлять банер с ошибкой
+
+// рефакторинг (&& в классах)

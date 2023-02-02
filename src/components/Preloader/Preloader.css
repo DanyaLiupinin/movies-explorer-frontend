@@ -48,9 +48,18 @@
     z-index: 10;
     
     
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+}
+
+.preloader::before {
+    content: '';
+    opacity: .3;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
 .preloader__container {
@@ -65,7 +74,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: #FF6838;
+    background: #68b2e7;
     border-radius: 50px;
 }
 
@@ -87,6 +96,6 @@
 
 .preloader__round::before {
     z-index: 10;
-    background: #FF6838;
+    background: #4cdc83;
     animation: preloader-inside-red 1s ease-in-out infinite;
 }

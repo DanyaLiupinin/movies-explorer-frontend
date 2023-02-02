@@ -21,7 +21,7 @@ function App() {
   const [allMovies, setAllMovies] = useState([]) // все фильмы
   const [queryError, setQueryError] = useState(false) // ошибка запроса
   const [savedMovies, setSavedMovies] = useState([]) // сохраненные фильмы
-  const [preloader, setPreloader] = useState(false)
+  const [preloader, setPreloader] = useState(true)
   const navigate = useNavigate()
   const root = useLocation();
 

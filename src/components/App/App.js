@@ -210,7 +210,7 @@ function App() {
         if (jwt.token) {
           localStorage.setItem('jwt', jwt.token);
           setLoggedIn(true)
-          navigate('/')
+          navigate('/movies')
         }
         setInfoPopup({
           isActive: true,

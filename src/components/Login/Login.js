@@ -3,15 +3,18 @@ import './Login.css'
 import { Link } from 'react-router-dom'
 import logo from '../../images/logo.svg'
 import FormValidation from '../../hooks/FormValidation.js'
+import FormBlock from '../../hooks/FormBlock'
 
 function Login({ authorizationHandler }) {
 
-    const { onInputChange, values, error, isValid, setValues } = FormValidation()
+    const { onInputChange, values, error, isValid } = FormValidation()
+    const { blockForm, unblockForm } = FormBlock()
 
     function authorizationHandle(e) {
         e.preventDefault()
+        blockForm(e)
         authorizationHandler(values.email, values.password)
-        setValues({})
+        unblockForm(e)
     }
 
     return (
@@ -49,7 +52,8 @@ function Login({ authorizationHandler }) {
                         <span className='login__error auth__error'>{error.password}</span>
                     </label>
 
-                    <button type='submit' className={`login__button auth__button ${!isValid && 'auth__button_disabled'}`} disabled={!isValid}>Войти</button>
+                    <button type='submit' className={`login__button auth__button 
+                    ${!isValid ? 'auth__button_disabled' : ''}`} disabled={!isValid}>Войти</button>
                     <p className='login__capion auth__caption'>Ещё не зарегистрированы?<Link to='/signup' className='login__redirection auth__redirection'>Регистрация</Link></p>
 
                 </form>

@@ -204,30 +204,37 @@ function App() {
   }
 
   function authorizationHandler(email, password) {
-    setPreloader(true)
-    authorization(email, password)
-      .then((jwt) => {
-        if (jwt.token) {
-          localStorage.setItem('jwt', jwt.token);
-          setLoggedIn(true)
-          navigate('/movies')
-        }
-        setInfoPopup({
-          isActive: true,
-          successful: true,
-          info: 'Авторизация прошла успешно.'
-        })
-      })
-      .catch(() => {
-        setInfoPopup({
-          isActive: true,
-          successful: false,
-          info: 'Авторизация не удалась. Попробуйте ещё раз'
-        })
-      })
-      .finally(() => {
-        setPreloader(false)
-      })
+  setPreloader(true)
+
+
+  authorization(email, password)
+  .then((jwt) => {
+    if (jwt.token) {
+      localStorage.setItem('jwt', jwt.token);
+      setLoggedIn(true)
+      navigate('/movies')
+    }
+    setInfoPopup({
+      isActive: true,
+      successful: true,
+      info: 'Авторизация прошла успешно.'
+    })
+  })
+  .catch(() => {
+    setInfoPopup({
+      isActive: true,
+      successful: false,
+      info: 'Авторизация не удалась. Попробуйте ещё раз'
+    })
+  })
+  .finally(() => {
+    setPreloader(false)
+    //blockForm(false)
+  })
+
+
+
+
   }
 
   function signOut() {

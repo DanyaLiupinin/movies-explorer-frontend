@@ -3,24 +3,22 @@ import '../Auth/Auth.css'
 import './Register.css'
 import logo from '../../images/logo.svg'
 import FormValidation from '../../hooks/FormValidation.js'
+import FormBlock from '../../hooks/FormBlock'
 
 function Register({ registrationHandler, setInfoPopup }) {
 
     const { onInputChange, values, error, isValid, setValues } = FormValidation()
+    const { blockForm, unblockForm } = FormBlock()
 
     function registrationHandle(e) {
-        e.preventDefault()
-        try {
-            registrationHandler(values.name, values.email, values.password)
-        } catch {
-            setInfoPopup({
-                isActive: true,
-                successful: false,
-                info: 'Извините, мы ничего не нашли. Попробуйте ещё.'
-            })
-        }
         
-        setValues({})
+        e.preventDefault()
+
+        blockForm(e)
+
+        registrationHandler(values.name, values.email, values.password)
+
+        unblockForm(e)
     }
 
     return (

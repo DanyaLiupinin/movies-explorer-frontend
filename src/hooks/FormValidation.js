@@ -32,20 +32,7 @@ function FormValidation() {
         setError({ ...error, [name]: input.validationMessage });
         setIsValid(input.closest('form').checkValidity())
 
-
-        /*
-        if (e.target.name === 'email') {
-            setEmail(e.target.value)
-        } 
-        
-        if (e.target.type === 'password') {
-            setPassword(e.target.value)
-        } 
-        */
-
     }
-
-
 
     return { onInputChange, values, error, isValid, setValues, setIsValid }
 

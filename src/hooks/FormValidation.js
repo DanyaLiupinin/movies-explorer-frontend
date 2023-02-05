@@ -21,10 +21,8 @@ function FormValidation() {
         if (name === 'email') {
             if (!validate(value)) {
                 input.setCustomValidity('Формат почты неверный')
-                //console.log('неверно')
             } else {
                 input.setCustomValidity('')
-                //console.log('верно')
             }
         }
 
@@ -34,7 +32,7 @@ function FormValidation() {
 
     }
 
-    return { onInputChange, values, error, isValid, setValues, setIsValid }
+    return { onInputChange, values, error, isValid, setValues }
 
 }
 

@@ -177,7 +177,6 @@ function App() {
   }
 
   function registrationHandler(name, email, password) {
-    setPreloader(true)
     registration(name, email, password)
       .then((userData) => {
         if (userData._id) {
@@ -198,43 +197,29 @@ function App() {
           info: 'Регистрация не удалась. Попробуйте ещё раз'
         })
       })
-      .finally(() => {
-        setPreloader(false)
-      })
   }
 
   function authorizationHandler(email, password) {
-  setPreloader(true)
-
-
-  authorization(email, password)
-  .then((jwt) => {
-    if (jwt.token) {
-      localStorage.setItem('jwt', jwt.token);
-      setLoggedIn(true)
-      navigate('/movies')
-    }
-    setInfoPopup({
-      isActive: true,
-      successful: true,
-      info: 'Авторизация прошла успешно.'
-    })
-  })
-  .catch(() => {
-    setInfoPopup({
-      isActive: true,
-      successful: false,
-      info: 'Авторизация не удалась. Попробуйте ещё раз'
-    })
-  })
-  .finally(() => {
-    setPreloader(false)
-    //blockForm(false)
-  })
-
-
-
-
+    authorization(email, password)
+      .then((jwt) => {
+        if (jwt.token) {
+          localStorage.setItem('jwt', jwt.token);
+          setLoggedIn(true)
+          navigate('/movies')
+        }
+        setInfoPopup({
+          isActive: true,
+          successful: true,
+          info: 'Авторизация прошла успешно.'
+        })
+      })
+      .catch(() => {
+        setInfoPopup({
+          isActive: true,
+          successful: false,
+          info: 'Авторизация не удалась. Попробуйте ещё раз'
+        })
+      })
   }
 
   function signOut() {
@@ -329,6 +314,7 @@ function App() {
             !loggedIn ?
               <Route path='/signup' element={
                 <Register
+                  setPreloader={setPreloader}
                   registrationHandler={registrationHandler}
                   setInfoPopup={setInfoPopup}
                 />
@@ -340,6 +326,7 @@ function App() {
             !loggedIn ?
               <Route path='/signin' element={
                 <Login
+                  setPreloader={setPreloader}
                   authorizationHandler={authorizationHandler}
                 />
               } /> :

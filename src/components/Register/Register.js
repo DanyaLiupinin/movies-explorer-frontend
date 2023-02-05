@@ -5,20 +5,20 @@ import logo from '../../images/logo.svg'
 import FormValidation from '../../hooks/FormValidation.js'
 import FormBlock from '../../hooks/FormBlock'
 
-function Register({ registrationHandler }) {
+function Register({ registrationHandler, setPreloader }) {
 
     const { onInputChange, values, error, isValid } = FormValidation()
     const { blockForm, unblockForm } = FormBlock()
 
     function registrationHandle(e) {
-        
         e.preventDefault()
-
+        setPreloader(true)
         blockForm(e)
-
-        registrationHandler(values.name, values.email, values.password)
-
-        unblockForm(e)
+        setTimeout(() => {
+            registrationHandler(values.name, values.email, values.password)
+            unblockForm(e)
+            setPreloader(false)
+        }, 1000)
     }
 
     return (

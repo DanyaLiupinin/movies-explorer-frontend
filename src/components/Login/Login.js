@@ -17,9 +17,9 @@ function Login({ authorizationHandler }) {
     return (
         <section className='auth login'>
             <div className='login__container auth__container'>
-                <a href="https://yandex.ru" className="login__logo auth__logo">
+                <Link to='/' className="login__logo auth__logo">
                     <img className='login__logo-image auth__logo-image' src={logo} alt="логотип" />
-                </a>
+                </Link>
                 <h2 className='login__regards auth__regards'>Рады видеть!</h2>
                 <form className='login__form auth__form' onSubmit={authorizationHandle} noValidate >
 

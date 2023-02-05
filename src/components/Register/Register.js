@@ -26,9 +26,9 @@ function Register({ registrationHandler, setInfoPopup }) {
     return (
         <section className='register auth'>
             <div className='register__container auth__container'>
-                <a href="https://yandex.ru" className="register__logo auth__logo">
+                <Link to='/' className="register__logo auth__logo">
                     <img className='register__logo-image auth__logo-image' src={logo} alt="логотип" />
-                </a>
+                </Link>
                 <h2 className='register__regards auth__regards'>Добро пожаловать!</h2>
                 <form className='register__form auth__form' onSubmit={registrationHandle} >
 

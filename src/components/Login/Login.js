@@ -18,6 +18,7 @@ function Login({ authorizationHandler, setPreloader }) {
         setTimeout(() => {
             authorizationHandler(values.email, values.password)
             unblockForm(e)
+            setPreloader(false)
         }, 1000)
     }
 

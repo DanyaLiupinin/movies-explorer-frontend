@@ -318,18 +318,26 @@ function App() {
               <Route path="/profile" element={<Navigate to="/" />} />
           }
 
-          <Route path='/signup' element={
-            <Register
-              registrationHandler={registrationHandler}
-              setInfoPopup={setInfoPopup}
-            />
-          } />
+          {
+            !loggedIn ?
+              <Route path='/signup' element={
+                <Register
+                  registrationHandler={registrationHandler}
+                  setInfoPopup={setInfoPopup}
+                />
+              } /> :
+              <Route path="/signup" element={<Navigate to="/" />} />
+          }
 
-          <Route path='/signin' element={
-            <Login
-              authorizationHandler={authorizationHandler}
-            />
-          } />
+          {
+            !loggedIn ?
+              <Route path='/signin' element={
+                <Login
+                  authorizationHandler={authorizationHandler}
+                />
+              } /> :
+              <Route path="/signin" element={<Navigate to="/" />} />
+          }
 
           <Route element={
             <NotFound path='*' />

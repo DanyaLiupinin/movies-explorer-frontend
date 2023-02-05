@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { validate } from 'email-validator';
 
 function FormValidation() {
 
@@ -15,6 +16,16 @@ function FormValidation() {
             input.setCustomValidity('В имени должны использоваться только латиница, кириллица, пробелы и дефисы.')
         } else {
             input.setCustomValidity('')
+        }
+
+        if (name === 'email') {
+            if (!validate(value)) {
+                input.setCustomValidity('Формат почты неверный')
+                //console.log('неверно')
+            } else {
+                input.setCustomValidity('')
+                //console.log('верно')
+            }
         }
 
         setValues({ ...values, [name]: value })

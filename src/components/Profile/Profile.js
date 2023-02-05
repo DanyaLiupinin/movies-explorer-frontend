@@ -10,7 +10,8 @@ function Profile(props) {
 
     const { onInputChange, values, setValues, isValid, error } = FormValidation();
 
-    function saveEditData() {
+    function saveEditData(e) {
+        e.preventDefault()
         props.setPreloader(true)
 
         setTimeout(() => {

@@ -297,7 +297,7 @@ function App() {
                 savedMovies={savedMovies}
               />} />
               :
-              <Route path="/profile" element={<Navigate to="/" />} />
+              <Route path="/saved-movies" element={<Navigate to="/" />} />
           }
 
           {
@@ -331,11 +331,12 @@ function App() {
             />
           } />
 
-          <Route path='*' element={
-            <NotFound />
+          <Route element={
+            <NotFound path='*' />
           } />
 
         </Routes>
+
         <Preloader
           isActive={preloader}
         />

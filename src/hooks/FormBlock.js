@@ -2,7 +2,7 @@ function FormBlock () {
 
     function blockForm(e) {
         const form = e.target
-        const button = form.querySelector('.login__button')
+        const button = form.querySelector('.auth__button')
         const inputs = Array.from(form.querySelectorAll('.auth__input'))
         inputs.forEach((input) => {
             input.setAttribute('readonly', 'readonly')
@@ -13,7 +13,7 @@ function FormBlock () {
 
     function unblockForm(e) {
         const form = e.target
-        const button = form.querySelector('.login__button')
+        const button = form.querySelector('.auth__button')
         const inputs = Array.from(form.querySelectorAll('.auth__input'))
         inputs.forEach((input) => {
             input.removeAttribute('readonly', 'readonly')

@@ -3,37 +3,13 @@ import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard';
 import { useLocation } from 'react-router-dom';
 import { isMovieSaved } from '../../utils/utils';
+import { numberOfVisibleFilms, showMoreStep } from '../../utils/constants';
 
 function MoviesCardList(props) {
 
     const location = useLocation();
 
     const [width, setWidth] = useState(window.innerWidth)
-
-    const numberOfVisibleFilms = (width) => { // REFACTORING: заменить на конфиг-объект
-        if (width >= 1051) {
-            return 16;
-        } else if (width >= 769) {
-            return 12;
-        } else if (width >= 451) {
-            return 8;
-        } else {
-            return 5;
-        }
-    }
-
-    const showMoreStep = (width) => {
-
-        if (width >= 1051) {
-            return 4;
-        } else if (width >= 769) {
-            return 3;
-        } else if (width >= 451) {
-            return 2;
-        } else {
-            return 1;
-        }
-    }
 
     const [movieCounter, setMovieCounter] = useState(numberOfVisibleFilms(width))
     // кол-во фильмов в зависимсоти от ширины

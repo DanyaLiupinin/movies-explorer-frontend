@@ -5,9 +5,9 @@ import logo from '../../images/logo.svg'
 import FormValidation from '../../hooks/FormValidation.js'
 import FormBlock from '../../hooks/FormBlock'
 
-function Register({ registrationHandler, setInfoPopup }) {
+function Register({ registrationHandler }) {
 
-    const { onInputChange, values, error, isValid, setValues } = FormValidation()
+    const { onInputChange, values, error, isValid } = FormValidation()
     const { blockForm, unblockForm } = FormBlock()
 
     function registrationHandle(e) {

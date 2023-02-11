@@ -29,6 +29,7 @@ Frontend:
 - Webpack
 - Async requests 
 - Context provider
+- Protected routes
 - React hooks
 - React routes
 - Functional components

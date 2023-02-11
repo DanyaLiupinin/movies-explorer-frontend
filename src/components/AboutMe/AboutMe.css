@@ -58,6 +58,10 @@
 
 .aboutMe__photo {
     margin-top: 66px;
+    width: 23%;
+    height: auto;
+    display: block;
+    object-fit: contain;
 }
 
 @media (max-width: 768px) {

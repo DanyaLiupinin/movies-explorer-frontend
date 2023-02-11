@@ -1,6 +1,6 @@
 import './FilterCheckbox.css'
 
-function FilterCheckbox() {
+function FilterCheckbox({handleShortMovies, shortMovies}) {
 
     return (
         <div className="checkbox" tabIndex="0" >
@@ -9,6 +9,8 @@ function FilterCheckbox() {
                     className="checkbox__checkbox"
                     type="checkbox"
                     id="checkbox"
+                    onChange={handleShortMovies}
+                    checked={shortMovies ? true : false}
                 />
                 <p className="checkbox__name">Короткометражки</p>
 

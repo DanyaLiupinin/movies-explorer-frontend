@@ -1,52 +1,107 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Movies.css'
 import Header from '../Header/Header'
 import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import Footer from '../Footer/Footer'
+import { filterQueryMovies, filterShortMovies } from '../../utils/utils';
 
 function Movies(props) {
 
-    const [movieRequest, setMovieRequest] = React.useState('')
+    const [queryMovies, setQueryMovies] = useState([]) // список фильмов по запросу
+    const [filteredMovies, setFilteredMovies] = useState([]) // конечный видимый массив
+    const [shortMovies, setShortMovies] = useState(false); // состояние чекбокса
+    const [query, setQuery] = useState('')
 
-    // FOR MovieCardList
+    // возвращаем состояния при возвращении на страницу
 
-    const width = window.innerWidth // ширина окна
+    useEffect(() => {
 
-    const numberOfVisibleFilms = (width) => {
-        if (width >= 1051) {
-            return 16;
-        } else if (width >= 769) {
-            return 12;
-        } else if (width >= 451) {
-            return 8;
-        } else {
-            return 5;
+        const movies = JSON.parse(localStorage.getItem('visibleMovies'));
+        const query = localStorage.getItem('query')
+        const checkbox = JSON.parse(localStorage.getItem('checkbox'))
+
+        if (query) {
+            setQuery(query)
         }
-    }
 
-    const showMoreStep = (width) => {
-        if (width >= 1051) {
-            return 4;
-        } else if (width >= 769) {
-            return 3;
-        } else if (width >= 451) {
-            return 2;
-        } else {
-            return 1;
+        if (movies) {
+            setQueryMovies(movies)
         }
+
+        if (movies && checkbox) {
+            setFilteredMovies(filterShortMovies(movies))
+            setShortMovies(true)
+        } else if (movies && !checkbox) {
+            setFilteredMovies(movies)
+            setShortMovies(false)
+        }
+
+    }, [])
+
+
+    function setFilteredMoviesHandler(movies, query) {
+
+        const moviesList = filterQueryMovies(movies, query); //фильтруем полученный массив по запросу
+        setQueryMovies(moviesList) // добавляем в список запрошенных фильмов
+
+        if (moviesList.length === 0) {
+            props.setInfoPopup({
+                isActive: true,
+                successful: false,
+                info: 'Извините, мы ничего не нашли. Попробуйте ещё.'
+            })
+        }
+
+        if (shortMovies) {
+            const filteredMovieList = filterShortMovies(moviesList)
+            setFilteredMovies(filteredMovieList)
+
+
+        } else {
+            setFilteredMovies(moviesList)
+
+        }
+
+        localStorage.setItem('visibleMovies', JSON.stringify(moviesList))
+        localStorage.setItem('query', query)
+
     }
 
-    const [movieCounter, setMovieCounter] = useState(numberOfVisibleFilms(width)) // в заивимсоти от ширины устанавливаем кол-во видимых фильмов
-    const movieStep = showMoreStep(width) // сколько фильмов появится при 'показать ещё'
-    const [visibleMovies, setVisibleMovies] = useState(props.allMovies.slice(0, movieCounter)) // загружаем в стейт видимые фильмы
-
-    function showMoreHandler() {
-        setMovieCounter(movieCounter + movieStep) // обновляем кол-во видимых фильмов (асинхронно)
-        setVisibleMovies(props.allMovies.slice(0, movieCounter + movieStep)) // предыдущее действие асинхронно, нельзя сразу использоваться counter
+    function onQueryMovies(query) {
+        props.setPreloader(true)
+        setTimeout(() => {
+            setFilteredMoviesHandler(props.allMovies, query);
+            props.setPreloader(false)
+        }, 500)
     }
 
-    //
+    function handleShortMovies() {
+        props.setPreloader(true)
+
+        setTimeout(() => {
+            localStorage.setItem('checkbox', !shortMovies)
+            setShortMovies(!shortMovies)
+
+            if (!shortMovies) {
+                const filteredShortList = filterShortMovies(filteredMovies)
+                setFilteredMovies(filteredShortList);
+
+                if (filteredShortList.length === 0) {
+                    props.setInfoPopup({
+                        isActive: true,
+                        successful: false,
+                        info: 'Извините, мы ничего не нашли. Попробуйте ещё.'
+                    })
+                }
+
+            } else {
+                setFilteredMovies(queryMovies)
+            }
+            props.setPreloader(false)
+        }, 300)
+        
+    }
 
     return (
         <>
@@ -59,17 +114,23 @@ function Movies(props) {
             <main className="movies">
 
                 <SearchForm
-                    moviesRequest={movieRequest}
-                    setMovieRequest={setMovieRequest}
+
+                    onQueryMovies={onQueryMovies}
+                    shortMovies={shortMovies}
+                    handleShortMovies={handleShortMovies}
+
+                    queryError={props.queryError}
+                    query={query}
+                    setQuery={setQuery}
                 />
 
-                <MoviesCardList 
-                allMovies={props.allMovies}
-                setAllMovies={props.setAllMovies}
-                setSavedMovie={props.setSavedMovie}
-                visibleMovies={visibleMovies}
-                setVisibleMovies={setVisibleMovies}
-                showMoreHandler={showMoreHandler}
+                <MoviesCardList
+                    movies={filteredMovies}
+
+                    saveMovie={props.saveMovie}
+                    deleteMovie={props.deleteMovie}
+
+                    savedMovies={props.savedMovies}
                 />
 
             </main>

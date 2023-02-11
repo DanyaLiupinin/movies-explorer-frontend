@@ -1,8 +1,32 @@
+import { useEffect, useContext } from 'react'
 import './Profile.css'
 import Header from '../Header/Header'
+import { CurrentUserContext } from '../../contexts/currentUserContext'
+import FormValidation from '../../hooks/FormValidation'
 
 function Profile(props) {
+
+    const currentUser = useContext(CurrentUserContext);
+
+    const { onInputChange, values, setValues, isValid, error } = FormValidation();
+
+    function saveEditData(e) {
+        e.preventDefault()
+        props.setPreloader(true)
+
+        setTimeout(() => {
+            props.updateUserData(values.name, values.email)
+            props.setPreloader(false)
+
+        }, 500)
+    }
+
+    useEffect(() => {
+        setValues({ name: currentUser.name, email: currentUser.email })
+    }, [currentUser.email, currentUser.name, setValues])
+
     return (
+
         <>
             <Header
                 loggedIn={props.loggedIn}
@@ -13,21 +37,52 @@ function Profile(props) {
 
             <section className='profile'>
                 <div className='profile__container'>
-                    <h2 className='profile__regards'>Привет!</h2>
-                    <div className='profile__inputs'>
+                    <h2 className='profile__regards'>{`Привет, ${currentUser.name}!`}</h2>
+                    <form className='profile__inputs' onSubmit={saveEditData}>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>Имя</p>
-                            <input className='profile__input' type='text' placeholder='Имя' maxLength='35' ></input>
+                            <label>
+                                <input
+                                    className='profile__input'
+                                    type='text'
+                                    required
+                                    placeholder='Имя'
+                                    name='name'
+                                    minLength='2'
+                                    maxLength='30'
+                                    value={values.name || ''}
+                                    onChange={onInputChange}
+                                    pattern="^[A-Za-zА-Яа-яЁё /s -]+$"
+                                ></input>
+                            </label>
+                            <span className='profile__input-error'>{error.name}</span>
                         </div>
                         <div className='profile__input-container'>
                             <p className='profile__input-name'>E-mail</p>
-                            <input className='profile__input' type='text' placeholder='E-mail' maxLength='35'></input>
+                            <label>
+                                <input
+                                    className='profile__input'
+                                    type='email'
+                                    required
+                                    placeholder='E-mail'
+                                    name='email'
+                                    value={values.email || ''}
+                                    onChange={onInputChange}
+                                ></input>
+                            </label>
+                            <span className='profile__input-error profile__input-error_type_email'>{error.email}</span>
                         </div>
-                    </div>
-                    <div className='profile__buttons'>
-                        <button className='profile__button profile__button_type_edit' type='button' >Редактировать</button>
-                        <button className='profile__button profile__button_type_signup' type='button' >Выйти из аккаунта</button>
-                    </div>
+                        <div className='profile__buttons'>
+                            <button className={`profile__button profile__button_type_edit
+                            ${!isValid && 'profile__button_disabled'} 
+                            ${currentUser.name === values.name && currentUser.email === values.email ?
+                                    'profile__button_disabled' : ''}`}
+                                type='submit'
+                                disabled={!isValid}
+                            >Редактировать</button>
+                        </div>
+                    </form>
+                    <button className='profile__button profile__button_type_signup' type='button' onClick={props.signOut} >Выйти из аккаунта</button>
                 </div>
             </section>
 

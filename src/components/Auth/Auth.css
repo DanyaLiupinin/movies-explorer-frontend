@@ -46,7 +46,7 @@
 }
 
 .auth__input-label:not(:first-child) {
-    margin-top: 20px;
+    margin-top: 35px;
 }
 
 .auth__input {
@@ -76,7 +76,7 @@
     line-height: 12px;
     color: #EE3465;
     position: absolute;
-    bottom: -16px;
+    bottom: -25px;
     left: 0;
 }
 
@@ -92,6 +92,21 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.auth__button:hover {
+    opacity: .9;
+}
+
+.auth__button_disabled {
+    cursor: default;
+    opacity: .5;
+}
+
+.auth__button_disabled:hover {
+    opacity: .5;
 }
 
 .auth__caption {
@@ -107,9 +122,13 @@
     color: rgba(66, 133, 244, 1);
     margin-left: 6px;
     text-decoration: none;
+    cursor: pointer;
+    transition: .2s;
 }
 
-
+.auth__redirection:hover {
+    opacity: .9;
+}
 
 @media (max-width: 768px) {
 

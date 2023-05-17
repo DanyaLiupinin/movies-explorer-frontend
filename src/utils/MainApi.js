@@ -1,6 +1,6 @@
 import { checkRequest } from "./checkRequest";
 
-const apiLink = 'https://api.cinema-explorer.nomoredomains.club'
+const apiLink = 'https://movies-explorer-backend.onrender.com'
 
 
 export const authorization = (email, password) => {

@@ -1,6 +1,6 @@
 import { checkRequest } from "./checkRequest";
 
-const moviesUrl = 'https://api.nomoreparties.co/beatfilm-movies'
+const moviesUrl = 'https://movies-explorer-backend.onrender.com'
 
 export const getAllMovies = () => {
     return fetch(moviesUrl, {

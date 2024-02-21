@@ -62,7 +62,7 @@ Start projects:
 Dont forgot to check local PORTS and urls
 
 ## Link ##
-![website](https://www.dkovandeveloper.online/#/projects/movies)
+[Go to mesto](https://www.dkovandeveloper.online/#/projects/movies)
 
 
 ![студент](https://user-images.githubusercontent.com/98961406/218251183-94220a35-e05a-4cc5-a579-11b66b56da1f.png)

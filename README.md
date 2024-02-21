@@ -62,7 +62,7 @@ Start projects:
 Dont forgot to check local PORTS and urls
 
 ## Link ##
-https://cinema-explorer.nomoredomains.club/
+![website](https://www.dkovandeveloper.online/#/projects/movies)
 
 
 ![студент](https://user-images.githubusercontent.com/98961406/218251183-94220a35-e05a-4cc5-a579-11b66b56da1f.png)

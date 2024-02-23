@@ -7,12 +7,12 @@ function AboutMe() {
     return (
         <section className="aboutMe" id='aboutMe'>
             <div className="aboutMe__container main__container">
-                <h2 className="aboutMe__title title">Студент</h2>
+                <h2 className="aboutMe__title title">Student</h2>
                 <div className="aboutMe__student">
                     <div className="aboutMe__information">
-                        <h3 className="aboutMe__name">Даня</h3>
-                        <p className="aboutMe__profession">Фронтенд-разработчик, 21 год</p>
-                        <p className="aboutMe__description">Я родился и вырос в Москве. Учился на журналиста, но в какой-то момент решил, что мне не хотелось бы связывать жизнь с этой профессией. Так через какое-то время я начал заниматься фронтенд разработкой. Искренне полюбил это дело, и даже спустя год с трепетом и предвкушением сажусь за любой проект.<br/>
+                        <h3 className="aboutMe__name">Danila</h3>
+                        <p className="aboutMe__profession">Frontend developer, 22 y.o.</p>
+                        <p className="aboutMe__description">I was born and raised in Moscow. I studied to be a journalist, but at some point I decided that I did not want to connect my life with this profession. I started doing front-end development. I sincerely fell in love with this business and decided to make it my profession<br/>
                         В свободное время занимаюсь тем, что меня больше всего воодушевляет - музыкой и спортом.
                         </p>
                         <div className="aboutMe__links">

@@ -6,22 +6,22 @@ function AboutProject() {
     return (
         <section className="aboutProject" id='aboutProject'>
             <div className="aboutProject__container main__container">
-                <h2 className="aboutProject__title title">О проекте</h2>
+                <h2 className="aboutProject__title title">About project</h2>
                 <div className="aboutProject__information">
                     <div className="aboutProject__information-block">
                         <p className="aboutProject__thesis">
-                            Дипломный проект включал 5 этапов
+                            The diploma project included 5 stages
                         </p>
                         <p className="aboutProject__description">
-                            Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.
+                            Drawing up a plan, working on the backend, layout, adding functionality and final improvements.
                         </p>
                     </div>
                     <div className="aboutProject__information-block">
                         <p className="aboutProject__thesis">
-                            На выполнение диплома ушло 5 недель
+                            It took 5 weeks to complete the diploma
                         </p>
                         <p className="aboutProject__description">
-                            У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.
+                            Each stage had a soft and hard deadline that had to be met in order to successfully defend.
                         </p>
                     </div>
                 </div>
@@ -29,7 +29,7 @@ function AboutProject() {
 
                     <div className="aboutProject__sprint aboutProject__sprint_type_backend">
                         <p className="aboutProject__sprint-duration aboutProject__sprint-duration_type_backend">
-                            1 неделя
+                            1 week
                         </p>
                         <p className="aboutProject__sprint-title" >
                             Back-end
@@ -38,7 +38,7 @@ function AboutProject() {
 
                     <div className="aboutProject__sprint aboutProject__sprint_type_frontend">
                         <p className="aboutProject__sprint-duration aboutProject__sprint-duration_type_frontend">
-                            4 недели
+                            4 weeks
                         </p>
                         <p className="aboutProject__sprint-title" >
                             Front-end

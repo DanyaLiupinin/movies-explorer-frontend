@@ -18,7 +18,7 @@ function InfoPopup({ infoPopup, setInfoPopup }) {
                 <div className="infoPopup">
                     <div className="infoPopup__container">
                         <button className='infoPopup__button' type='button' onClick={closePopupHandler}>
-                            <img className='infoPopup__button-image' src={closeButton} alt='закрыть попап'></img>
+                            <img className='infoPopup__button-image' src={closeButton} alt='close popup'></img>
                         </button>
                         <div className={`infoPopup__image-container 
                         ${infoPopup.successful ?

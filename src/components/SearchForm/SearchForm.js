@@ -35,18 +35,18 @@ function SearchForm({ onQueryMovies, shortMovies, handleShortMovies, queryError,
                     <input
                         required
                         className="searchForm__input"
-                        placeholder='Фильм'
+                        placeholder='Movie'
                         name="movie__request"
                         onChange={handleMoviesRequestChange}
                         value={query}
                     />
                     <span className={`searchForm__error ${noMovies || queryError ? 'searchForm__error_active' : ''}`}>
-                        {noMovies ? 'Нужно ввести ключевое слово' : 
-                        '«Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз».' }
+                        {noMovies ? 'You need to enter a keyword' : 
+                        'An error occurred during the request. There may be a connection problem or the server is unavailable. Wait a bit and try again.' }
                         </span>
                     <button
                         className="searchForm__button"
-                        type="submit">Найти
+                        type="submit">Find
                     </button>
                     <FilterCheckbox
                     shortMovies={shortMovies}

@@ -17,12 +17,12 @@ function Navigation({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
                         <NavLink
                             className="navigation__link navigation__link_type_registration"
                             to="/signup">
-                            Регистрация
+                            Sign up
                         </NavLink>
                         <NavLink
                             className="navigation__link navigation__link_type_authorization"
                             to="/signin">
-                            Войти
+                            Sign in
                         </NavLink>
                     </nav>
                 </div>
@@ -42,7 +42,7 @@ function Navigation({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
                                 end // вместо exact 
                                 to="/"
                                 >
-                                Главная
+                                Main
                             </NavLink>
                             <NavLink
                                 className={({isActive}) =>
@@ -50,7 +50,7 @@ function Navigation({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
                                     (isActive ? typeActiveLink : '')
                                 }
                                 to="/movies">
-                                Фильмы
+                                Movies
                             </NavLink>
                             <NavLink
                                 className={({isActive}) =>
@@ -58,7 +58,7 @@ function Navigation({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
                                     (isActive ? typeActiveLink : '')
                                 }
                                 to="/saved-movies">
-                                Сохраненные фильмы
+                                Saved movies
                             </NavLink>
                         </nav>
                         <nav className="navigation__nav navigation__nav_burger">
@@ -68,8 +68,8 @@ function Navigation({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
                                     (isActive ? typeActiveLink : '')
                                 }
                                 to="/profile">
-                                Аккаунт
-                                <img src={profileIcon} alt="иконка профиля" className="header__profile-icon"></img>
+                                Profile
+                                <img src={profileIcon} alt="profile icon" className="header__profile-icon"></img>
                             </NavLink>
                         </nav>
                     </div>

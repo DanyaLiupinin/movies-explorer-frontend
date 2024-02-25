@@ -4,7 +4,7 @@ import arrow from '../../images/portfolio-link-image.svg'
 function Portfolio() {
     return (
         <div className="portfolio">
-            <h3 className="portfolio__title">Портфолио</h3>
+            <h3 className="portfolio__title">Portfolio</h3>
             <ul className="portfolio__links">
                 <li className="portfolio__link-container">
                     <a target="_blank" rel='noreferrer' href="https://danyaliupinin.github.io/how-to-learn/" className="portfolio__link">Статичный сайт

@@ -49,7 +49,7 @@ function Movies(props) {
             props.setInfoPopup({
                 isActive: true,
                 successful: false,
-                info: 'Извините, мы ничего не нашли. Попробуйте ещё.'
+                info: 'Sorry, we didnt find anything. Try again.'
             })
         }
 
@@ -91,7 +91,7 @@ function Movies(props) {
                     props.setInfoPopup({
                         isActive: true,
                         successful: false,
-                        info: 'Извините, мы ничего не нашли. Попробуйте ещё.'
+                        info: 'Sorry, we didnt find anything. Try again.'
                     })
                 }
 

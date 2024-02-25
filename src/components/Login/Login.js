@@ -28,7 +28,7 @@ function Login({ authorizationHandler, setPreloader }) {
                 <Link to='/' className="login__logo auth__logo">
                     <img className='login__logo-image auth__logo-image' src={logo} alt="логотип" />
                 </Link>
-                <h2 className='login__regards auth__regards'>Рады видеть!</h2>
+                <h2 className='login__regards auth__regards'>Nice to see you again!</h2>
                 <form className='login__form auth__form' onSubmit={authorizationHandle} noValidate >
 
                     <label className='login__input-label auth__input-label'> E-mail
@@ -44,11 +44,11 @@ function Login({ authorizationHandler, setPreloader }) {
                         <span className='login__error auth__error'>{error.email}</span>
                     </label>
 
-                    <label className='login__input-label auth__input-label'> Пароль
+                    <label className='login__input-label auth__input-label'> Password
                         <input
                             className='login__input auth__input'
                             type='password'
-                            placeholder='Пароль'
+                            placeholder='Password'
                             value={values.password || ''}
                             onChange={onInputChange}
                             required
@@ -58,8 +58,8 @@ function Login({ authorizationHandler, setPreloader }) {
                     </label>
 
                     <button type='submit' className={`login__button auth__button 
-                    ${!isValid ? 'auth__button_disabled' : ''}`} disabled={!isValid}>Войти</button>
-                    <p className='login__capion auth__caption'>Ещё не зарегистрированы?<Link to='/signup' className='login__redirection auth__redirection'>Регистрация</Link></p>
+                    ${!isValid ? 'auth__button_disabled' : ''}`} disabled={!isValid}>Sign in</button>
+                    <p className='login__capion auth__caption'>Dont have an account?<Link to='/signup' className='login__redirection auth__redirection'>Sign up</Link></p>
 
                 </form>
             </div>

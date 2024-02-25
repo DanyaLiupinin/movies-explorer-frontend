@@ -9,7 +9,7 @@ function Header({ loggedIn, handleOnClickBurger, isBurgerOpened }) {
         <header className="header">
             <div className="header__container">
                 <Link to='/' className="header__link">
-                    <img src={logo} alt="логотип" />
+                    <img src={logo} alt="logo" />
                 </Link>
                 <Navigation 
                 loggedIn={loggedIn}

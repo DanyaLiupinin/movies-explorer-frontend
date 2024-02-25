@@ -13,14 +13,14 @@ function FormValidation() {
         const { value, name } = input;
 
         if (name === 'name' && input.validity.patternMismatch) {
-            input.setCustomValidity('В имени должны использоваться только латиница, кириллица, пробелы и дефисы.')
+            input.setCustomValidity('Only Latin, Cyrillic, spaces and hyphens should be used in the name.')
         } else {
             input.setCustomValidity('')
         }
 
         if (name === 'email') {
             if (!validate(value)) {
-                input.setCustomValidity('Формат почты неверный')
+                input.setCustomValidity('Incorrect email data')
             } else {
                 input.setCustomValidity('')
             }

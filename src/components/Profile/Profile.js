@@ -37,16 +37,16 @@ function Profile(props) {
 
             <section className='profile'>
                 <div className='profile__container'>
-                    <h2 className='profile__regards'>{`Привет, ${currentUser.name}!`}</h2>
+                    <h2 className='profile__regards'>{`Hello, ${currentUser.name}!`}</h2>
                     <form className='profile__inputs' onSubmit={saveEditData}>
                         <div className='profile__input-container'>
-                            <p className='profile__input-name'>Имя</p>
+                            <p className='profile__input-name'>Name</p>
                             <label>
                                 <input
                                     className='profile__input'
                                     type='text'
                                     required
-                                    placeholder='Имя'
+                                    placeholder='Name'
                                     name='name'
                                     minLength='2'
                                     maxLength='30'
@@ -79,10 +79,10 @@ function Profile(props) {
                                     'profile__button_disabled' : ''}`}
                                 type='submit'
                                 disabled={!isValid}
-                            >Редактировать</button>
+                            >Edit</button>
                         </div>
                     </form>
-                    <button className='profile__button profile__button_type_signup' type='button' onClick={props.signOut} >Выйти из аккаунта</button>
+                    <button className='profile__button profile__button_type_signup' type='button' onClick={props.signOut} >Sign out</button>
                 </div>
             </section>
 

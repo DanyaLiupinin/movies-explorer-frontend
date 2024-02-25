@@ -6,11 +6,11 @@ function MoviesCard(props) {
 
     const location = useLocation();
 
-    function saveMovie () {
+    function saveMovie() {
         props.saveMovie(props.movie)
     }
 
-    function deleteMovie () {
+    function deleteMovie() {
         props.deleteMovie(props.movie)
     }
 
@@ -19,7 +19,7 @@ function MoviesCard(props) {
         <li className='movie'>
             <div className='movie__image-container'>
                 <a className='movie__trailerLink' href={props.trailer} target='_blank' rel="noreferrer">
-                <img className='movie__image' src={props.image} alt={`кадр из фильма ${props.title}`}></img>
+                    <img className='movie__image' src={props.image} alt={`a screenshot from the movie ${props.title}`}></img>
                 </a>
             </div>
             <div className='movie__description'>
@@ -29,18 +29,18 @@ function MoviesCard(props) {
                 </div>
                 <div className='movie__button-container'>
 
-                {location.pathname === '/movies' ?  
+                    {location.pathname === '/movies' ?
 
-                    <label className='movie__button-label'>
-                        <input className='movie__button' checked={props.movieSaved ? true : false} type='checkbox' id="movie__save-button" onChange={props.movieSaved ? deleteMovie : saveMovie}></input>
-                        <span className='movie__custom-button'></span>
-                    </label>
+                        <label className='movie__button-label'>
+                            <input className='movie__button' checked={props.movieSaved ? true : false} type='checkbox' id="movie__save-button" onChange={props.movieSaved ? deleteMovie : saveMovie}></input>
+                            <span className='movie__custom-button'></span>
+                        </label>
 
-                    :
+                        :
 
-                    <button type='button' className='movie__button-delete' onClick={deleteMovie}></button>
+                        <button type='button' className='movie__button-delete' onClick={deleteMovie}></button>
 
-                }
+                    }
 
                 </div>
             </div>

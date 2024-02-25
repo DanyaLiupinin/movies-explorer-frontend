@@ -51,7 +51,7 @@ function App() {
           setInfoPopup({
             isActive: false,
             successful: true,
-            info: 'Что-то пошло не так'
+            info: 'Something went wrong.'
           })
         })
     }
@@ -72,7 +72,7 @@ function App() {
           setInfoPopup({
             isActive: false,
             successful: true,
-            info: 'Что-то пошло не так'
+            info: 'Something went wrong.'
           })
 
         })
@@ -97,7 +97,7 @@ function App() {
           setInfoPopup({
             isActive: false,
             successful: true,
-            info: 'Что-то пошло не так'
+            info: 'Something went wrong.'
           })
 
         })
@@ -116,7 +116,7 @@ function App() {
         setInfoPopup({
           isActive: true,
           successful: true,
-          info: 'Ваши данные успешно изменены!'
+          info: 'Your data has been successfully changed!'
         })
 
       })
@@ -125,7 +125,7 @@ function App() {
         setInfoPopup({
           isActive: false,
           successful: true,
-          info: 'Что-то пошло не так'
+          info: 'Something went wrong.'
         })
 
       })
@@ -141,7 +141,7 @@ function App() {
         setInfoPopup({
           isActive: false,
           successful: true,
-          info: 'Что-то пошло не так'
+          info: 'Something went wrong.'
         })
 
       })
@@ -170,7 +170,7 @@ function App() {
         setInfoPopup({
           isActive: false,
           successful: true,
-          info: 'Что-то пошло не так'
+          info: 'Something went wrong.'
         })
 
       })
@@ -186,7 +186,7 @@ function App() {
         setInfoPopup({
           isActive: true,
           successful: true,
-          info: 'Регистрация прошла успешно'
+          info: 'Registration was successful'
         })
 
       })
@@ -194,7 +194,7 @@ function App() {
         setInfoPopup({
           isActive: true,
           successful: false,
-          info: 'Регистрация не удалась. Попробуйте ещё раз'
+          info: 'Registration failed. Try again'
         })
       })
   }
@@ -210,14 +210,14 @@ function App() {
         setInfoPopup({
           isActive: true,
           successful: true,
-          info: 'Авторизация прошла успешно.'
+          info: 'The authorization was successful.'
         })
       })
       .catch(() => {
         setInfoPopup({
           isActive: true,
           successful: false,
-          info: 'Авторизация не удалась. Попробуйте ещё раз'
+          info: 'Authorization failed. Try again'
         })
       })
   }

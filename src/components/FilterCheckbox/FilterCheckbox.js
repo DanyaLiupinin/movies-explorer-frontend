@@ -12,7 +12,7 @@ function FilterCheckbox({handleShortMovies, shortMovies}) {
                     onChange={handleShortMovies}
                     checked={shortMovies ? true : false}
                 />
-                <p className="checkbox__name">Короткометражки</p>
+                <p className="checkbox__name">Short films</p>
 
                 <label htmlFor="checkbox" className="checkbox__label">
                 </label>

@@ -25,17 +25,17 @@ function Register({ registrationHandler, setPreloader }) {
         <section className='register auth'>
             <div className='register__container auth__container'>
                 <Link to='/' className="register__logo auth__logo">
-                    <img className='register__logo-image auth__logo-image' src={logo} alt="логотип" />
+                    <img className='register__logo-image auth__logo-image' src={logo} alt="logo" />
                 </Link>
-                <h2 className='register__regards auth__regards'>Добро пожаловать!</h2>
-                <form className='register__form auth__form' onSubmit={registrationHandle} >
+                <h2 className='register__regards auth__regards'>Welcome!</h2>
+                <form className='register__form auth__form' onSubmit={registrationHandle}>
 
-                    <label className='register__input-label auth__input-label'> Имя
+                    <label className='register__input-label auth__input-label'> Name
                         <input
                             className='register__input auth__input'
                             type='text'
                             required
-                            placeholder='Имя'
+                            placeholder='Name'
                             name='name'
                             value={values.name || ''}
                             onChange={onInputChange}
@@ -59,11 +59,11 @@ function Register({ registrationHandler, setPreloader }) {
                         <span className='register__error auth__error'>{error.email}</span>
                     </label>
 
-                    <label className='register__input-label auth__input-label'> Пароль
+                    <label className='register__input-label auth__input-label'> Password
                         <input
                             className='register__input auth__input'
                             type='password'
-                            placeholder='Пароль'
+                            placeholder='Password'
                             required
                             name='password'
                             value={values.password || ''}
@@ -72,8 +72,8 @@ function Register({ registrationHandler, setPreloader }) {
                         <span className='register__error auth__error'>{error.password}</span>
                     </label>
 
-                    <button type='submit' className={`register__button auth__button ${!isValid && 'auth__button_disabled'}`} disabled={!isValid} >Зарегистрироваться</button>
-                    <p className='register__capion auth__caption'>Уже зарегистрированы?<Link to='/signin' className='register__redirection auth__redirection'>Войти</Link></p>
+                    <button type='submit' className={`register__button auth__button ${!isValid && 'auth__button_disabled'}`} disabled={!isValid} >Sign up</button>
+                    <p className='register__capion auth__caption'>Already have an account?<Link to='/signin' className='register__redirection auth__redirection'>Sign in</Link></p>
 
                 </form>
             </div>
